@@ -1,0 +1,2 @@
+include versioneer.py
+include peakfit/_version.py
