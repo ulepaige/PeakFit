@@ -1,0 +1,2938 @@
+* Peak(s): 13N-H, 103N-H
+
+[[Fit Statistics]]
+    # function evals   = 107
+    # data points      = 6681
+    # variables        = 12
+    chi-square         = 10939.856
+    reduced chi-square = 1.640
+    Akaike info crit   = 3318.702
+    Bayesian info crit = 3400.386
+[[Variables]]
+    p0_x0:       318.570167 +/- 0.008733 (0.00%) (init= 318.4033)
+    p0_y0:       120.970169 +/- 0.007493 (0.01%) (init= 120.9456)
+    p0_x_fwhm:   2.96683974 +/- 0.010439 (0.35%) (init= 2.879589)
+    p0_y_fwhm:   3.22137435 +/- 0.008585 (0.27%) (init= 3.254131)
+    p0_x_eta:   -0.52766331 +/- 0.066865 (12.67%) (init= 0)
+    p0_y_eta:   -0.00763286 +/- 0.010647 (139.49%) (init= 0)
+    p1_x0:       315.993509 +/- 0.016725 (0.01%) (init= 315.8984)
+    p1_y0:       120.095805 +/- 0.012171 (0.01%) (init= 119.9784)
+    p1_x_fwhm:   4.13616704 +/- 0.025744 (0.62%) (init= 3.693834)
+    p1_y_fwhm:   3.41089489 +/- 0.009806 (0.29%) (init= 3.457658)
+    p1_x_eta:   -0.91191926 +/- 0.032955 (3.61%) (init= 0)
+    p1_y_eta:    0.21617975 +/- 0.010969 (5.07%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+    C(p0_x_eta, p1_y0)           = -0.969 
+    C(p0_y0, p1_x0)              =  0.944 
+    C(p1_x0, p1_x_fwhm)          =  0.911 
+    C(p0_x0, p1_y0)              =  0.899 
+    C(p0_y0, p1_x_fwhm)          =  0.880 
+    C(p0_x0, p0_x_eta)           = -0.865 
+
+
+* Peak(s): 11N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3275
+    # variables        = 6
+    chi-square         = 4112.625
+    reduced chi-square = 1.258
+    Akaike info crit   = 757.860
+    Bayesian info crit = 794.425
+[[Variables]]
+    p0_x0:       197.363160 +/- 0.006861 (0.00%) (init= 197.3696)
+    p0_y0:       146.252530 +/- 0.007534 (0.01%) (init= 146.2518)
+    p0_x_fwhm:   3.34201708 +/- 0.021539 (0.64%) (init= 3.284295)
+    p0_y_fwhm:   3.53475848 +/- 0.024429 (0.69%) (init= 3.539977)
+    p0_x_eta:   -0.31219400 +/- 0.074315 (23.80%) (init= 0)
+    p0_y_eta:    0.03268694 +/- 0.086232 (263.81%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 124N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3275
+    # variables        = 6
+    chi-square         = 5135.026
+    reduced chi-square = 1.571
+    Akaike info crit   = 1484.987
+    Bayesian info crit = 1521.551
+[[Variables]]
+    p0_x0:       418.521708 +/- 0.004093 (0.00%) (init= 418.5285)
+    p0_y0:       198.980915 +/- 0.003939 (0.00%) (init= 198.9807)
+    p0_x_fwhm:   3.31651266 +/- 0.012567 (0.38%) (init= 3.270152)
+    p0_y_fwhm:   3.41322271 +/- 0.013142 (0.39%) (init= 3.409791)
+    p0_x_eta:   -0.22642614 +/- 0.036464 (16.10%) (init= 0)
+    p0_y_eta:   -0.02444941 +/- 0.047178 (192.96%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 14N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 5612.682
+    reduced chi-square = 1.590
+    Akaike info crit   = 1645.209
+    Bayesian info crit = 1682.235
+[[Variables]]
+    p0_x0:       345.794749 +/- 0.002523 (0.00%) (init= 345.7921)
+    p0_y0:       26.5400681 +/- 0.002744 (0.01%) (init= 26.54033)
+    p0_x_fwhm:   3.01562964 +/- 0.008520 (0.28%) (init= 2.978542)
+    p0_y_fwhm:   3.26461063 +/- 0.009707 (0.30%) (init= 3.248621)
+    p0_x_eta:   -0.16481902 +/- 0.025813 (15.66%) (init= 0)
+    p0_y_eta:   -0.04911908 +/- 0.021980 (44.75%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 96N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 7087.834
+    reduced chi-square = 1.748
+    Akaike info crit   = 2273.776
+    Bayesian info crit = 2311.631
+[[Variables]]
+    p0_x0:       241.682227 +/- 0.002353 (0.00%) (init= 241.6812)
+    p0_y0:       151.033611 +/- 0.002554 (0.00%) (init= 151.0341)
+    p0_x_fwhm:   3.11143954 +/- 0.007947 (0.26%) (init= 3.039181)
+    p0_y_fwhm:   3.27315838 +/- 0.008385 (0.26%) (init= 3.27883)
+    p0_x_eta:   -0.23905262 +/- 0.019218 (8.04%) (init= 0)
+    p0_y_eta:    0.01353707 +/- 0.014671 (108.38%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 152N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 4423.313
+    reduced chi-square = 1.253
+    Akaike info crit   = 802.909
+    Bayesian info crit = 839.935
+[[Variables]]
+    p0_x0:       352.907732 +/- 0.004432 (0.00%) (init= 352.9078)
+    p0_y0:       90.0607736 +/- 0.004747 (0.01%) (init= 90.06189)
+    p0_x_fwhm:   3.57684057 +/- 0.014479 (0.40%) (init= 3.559212)
+    p0_y_fwhm:   3.68946754 +/- 0.015743 (0.43%) (init= 3.712593)
+    p0_x_eta:   -0.08561327 +/- 0.041113 (48.02%) (init= 0)
+    p0_y_eta:    0.12362495 +/- 0.042320 (34.23%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 25N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 21249.290
+    reduced chi-square = 5.240
+    Akaike info crit   = 6732.526
+    Bayesian info crit = 6770.381
+[[Variables]]
+    p0_x0:       225.423080 +/- 0.003355 (0.00%) (init= 225.4232)
+    p0_y0:       79.5138244 +/- 0.003694 (0.00%) (init= 79.51303)
+    p0_x_fwhm:   3.11455710 +/- 0.011395 (0.37%) (init= 3.048153)
+    p0_y_fwhm:   3.38619729 +/- 0.013332 (0.39%) (init= 3.375794)
+    p0_x_eta:   -0.22945688 +/- 0.028552 (12.44%) (init= 0)
+    p0_y_eta:   -0.03679152 +/- 0.030436 (82.73%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 149N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3406
+    # variables        = 6
+    chi-square         = 5391.176
+    reduced chi-square = 1.586
+    Akaike info crit   = 1576.120
+    Bayesian info crit = 1612.920
+[[Variables]]
+    p0_x0:       255.181215 +/- 0.004361 (0.00%) (init= 255.1825)
+    p0_y0:       57.6341046 +/- 0.004556 (0.01%) (init= 57.63535)
+    p0_x_fwhm:   3.38011006 +/- 0.014336 (0.42%) (init= 3.355841)
+    p0_y_fwhm:   3.40078281 +/- 0.015601 (0.46%) (init= 3.422495)
+    p0_x_eta:   -0.14625260 +/- 0.051509 (35.22%) (init= 0)
+    p0_y_eta:    0.09458861 +/- 0.041705 (44.09%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 144N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4192
+    # variables        = 6
+    chi-square         = 9981.853
+    reduced chi-square = 2.385
+    Akaike info crit   = 3648.941
+    Bayesian info crit = 3686.986
+[[Variables]]
+    p0_x0:       340.401228 +/- 0.002277 (0.00%) (init= 340.4008)
+    p0_y0:       175.847142 +/- 0.002490 (0.00%) (init= 175.8472)
+    p0_x_fwhm:   3.11119033 +/- 0.007816 (0.25%) (init= 3.042822)
+    p0_y_fwhm:   3.30858104 +/- 0.008284 (0.25%) (init= 3.319429)
+    p0_x_eta:   -0.21919727 +/- 0.018615 (8.49%) (init= 0)
+    p0_y_eta:    0.02599023 +/- 0.014189 (54.60%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 8N-H, 20N-H
+
+[[Fit Statistics]]
+    # function evals   = 97
+    # data points      = 6288
+    # variables        = 12
+    chi-square         = 9902.218
+    reduced chi-square = 1.578
+    Akaike info crit   = 2879.480
+    Bayesian info crit = 2960.437
+[[Variables]]
+    p0_x0:       272.430742 +/- 0.011622 (0.00%) (init= 272.4024)
+    p0_y0:       70.1485917 +/- 0.012656 (0.02%) (init= 70.19794)
+    p0_x_fwhm:   3.47654266 +/- 0.022351 (0.64%) (init= 3.219836)
+    p0_y_fwhm:   4.37927650 +/- 0.038617 (0.88%) (init= 4.295679)
+    p0_x_eta:   -0.99998720 +/- 0.055748 (5.57%) (init= 0)
+    p0_y_eta:   -0.65346082 +/- 0.081985 (12.55%) (init= 0)
+    p1_x0:       270.258449 +/- 0.004224 (0.00%) (init= 270.2578)
+    p1_y0:       66.5320934 +/- 0.003103 (0.00%) (init= 66.53565)
+    p1_x_fwhm:   2.96106355 +/- 0.006255 (0.21%) (init= 2.810616)
+    p1_y_fwhm:   3.37747878 +/- 0.006050 (0.18%) (init= 3.347821)
+    p1_x_eta:   -0.46201906 +/- 0.015772 (3.41%) (init= 0)
+    p1_y_eta:   -0.00526196 +/- 0.016204 (307.95%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+    C(p0_y_eta, p1_x0)           = -0.834 
+
+
+* Peak(s): 42N-H, 65N-H, 81N-H
+
+[[Fit Statistics]]
+    # function evals   = 117
+    # data points      = 10611
+    # variables        = 18
+    chi-square         = 19704.559
+    reduced chi-square = 1.860
+    Akaike info crit   = 6603.772
+    Bayesian info crit = 6734.626
+[[Variables]]
+    p0_x0:       391.496702 +/- 0.004365 (0.00%) (init= 391.4713)
+    p0_y0:       112.562452 +/- 0.003932 (0.00%) (init= 112.5335)
+    p0_x_fwhm:   3.04585083 +/- 0.008721 (0.29%) (init= 3.068465)
+    p0_y_fwhm:   3.26707783 +/- 0.009272 (0.28%) (init= 3.342506)
+    p0_x_eta:    0.01939021 +/- 0.022961 (118.42%) (init= 0)
+    p0_y_eta:    0.16073418 +/- 0.015932 (9.91%) (init= 0)
+    p1_x0:       388.381823 +/- 0.006464 (0.00%) (init= 388.3821)
+    p1_y0:       113.765493 +/- 0.007029 (0.01%) (init= 113.7518)
+    p1_x_fwhm:   3.01276321 +/- 0.011926 (0.40%) (init= 2.934058)
+    p1_y_fwhm:   3.23871564 +/- 0.015343 (0.47%) (init= 3.473204)
+    p1_x_eta:   -0.31445181 +/- 0.034476 (10.96%) (init= 0)
+    p1_y_eta:    0.52179307 +/- 0.023738 (4.55%) (init= 0)
+    p2_x0:       388.448838 +/- 0.002613 (0.00%) (init= 388.462)
+    p2_y0:       104.981155 +/- 0.002786 (0.00%) (init= 105.0039)
+    p2_x_fwhm:   3.10065874 +/- 0.008157 (0.26%) (init= 3.029545)
+    p2_y_fwhm:   3.29748568 +/- 0.008631 (0.26%) (init= 3.465316)
+    p2_x_eta:   -0.34029245 +/- 0.024822 (7.29%) (init= 0)
+    p2_y_eta:    0.19344725 +/- 0.014896 (7.70%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 28N-H, 107N-H, 109N-H, 156N-H
+
+[[Fit Statistics]]
+    # function evals   = 353
+    # data points      = 12707
+    # variables        = 24
+    chi-square         = 16712.221
+    reduced chi-square = 1.318
+    Akaike info crit   = 3529.556
+    Bayesian info crit = 3708.354
+[[Variables]]
+    p0_x0:       277.524425 +/- 0.016468 (0.01%) (init= 277.5373)
+    p0_y0:       235.766745 +/- 0.015950 (0.01%) (init= 235.9325)
+    p0_x_fwhm:   3.22537482 +/- 0.029634 (0.92%) (init= 3.18954)
+    p0_y_fwhm:   3.18344706 +/- 0.028942 (0.91%) (init= 3.764739)
+    p0_x_eta:    0.33183790 +/- 0.039421 (11.88%) (init= 0)
+    p0_y_eta:    0.41961409 +/- 0.025084 (5.98%) (init= 0)
+    p1_x0:       275.784098 +/- 0.013683 (0.00%) (init= 275.809)
+    p1_y0:       237.337375 +/- 0.017788 (0.01%) (init= 237.4715)
+    p1_x_fwhm:   3.88392781 +/- 0.032539 (0.84%) (init= 3.439593)
+    p1_y_fwhm:   3.79155579 +/- 0.023818 (0.63%) (init= 4.227091)
+    p1_x_eta:   -0.01053264 +/- 0.020256 (192.32%) (init= 0)
+    p1_y_eta:    0.54238060 +/- 0.014331 (2.64%) (init= 0)
+    p2_x0:       273.417821 +/- 0.009299 (0.00%) (init= 273.5208)
+    p2_y0:       236.122897 +/- 0.008681 (0.00%) (init= 236.1878)
+    p2_x_fwhm:   2.90773759 +/- 0.012225 (0.42%) (init= 2.978794)
+    p2_y_fwhm:   3.43325822 +/- 0.012927 (0.38%) (init= 3.590382)
+    p2_x_eta:   -0.33155949 +/- 0.025445 (7.67%) (init= 0)
+    p2_y_eta:    0.13730214 +/- 0.014881 (10.84%) (init= 0)
+    p3_x0:       269.160708 +/- 0.002925 (0.00%) (init= 269.1519)
+    p3_y0:       238.720340 +/- 0.004344 (0.00%) (init= 238.7602)
+    p3_x_fwhm:   3.25656196 +/- 0.008849 (0.27%) (init= 3.181508)
+    p3_y_fwhm:   3.33119238 +/- 0.010666 (0.32%) (init= 3.308841)
+    p3_x_eta:   -0.20647236 +/- 0.023111 (11.19%) (init= 0)
+    p3_y_eta:    0.17827027 +/- 0.023495 (13.18%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+    C(p0_x0, p1_y0)              = -0.817 
+    C(p1_y0, p2_x0)              =  0.802 
+
+
+* Peak(s): 49N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 7276.305
+    reduced chi-square = 1.987
+    Akaike info crit   = 2524.494
+    Bayesian info crit = 2561.739
+[[Variables]]
+    p0_x0:       348.078470 +/- 0.002706 (0.00%) (init= 348.0794)
+    p0_y0:       112.123785 +/- 0.003028 (0.00%) (init= 112.1237)
+    p0_x_fwhm:   2.97085249 +/- 0.009070 (0.31%) (init= 2.922028)
+    p0_y_fwhm:   3.23077111 +/- 0.009949 (0.31%) (init= 3.231932)
+    p0_x_eta:   -0.21409322 +/- 0.027425 (12.81%) (init= 0)
+    p0_y_eta:    0.00500215 +/- 0.018725 (374.34%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 16N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 7735.039
+    reduced chi-square = 2.039
+    Akaike info crit   = 2713.175
+    Bayesian info crit = 2750.630
+[[Variables]]
+    p0_x0:       459.360924 +/- 0.001797 (0.00%) (init= 459.3675)
+    p0_y0:       198.358751 +/- 0.002094 (0.00%) (init= 198.3586)
+    p0_x_fwhm:   2.88249272 +/- 0.005936 (0.21%) (init= 2.795813)
+    p0_y_fwhm:   3.30224868 +/- 0.007462 (0.23%) (init= 3.300424)
+    p0_x_eta:   -0.35152743 +/- 0.018007 (5.12%) (init= 0)
+    p0_y_eta:   -0.00792381 +/- 0.016209 (204.57%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 116N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 4454
+    # variables        = 6
+    chi-square         = 8378.183
+    reduced chi-square = 1.884
+    Akaike info crit   = 2826.164
+    Bayesian info crit = 2864.573
+[[Variables]]
+    p0_x0:       201.846082 +/- 0.002751 (0.00%) (init= 201.8469)
+    p0_y0:       139.168280 +/- 0.002624 (0.00%) (init= 139.1677)
+    p0_x_fwhm:   3.46149378 +/- 0.009251 (0.27%) (init= 3.487751)
+    p0_y_fwhm:   3.32873918 +/- 0.008728 (0.26%) (init= 3.349511)
+    p0_x_eta:    0.07523946 +/- 0.016746 (22.26%) (init= 0)
+    p0_y_eta:    0.05834607 +/- 0.015626 (26.78%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 133N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 5811.393
+    reduced chi-square = 1.587
+    Akaike info crit   = 1699.917
+    Bayesian info crit = 1737.162
+[[Variables]]
+    p0_x0:       193.910728 +/- 0.002819 (0.00%) (init= 193.9101)
+    p0_y0:       101.451396 +/- 0.002991 (0.00%) (init= 101.4516)
+    p0_x_fwhm:   3.25657597 +/- 0.009468 (0.29%) (init= 3.244941)
+    p0_y_fwhm:   3.47000331 +/- 0.010830 (0.31%) (init= 3.486518)
+    p0_x_eta:   -0.06171911 +/- 0.031356 (50.80%) (init= 0)
+    p0_y_eta:    0.05358926 +/- 0.024760 (46.20%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 112N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 6559.766
+    reduced chi-square = 1.672
+    Akaike info crit   = 2025.400
+    Bayesian info crit = 2063.058
+[[Variables]]
+    p0_x0:       321.001622 +/- 0.002590 (0.00%) (init= 321.0008)
+    p0_y0:       157.027221 +/- 0.002979 (0.00%) (init= 157.0279)
+    p0_x_fwhm:   3.21671492 +/- 0.008677 (0.27%) (init= 3.187559)
+    p0_y_fwhm:   3.57730635 +/- 0.010314 (0.29%) (init= 3.653704)
+    p0_x_eta:   -0.14137350 +/- 0.029030 (20.53%) (init= 0)
+    p0_y_eta:    0.19943387 +/- 0.017445 (8.75%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 160N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 6824.656
+    reduced chi-square = 1.864
+    Akaike info crit   = 2289.444
+    Bayesian info crit = 2326.689
+[[Variables]]
+    p0_x0:       179.729006 +/- 0.002990 (0.00%) (init= 179.7281)
+    p0_y0:       127.138222 +/- 0.003011 (0.00%) (init= 127.1386)
+    p0_x_fwhm:   3.33960574 +/- 0.010184 (0.30%) (init= 3.30632)
+    p0_y_fwhm:   3.29209291 +/- 0.010067 (0.31%) (init= 3.292464)
+    p0_x_eta:   -0.11977480 +/- 0.025187 (21.03%) (init= 0)
+    p0_y_eta:   -0.00060563 +/- 0.025347 (4185.31%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 22N-H, 45N-H, 73N-H, 159N-H
+
+[[Fit Statistics]]
+    # function evals   = 178
+    # data points      = 13886
+    # variables        = 24
+    chi-square         = 41457.878
+    reduced chi-square = 2.991
+    Akaike info crit   = 15236.462
+    Bayesian info crit = 15417.389
+[[Variables]]
+    p0_x0:       342.386247 +/- 0.013328 (0.00%) (init= 342.5148)
+    p0_y0:       124.963610 +/- 0.009933 (0.01%) (init= 124.8676)
+    p0_x_fwhm:   3.31742915 +/- 0.021813 (0.66%) (init= 3.232783)
+    p0_y_fwhm:   3.40554414 +/- 0.017839 (0.52%) (init= 3.384637)
+    p0_x_eta:    0.35229245 +/- 0.027240 (7.73%) (init= 0)
+    p0_y_eta:    0.39313622 +/- 0.021933 (5.58%) (init= 0)
+    p1_x0:       340.034931 +/- 0.010378 (0.00%) (init= 340.1136)
+    p1_y0:       126.150902 +/- 0.008795 (0.01%) (init= 126.1215)
+    p1_x_fwhm:   3.01758127 +/- 0.018218 (0.60%) (init= 3.201223)
+    p1_y_fwhm:   3.39613300 +/- 0.018923 (0.56%) (init= 3.491245)
+    p1_x_eta:   -0.32443369 +/- 0.037329 (11.51%) (init= 0)
+    p1_y_eta:    0.30217845 +/- 0.025368 (8.40%) (init= 0)
+    p2_x0:       340.272939 +/- 0.005579 (0.00%) (init= 340.326)
+    p2_y0:       119.914096 +/- 0.005299 (0.00%) (init= 119.9659)
+    p2_x_fwhm:   3.08663753 +/- 0.015516 (0.50%) (init= 3.132194)
+    p2_y_fwhm:   3.21532673 +/- 0.014407 (0.45%) (init= 3.257589)
+    p2_x_eta:   -0.29479147 +/- 0.042829 (14.53%) (init= 0)
+    p2_y_eta:   -0.56869471 +/- 0.050323 (8.85%) (init= 0)
+    p3_x0:       337.324530 +/- 0.003336 (0.00%) (init= 337.347)
+    p3_y0:       131.547415 +/- 0.003000 (0.00%) (init= 131.5458)
+    p3_x_fwhm:   3.25187655 +/- 0.009736 (0.30%) (init= 3.29934)
+    p3_y_fwhm:   3.44507430 +/- 0.010216 (0.30%) (init= 3.471319)
+    p3_x_eta:   -0.02565336 +/- 0.021618 (84.27%) (init= 0)
+    p3_y_eta:    0.07973276 +/- 0.022249 (27.91%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 98N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 8203.384
+    reduced chi-square = 2.163
+    Akaike info crit   = 2936.504
+    Bayesian info crit = 2973.959
+[[Variables]]
+    p0_x0:       482.254718 +/- 0.002380 (0.00%) (init= 482.2567)
+    p0_y0:       140.073511 +/- 0.002521 (0.00%) (init= 140.0731)
+    p0_x_fwhm:   3.15045175 +/- 0.008014 (0.25%) (init= 3.129848)
+    p0_y_fwhm:   3.39764757 +/- 0.008453 (0.25%) (init= 3.425303)
+    p0_x_eta:   -0.09288625 +/- 0.024880 (26.79%) (init= 0)
+    p0_y_eta:    0.07463501 +/- 0.014823 (19.86%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 1000N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4323
+    # variables        = 6
+    chi-square         = 8006.606
+    reduced chi-square = 1.855
+    Akaike info crit   = 2676.340
+    Bayesian info crit = 2714.570
+[[Variables]]
+    p0_x0:       250.108742 +/- 0.005389 (0.00%) (init= 250.1064)
+    p0_y0:       148.313604 +/- 0.005030 (0.00%) (init= 148.319)
+    p0_x_fwhm:   4.12587897 +/- 0.018519 (0.45%) (init= 4.16388)
+    p0_y_fwhm:   3.72599027 +/- 0.018099 (0.49%) (init= 3.808257)
+    p0_x_eta:    0.12022215 +/- 0.036846 (30.65%) (init= 0)
+    p0_y_eta:    0.35177433 +/- 0.041834 (11.89%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 111N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4323
+    # variables        = 6
+    chi-square         = 6960.036
+    reduced chi-square = 1.612
+    Akaike info crit   = 2070.764
+    Bayesian info crit = 2108.994
+[[Variables]]
+    p0_x0:       382.621065 +/- 0.002586 (0.00%) (init= 382.6231)
+    p0_y0:       91.2200279 +/- 0.003088 (0.00%) (init= 91.22058)
+    p0_x_fwhm:   3.20748550 +/- 0.008762 (0.27%) (init= 3.149781)
+    p0_y_fwhm:   3.63743701 +/- 0.010606 (0.29%) (init= 3.738075)
+    p0_x_eta:   -0.18853717 +/- 0.020441 (10.84%) (init= 0)
+    p0_y_eta:    0.25387585 +/- 0.016652 (6.56%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 48N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 6884.204
+    reduced chi-square = 1.950
+    Akaike info crit   = 2367.467
+    Bayesian info crit = 2404.494
+[[Variables]]
+    p0_x0:       364.824049 +/- 0.002995 (0.00%) (init= 364.8216)
+    p0_y0:       111.551821 +/- 0.003331 (0.00%) (init= 111.5519)
+    p0_x_fwhm:   3.02035359 +/- 0.010109 (0.33%) (init= 2.985618)
+    p0_y_fwhm:   3.32723068 +/- 0.011846 (0.36%) (init= 3.318205)
+    p0_x_eta:   -0.15551597 +/- 0.030628 (19.70%) (init= 0)
+    p0_y_eta:   -0.02781054 +/- 0.027442 (98.68%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 52N-H, 102N-H
+
+[[Fit Statistics]]
+    # function evals   = 149
+    # data points      = 5371
+    # variables        = 12
+    chi-square         = 7914.394
+    reduced chi-square = 1.477
+    Akaike info crit   = 2106.170
+    Bayesian info crit = 2185.236
+[[Variables]]
+    p0_x0:       387.925117 +/- 0.020663 (0.01%) (init= 387.9761)
+    p0_y0:       190.012593 +/- 0.012398 (0.01%) (init= 189.9339)
+    p0_x_fwhm:   3.05613711 +/- 0.015773 (0.52%) (init= 2.776197)
+    p0_y_fwhm:   3.28776725 +/- 0.009527 (0.29%) (init= 3.4464)
+    p0_x_eta:   -0.25210761 +/- 0.018835 (7.47%) (init= 0)
+    p0_y_eta:    0.22985813 +/- 0.009933 (4.32%) (init= 0)
+    p1_x0:       386.842352 +/- 0.017192 (0.00%) (init= 386.6939)
+    p1_y0:       189.219184 +/- 0.019068 (0.01%) (init= 189.2872)
+    p1_x_fwhm:   2.74271822 +/- 0.017421 (0.64%) (init= 2.444507)
+    p1_y_fwhm:   3.11508236 +/- 0.016352 (0.52%) (init= 3.227942)
+    p1_x_eta:   -0.29073002 +/- 0.022890 (7.87%) (init= 0)
+    p1_y_eta:    0.10974375 +/- 0.015283 (13.93%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+    C(p0_x0, p1_y0)              =  0.976 
+    C(p0_y0, p1_x0)              =  0.957 
+    C(p1_x0, p1_x_fwhm)          =  0.887 
+    C(p0_y0, p1_x_fwhm)          =  0.876 
+    C(p0_x0, p1_y_fwhm)          =  0.857 
+    C(p1_y0, p1_y_fwhm)          =  0.854 
+
+
+* Peak(s): 59N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 9372.532
+    reduced chi-square = 2.559
+    Akaike info crit   = 3453.086
+    Bayesian info crit = 3490.330
+[[Variables]]
+    p0_x0:       242.905823 +/- 0.002287 (0.00%) (init= 242.904)
+    p0_y0:       17.6136791 +/- 0.002456 (0.01%) (init= 17.61375)
+    p0_x_fwhm:   3.03086080 +/- 0.007690 (0.25%) (init= 2.994477)
+    p0_y_fwhm:   3.25381014 +/- 0.008690 (0.27%) (init= 3.226463)
+    p0_x_eta:   -0.16728700 +/- 0.023544 (14.07%) (init= 0)
+    p0_y_eta:   -0.08434190 +/- 0.019463 (23.08%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 87N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 5240
+    # variables        = 6
+    chi-square         = 26054.320
+    reduced chi-square = 4.978
+    Akaike info crit   = 8416.237
+    Bayesian info crit = 8455.622
+[[Variables]]
+    p0_x0:       482.215413 +/- 0.001879 (0.00%) (init= 482.2157)
+    p0_y0:       186.406587 +/- 0.001837 (0.00%) (init= 186.4053)
+    p0_x_fwhm:   3.45597977 +/- 0.006306 (0.18%) (init= 3.4388)
+    p0_y_fwhm:   3.30032599 +/- 0.006036 (0.18%) (init= 3.347411)
+    p0_x_eta:   -0.04197903 +/- 0.011041 (26.30%) (init= 0)
+    p0_y_eta:    0.11204780 +/- 0.009167 (8.18%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 34N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 6893.984
+    reduced chi-square = 1.952
+    Akaike info crit   = 2372.489
+    Bayesian info crit = 2409.515
+[[Variables]]
+    p0_x0:       439.312826 +/- 0.002605 (0.00%) (init= 439.3185)
+    p0_y0:       9.25897303 +/- 0.002979 (0.03%) (init= 9.258476)
+    p0_x_fwhm:   2.91411033 +/- 0.008689 (0.30%) (init= 2.836431)
+    p0_y_fwhm:   3.27489146 +/- 0.010242 (0.31%) (init= 3.262153)
+    p0_x_eta:   -0.32126687 +/- 0.026484 (8.24%) (init= 0)
+    p0_y_eta:   -0.04077467 +/- 0.023075 (56.59%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 120N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 8062.942
+    reduced chi-square = 2.055
+    Akaike info crit   = 2836.252
+    Bayesian info crit = 2873.910
+[[Variables]]
+    p0_x0:       386.900829 +/- 0.002545 (0.00%) (init= 386.9)
+    p0_y0:       175.325518 +/- 0.002630 (0.00%) (init= 175.3246)
+    p0_x_fwhm:   3.22118616 +/- 0.008555 (0.27%) (init= 3.203494)
+    p0_y_fwhm:   3.33694498 +/- 0.008951 (0.27%) (init= 3.369871)
+    p0_x_eta:   -0.08853979 +/- 0.028058 (31.69%) (init= 0)
+    p0_y_eta:    0.08409304 +/- 0.015357 (18.26%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 145N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 8340.855
+    reduced chi-square = 2.278
+    Akaike info crit   = 3025.332
+    Bayesian info crit = 3062.577
+[[Variables]]
+    p0_x0:       356.188560 +/- 0.003424 (0.00%) (init= 356.1901)
+    p0_y0:       120.590683 +/- 0.003555 (0.00%) (init= 120.5906)
+    p0_x_fwhm:   3.30482062 +/- 0.011332 (0.34%) (init= 3.279691)
+    p0_y_fwhm:   3.48368822 +/- 0.012769 (0.37%) (init= 3.492338)
+    p0_x_eta:   -0.13844084 +/- 0.039037 (28.20%) (init= 0)
+    p0_y_eta:    0.02820389 +/- 0.029610 (104.99%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 128N-H, 138N-H
+
+[[Fit Statistics]]
+    # function evals   = 55
+    # data points      = 9039
+    # variables        = 12
+    chi-square         = 28427.189
+    reduced chi-square = 3.149
+    Akaike info crit   = 10380.863
+    Bayesian info crit = 10466.175
+[[Variables]]
+    p0_x0:       289.492813 +/- 0.002444 (0.00%) (init= 289.4912)
+    p0_y0:       118.371065 +/- 0.002599 (0.00%) (init= 118.3668)
+    p0_x_fwhm:   3.19022209 +/- 0.008496 (0.27%) (init= 3.141513)
+    p0_y_fwhm:   3.28031003 +/- 0.008917 (0.27%) (init= 3.325714)
+    p0_x_eta:   -0.15987229 +/- 0.019573 (12.24%) (init= 0)
+    p0_y_eta:    0.08469379 +/- 0.016151 (19.07%) (init= 0)
+    p1_x0:       283.185358 +/- 0.003687 (0.00%) (init= 283.1866)
+    p1_y0:       113.299809 +/- 0.003572 (0.00%) (init= 113.2964)
+    p1_x_fwhm:   3.46572747 +/- 0.012572 (0.36%) (init= 3.545284)
+    p1_y_fwhm:   3.45795876 +/- 0.012251 (0.35%) (init= 3.462163)
+    p1_x_eta:    0.23893550 +/- 0.021489 (8.99%) (init= 0)
+    p1_y_eta:    0.05468061 +/- 0.023550 (43.07%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 105N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 4984.030
+    reduced chi-square = 1.412
+    Akaike info crit   = 1225.049
+    Bayesian info crit = 1262.075
+[[Variables]]
+    p0_x0:       343.006066 +/- 0.003200 (0.00%) (init= 343.0057)
+    p0_y0:       157.681738 +/- 0.003594 (0.00%) (init= 157.6816)
+    p0_x_fwhm:   3.32593094 +/- 0.010713 (0.32%) (init= 3.319883)
+    p0_y_fwhm:   3.67311831 +/- 0.012523 (0.34%) (init= 3.694313)
+    p0_x_eta:   -0.03125476 +/- 0.036627 (117.19%) (init= 0)
+    p0_y_eta:    0.08778501 +/- 0.031541 (35.93%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 31N-H, 43N-H
+
+[[Fit Statistics]]
+    # function evals   = 55
+    # data points      = 7205
+    # variables        = 12
+    chi-square         = 15063.166
+    reduced chi-square = 2.094
+    Akaike info crit   = 5337.523
+    Bayesian info crit = 5420.113
+[[Variables]]
+    p0_x0:       282.797698 +/- 0.003175 (0.00%) (init= 282.7941)
+    p0_y0:       170.848466 +/- 0.003341 (0.00%) (init= 170.8524)
+    p0_x_fwhm:   3.04193557 +/- 0.008591 (0.28%) (init= 2.9784)
+    p0_y_fwhm:   3.52434081 +/- 0.010855 (0.31%) (init= 3.557373)
+    p0_x_eta:   -0.23566442 +/- 0.021261 (9.02%) (init= 0)
+    p0_y_eta:    0.24084569 +/- 0.025640 (10.65%) (init= 0)
+    p1_x0:       279.796528 +/- 0.003025 (0.00%) (init= 279.8113)
+    p1_y0:       166.164023 +/- 0.002832 (0.00%) (init= 166.162)
+    p1_x_fwhm:   2.95611619 +/- 0.008150 (0.28%) (init= 2.93029)
+    p1_y_fwhm:   3.22120484 +/- 0.008788 (0.27%) (init= 3.226089)
+    p1_x_eta:   -0.31519551 +/- 0.027695 (8.79%) (init= 0)
+    p1_y_eta:    0.04138167 +/- 0.021083 (50.95%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 39N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 11170.223
+    reduced chi-square = 2.847
+    Akaike info crit   = 4117.326
+    Bayesian info crit = 4154.984
+[[Variables]]
+    p0_x0:       198.013988 +/- 0.001989 (0.00%) (init= 198.0126)
+    p0_y0:       200.123257 +/- 0.002432 (0.00%) (init= 200.1233)
+    p0_x_fwhm:   2.89560479 +/- 0.006605 (0.23%) (init= 2.830889)
+    p0_y_fwhm:   3.36340036 +/- 0.008197 (0.24%) (init= 3.394869)
+    p0_x_eta:   -0.27492703 +/- 0.019677 (7.16%) (init= 0)
+    p0_y_eta:    0.07918582 +/- 0.013888 (17.54%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 100N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 8067.288
+    reduced chi-square = 1.989
+    Akaike info crit   = 2799.422
+    Bayesian info crit = 2837.277
+[[Variables]]
+    p0_x0:       261.473545 +/- 0.002595 (0.00%) (init= 261.4739)
+    p0_y0:       149.244506 +/- 0.002828 (0.00%) (init= 149.2445)
+    p0_x_fwhm:   3.28167581 +/- 0.009118 (0.28%) (init= 3.254549)
+    p0_y_fwhm:   3.48750451 +/- 0.009772 (0.28%) (init= 3.531852)
+    p0_x_eta:   -0.08855037 +/- 0.021534 (24.32%) (init= 0)
+    p0_y_eta:    0.12808284 +/- 0.018510 (14.45%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 122N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 10649.312
+    reduced chi-square = 2.808
+    Akaike info crit   = 3927.848
+    Bayesian info crit = 3965.302
+[[Variables]]
+    p0_x0:       297.451519 +/- 0.003586 (0.00%) (init= 297.4516)
+    p0_y0:       110.149751 +/- 0.003676 (0.00%) (init= 110.1494)
+    p0_x_fwhm:   3.31152906 +/- 0.012611 (0.38%) (init= 3.28533)
+    p0_y_fwhm:   3.34848942 +/- 0.012326 (0.37%) (init= 3.348485)
+    p0_x_eta:   -0.08768637 +/- 0.030032 (34.25%) (init= 0)
+    p0_y_eta:   -0.00178697 +/- 0.027809 (1556.21%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 51N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3406
+    # variables        = 6
+    chi-square         = 4733.404
+    reduced chi-square = 1.392
+    Akaike info crit   = 1132.935
+    Bayesian info crit = 1169.735
+[[Variables]]
+    p0_x0:       284.306230 +/- 0.004019 (0.00%) (init= 284.3115)
+    p0_y0:       18.6692804 +/- 0.004079 (0.02%) (init= 18.66905)
+    p0_x_fwhm:   3.28067844 +/- 0.012822 (0.39%) (init= 3.209766)
+    p0_y_fwhm:   3.32539531 +/- 0.014016 (0.42%) (init= 3.313307)
+    p0_x_eta:   -0.37299918 +/- 0.045646 (12.24%) (init= 0)
+    p0_y_eta:   -0.04351218 +/- 0.036085 (82.93%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 35N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 14293.908
+    reduced chi-square = 3.643
+    Akaike info crit   = 5086.393
+    Bayesian info crit = 5124.051
+[[Variables]]
+    p0_x0:       249.070387 +/- 0.002522 (0.00%) (init= 249.0721)
+    p0_y0:       59.8226577 +/- 0.002720 (0.00%) (init= 59.82321)
+    p0_x_fwhm:   3.10781830 +/- 0.008070 (0.26%) (init= 3.058738)
+    p0_y_fwhm:   3.29931766 +/- 0.009097 (0.28%) (init= 3.292159)
+    p0_x_eta:   -0.20359499 +/- 0.021489 (10.56%) (init= 0)
+    p0_y_eta:   -0.02277366 +/- 0.018005 (79.06%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 57N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 7391.265
+    reduced chi-square = 2.018
+    Akaike info crit   = 2581.993
+    Bayesian info crit = 2619.237
+[[Variables]]
+    p0_x0:       407.080455 +/- 0.002598 (0.00%) (init= 407.0807)
+    p0_y0:       117.921536 +/- 0.003133 (0.00%) (init= 117.9211)
+    p0_x_fwhm:   3.05304443 +/- 0.008716 (0.29%) (init= 3.009984)
+    p0_y_fwhm:   3.50034244 +/- 0.010623 (0.30%) (init= 3.546872)
+    p0_x_eta:   -0.19131705 +/- 0.027225 (14.23%) (init= 0)
+    p0_y_eta:    0.14506708 +/- 0.020071 (13.84%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 55N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 8871.915
+    reduced chi-square = 2.261
+    Akaike info crit   = 3212.008
+    Bayesian info crit = 3249.666
+[[Variables]]
+    p0_x0:       132.498320 +/- 0.003020 (0.00%) (init= 132.497)
+    p0_y0:       124.108380 +/- 0.003081 (0.00%) (init= 124.1085)
+    p0_x_fwhm:   3.36330300 +/- 0.010745 (0.32%) (init= 3.327394)
+    p0_y_fwhm:   3.32357943 +/- 0.010247 (0.31%) (init= 3.329173)
+    p0_x_eta:   -0.11404957 +/- 0.025357 (22.23%) (init= 0)
+    p0_y_eta:    0.01906425 +/- 0.022643 (118.77%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 101N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 4323
+    # variables        = 6
+    chi-square         = 9056.167
+    reduced chi-square = 2.098
+    Akaike info crit   = 3208.843
+    Bayesian info crit = 3247.073
+[[Variables]]
+    p0_x0:       278.978046 +/- 0.002948 (0.00%) (init= 278.9774)
+    p0_y0:       136.357311 +/- 0.003392 (0.00%) (init= 136.3583)
+    p0_x_fwhm:   3.19201997 +/- 0.009906 (0.31%) (init= 3.168358)
+    p0_y_fwhm:   3.56606192 +/- 0.011696 (0.33%) (init= 3.675853)
+    p0_x_eta:   -0.10827902 +/- 0.032294 (29.83%) (init= 0)
+    p0_y_eta:    0.24078312 +/- 0.016566 (6.88%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 17N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 13719.789
+    reduced chi-square = 3.617
+    Akaike info crit   = 4890.301
+    Bayesian info crit = 4927.756
+[[Variables]]
+    p0_x0:       399.631705 +/- 0.002078 (0.00%) (init= 399.6234)
+    p0_y0:       118.439227 +/- 0.002423 (0.00%) (init= 118.4392)
+    p0_x_fwhm:   2.82120400 +/- 0.006198 (0.22%) (init= 2.705995)
+    p0_y_fwhm:   3.19952019 +/- 0.008645 (0.27%) (init= 3.176841)
+    p0_x_eta:   -0.43786215 +/- 0.016177 (3.69%) (init= 0)
+    p0_y_eta:   -0.06854632 +/- 0.019000 (27.72%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 60N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 17211.257
+    reduced chi-square = 4.244
+    Akaike info crit   = 5876.630
+    Bayesian info crit = 5914.485
+[[Variables]]
+    p0_x0:       175.178117 +/- 0.002063 (0.00%) (init= 175.1801)
+    p0_y0:       105.053846 +/- 0.002441 (0.00%) (init= 105.0534)
+    p0_x_fwhm:   2.90776932 +/- 0.006868 (0.24%) (init= 2.812028)
+    p0_y_fwhm:   3.27038485 +/- 0.008036 (0.25%) (init= 3.27825)
+    p0_x_eta:   -0.40550773 +/- 0.021638 (5.34%) (init= 0)
+    p0_y_eta:    0.02025228 +/- 0.013383 (66.09%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 138EN-H
+
+[[Fit Statistics]]
+    # function evals   = 38
+    # data points      = 4192
+    # variables        = 6
+    chi-square         = 10047.638
+    reduced chi-square = 2.400
+    Akaike info crit   = 3676.477
+    Bayesian info crit = 3714.523
+[[Variables]]
+    p0_x0:       44.7432856 +/- 0.003126 (0.01%) (init= 44.75819)
+    p0_y0:       245.427498 +/- 0.002699 (0.00%) (init= 245.4265)
+    p0_x_fwhm:   3.45333534 +/- 0.010978 (0.32%) (init= 3.603802)
+    p0_y_fwhm:   3.22801246 +/- 0.009449 (0.29%) (init= 3.199165)
+    p0_x_eta:    0.38558923 +/- 0.016843 (4.37%) (init= 0)
+    p0_y_eta:   -0.09300066 +/- 0.022134 (23.80%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 70N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3275
+    # variables        = 6
+    chi-square         = 5316.890
+    reduced chi-square = 1.626
+    Akaike info crit   = 1598.969
+    Bayesian info crit = 1635.533
+[[Variables]]
+    p0_x0:       293.952545 +/- 0.003765 (0.00%) (init= 293.9515)
+    p0_y0:       78.8813308 +/- 0.004103 (0.01%) (init= 78.88107)
+    p0_x_fwhm:   3.16651606 +/- 0.012699 (0.40%) (init= 3.143089)
+    p0_y_fwhm:   3.33337417 +/- 0.013763 (0.41%) (init= 3.330444)
+    p0_x_eta:   -0.11731355 +/- 0.040962 (34.92%) (init= 0)
+    p0_y_eta:   -0.01779211 +/- 0.046673 (262.33%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 74N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 5520.403
+    reduced chi-square = 1.455
+    Akaike info crit   = 1431.736
+    Bayesian info crit = 1469.191
+[[Variables]]
+    p0_x0:       305.456603 +/- 0.002973 (0.00%) (init= 305.4569)
+    p0_y0:       78.8281220 +/- 0.003331 (0.00%) (init= 78.8275)
+    p0_x_fwhm:   3.22445753 +/- 0.010370 (0.32%) (init= 3.179058)
+    p0_y_fwhm:   3.46863083 +/- 0.011338 (0.33%) (init= 3.489079)
+    p0_x_eta:   -0.14785092 +/- 0.024708 (16.71%) (init= 0)
+    p0_y_eta:    0.07184313 +/- 0.025686 (35.75%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 150N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 5306.757
+    reduced chi-square = 1.503
+    Akaike info crit   = 1446.968
+    Bayesian info crit = 1483.994
+[[Variables]]
+    p0_x0:       115.781448 +/- 0.004903 (0.00%) (init= 115.7841)
+    p0_y0:       122.601865 +/- 0.004720 (0.00%) (init= 122.6018)
+    p0_x_fwhm:   3.36928224 +/- 0.016462 (0.49%) (init= 3.38727)
+    p0_y_fwhm:   3.42076185 +/- 0.016813 (0.49%) (init= 3.43487)
+    p0_x_eta:    0.10842154 +/- 0.053007 (48.89%) (init= 0)
+    p0_y_eta:    0.04731846 +/- 0.039335 (83.13%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 113N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 4914.643
+    reduced chi-square = 1.342
+    Akaike info crit   = 1085.156
+    Bayesian info crit = 1122.401
+[[Variables]]
+    p0_x0:       431.033377 +/- 0.003250 (0.00%) (init= 431.0337)
+    p0_y0:       115.195591 +/- 0.003291 (0.00%) (init= 115.1973)
+    p0_x_fwhm:   3.49519045 +/- 0.010651 (0.30%) (init= 3.478446)
+    p0_y_fwhm:   3.51439509 +/- 0.011337 (0.32%) (init= 3.545306)
+    p0_x_eta:   -0.11554555 +/- 0.041388 (35.82%) (init= 0)
+    p0_y_eta:    0.10560966 +/- 0.024829 (23.51%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 80N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 4744.256
+    reduced chi-square = 1.296
+    Akaike info crit   = 955.733
+    Bayesian info crit = 992.977
+[[Variables]]
+    p0_x0:       425.502761 +/- 0.002761 (0.00%) (init= 425.5056)
+    p0_y0:       173.329514 +/- 0.003149 (0.00%) (init= 173.3298)
+    p0_x_fwhm:   3.14909164 +/- 0.009292 (0.30%) (init= 3.095984)
+    p0_y_fwhm:   3.52285358 +/- 0.011139 (0.32%) (init= 3.549018)
+    p0_x_eta:   -0.18834232 +/- 0.023251 (12.35%) (init= 0)
+    p0_y_eta:    0.09235621 +/- 0.026046 (28.20%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 158EN-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3406
+    # variables        = 6
+    chi-square         = 22956.108
+    reduced chi-square = 6.752
+    Akaike info crit   = 6510.803
+    Bayesian info crit = 6547.603
+[[Variables]]
+    p0_x0:       63.6350828 +/- 0.001972 (0.00%) (init= 63.63484)
+    p0_y0:       4.03706257 +/- 0.001980 (0.05%) (init= 4.038369)
+    p0_x_fwhm:   2.87215009 +/- 0.006871 (0.24%) (init= 2.868105)
+    p0_y_fwhm:   3.02517210 +/- 0.006328 (0.21%) (init= 2.986494)
+    p0_x_eta:   -0.01607661 +/- 0.018236 (113.44%) (init= 0)
+    p0_y_eta:   -0.14996419 +/- 0.015691 (10.46%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 12N-H, 1002N-H
+
+[[Fit Statistics]]
+    # function evals   = 55
+    # data points      = 6419
+    # variables        = 12
+    chi-square         = 8309.226
+    reduced chi-square = 1.297
+    Akaike info crit   = 1680.770
+    Bayesian info crit = 1761.974
+[[Variables]]
+    p0_x0:       429.160681 +/- 0.004617 (0.00%) (init= 429.1632)
+    p0_y0:       15.3890967 +/- 0.006063 (0.04%) (init= 15.39668)
+    p0_x_fwhm:   3.26490948 +/- 0.014279 (0.44%) (init= 3.253451)
+    p0_y_fwhm:   3.57796756 +/- 0.017284 (0.48%) (init= 3.556841)
+    p0_x_eta:   -0.04295827 +/- 0.043612 (101.52%) (init= 0)
+    p0_y_eta:   -0.03323254 +/- 0.054711 (164.63%) (init= 0)
+    p1_x0:       424.762789 +/- 0.006187 (0.00%) (init= 424.7597)
+    p1_y0:       12.5300896 +/- 0.015852 (0.13%) (init= 12.52001)
+    p1_x_fwhm:   2.64734723 +/- 0.020117 (0.76%) (init= 2.6158)
+    p1_y_fwhm:   4.26501434 +/- 0.040467 (0.95%) (init= 4.233716)
+    p1_x_eta:   -0.11159713 +/- 0.057080 (51.15%) (init= 0)
+    p1_y_eta:   -0.04278691 +/- 0.107919 (252.23%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 106N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 4716.910
+    reduced chi-square = 1.336
+    Akaike info crit   = 1030.214
+    Bayesian info crit = 1067.240
+[[Variables]]
+    p0_x0:       242.772941 +/- 0.004404 (0.00%) (init= 242.7728)
+    p0_y0:       221.618761 +/- 0.004516 (0.00%) (init= 221.6187)
+    p0_x_fwhm:   3.32043510 +/- 0.014695 (0.44%) (init= 3.320093)
+    p0_y_fwhm:   3.49977134 +/- 0.016101 (0.46%) (init= 3.524998)
+    p0_x_eta:    0.00262900 +/- 0.047960 (1824.30%) (init= 0)
+    p0_y_eta:    0.09026384 +/- 0.037912 (42.00%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 50N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3275
+    # variables        = 6
+    chi-square         = 5450.156
+    reduced chi-square = 1.667
+    Akaike info crit   = 1680.044
+    Bayesian info crit = 1716.608
+[[Variables]]
+    p0_x0:       281.709248 +/- 0.003885 (0.00%) (init= 281.7081)
+    p0_y0:       196.590835 +/- 0.004374 (0.00%) (init= 196.5941)
+    p0_x_fwhm:   3.12011528 +/- 0.013166 (0.42%) (init= 3.108938)
+    p0_y_fwhm:   3.29345856 +/- 0.014592 (0.44%) (init= 3.314841)
+    p0_x_eta:   -0.05071597 +/- 0.039337 (77.56%) (init= 0)
+    p0_y_eta:    0.10406337 +/- 0.041004 (39.40%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 26N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 6321.012
+    reduced chi-square = 1.790
+    Akaike info crit   = 2065.583
+    Bayesian info crit = 2102.610
+[[Variables]]
+    p0_x0:       156.191103 +/- 0.002517 (0.00%) (init= 156.1932)
+    p0_y0:       106.792947 +/- 0.002863 (0.00%) (init= 106.7926)
+    p0_x_fwhm:   3.09560967 +/- 0.008384 (0.27%) (init= 3.028491)
+    p0_y_fwhm:   3.36318339 +/- 0.009825 (0.29%) (init= 3.382567)
+    p0_x_eta:   -0.31299679 +/- 0.027795 (8.88%) (init= 0)
+    p0_y_eta:    0.07168011 +/- 0.022562 (31.48%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 155N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 6028.432
+    reduced chi-square = 1.536
+    Akaike info crit   = 1693.441
+    Bayesian info crit = 1731.099
+[[Variables]]
+    p0_x0:       319.476934 +/- 0.003968 (0.00%) (init= 319.4769)
+    p0_y0:       91.7666243 +/- 0.004019 (0.00%) (init= 91.76602)
+    p0_x_fwhm:   3.48186145 +/- 0.014158 (0.41%) (init= 3.481555)
+    p0_y_fwhm:   3.48296540 +/- 0.013854 (0.40%) (init= 3.502364)
+    p0_x_eta:    0.00031211 +/- 0.033764 (10818.10%) (init= 0)
+    p0_y_eta:    0.07153154 +/- 0.032361 (45.24%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 164N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4323
+    # variables        = 6
+    chi-square         = 23810.652
+    reduced chi-square = 5.516
+    Akaike info crit   = 7387.831
+    Bayesian info crit = 7426.061
+[[Variables]]
+    p0_x0:       425.757783 +/- 0.001399 (0.00%) (init= 425.7508)
+    p0_y0:       51.7279238 +/- 0.001578 (0.00%) (init= 51.72838)
+    p0_x_fwhm:   2.70630255 +/- 0.003695 (0.14%) (init= 2.554883)
+    p0_y_fwhm:   2.94422659 +/- 0.005175 (0.18%) (init= 2.85393)
+    p0_x_eta:   -0.54517751 +/- 0.007744 (1.42%) (init= 0)
+    p0_y_eta:   -0.27619638 +/- 0.011696 (4.23%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 29N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 6182.758
+    reduced chi-square = 1.688
+    Akaike info crit   = 1927.128
+    Bayesian info crit = 1964.373
+[[Variables]]
+    p0_x0:       130.754306 +/- 0.004676 (0.00%) (init= 130.7546)
+    p0_y0:       247.573783 +/- 0.004385 (0.00%) (init= 247.5737)
+    p0_x_fwhm:   3.68430310 +/- 0.015682 (0.43%) (init= 3.691794)
+    p0_y_fwhm:   3.53294476 +/- 0.015567 (0.44%) (init= 3.551711)
+    p0_x_eta:    0.04345331 +/- 0.045222 (104.07%) (init= 0)
+    p0_y_eta:    0.06923422 +/- 0.037600 (54.31%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 136N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 6603.155
+    reduced chi-square = 1.741
+    Akaike info crit   = 2112.124
+    Bayesian info crit = 2149.579
+[[Variables]]
+    p0_x0:       402.434843 +/- 0.001556 (0.00%) (init= 402.4436)
+    p0_y0:       222.363488 +/- 0.001688 (0.00%) (init= 222.3631)
+    p0_x_fwhm:   2.93237554 +/- 0.004961 (0.17%) (init= 2.830686)
+    p0_y_fwhm:   3.20519248 +/- 0.005942 (0.19%) (init= 3.176131)
+    p0_x_eta:   -0.42411131 +/- 0.015259 (3.60%) (init= 0)
+    p0_y_eta:   -0.08781154 +/- 0.012957 (14.76%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 63N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3406
+    # variables        = 6
+    chi-square         = 7348.515
+    reduced chi-square = 2.161
+    Akaike info crit   = 2631.077
+    Bayesian info crit = 2667.876
+[[Variables]]
+    p0_x0:       256.027865 +/- 0.002729 (0.00%) (init= 256.0278)
+    p0_y0:       109.132693 +/- 0.002928 (0.00%) (init= 109.1325)
+    p0_x_fwhm:   3.06986663 +/- 0.009178 (0.30%) (init= 3.033264)
+    p0_y_fwhm:   3.22202674 +/- 0.009739 (0.30%) (init= 3.210992)
+    p0_x_eta:   -0.17206546 +/- 0.028716 (16.69%) (init= 0)
+    p0_y_eta:   -0.04027858 +/- 0.023893 (59.32%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 88N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 5764
+    # variables        = 6
+    chi-square         = 12428.476
+    reduced chi-square = 2.158
+    Akaike info crit   = 4440.819
+    Bayesian info crit = 4480.775
+[[Variables]]
+    p0_x0:       263.621605 +/- 0.001925 (0.00%) (init= 263.6219)
+    p0_y0:       86.2764736 +/- 0.001868 (0.00%) (init= 86.27645)
+    p0_x_fwhm:   3.58989587 +/- 0.006431 (0.18%) (init= 3.615766)
+    p0_y_fwhm:   3.44467519 +/- 0.006240 (0.18%) (init= 3.512369)
+    p0_x_eta:    0.06031620 +/- 0.009781 (16.22%) (init= 0)
+    p0_y_eta:    0.14831225 +/- 0.008898 (6.00%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 110N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 6871.987
+    reduced chi-square = 1.946
+    Akaike info crit   = 2361.185
+    Bayesian info crit = 2398.211
+[[Variables]]
+    p0_x0:       395.184436 +/- 0.003340 (0.00%) (init= 395.1853)
+    p0_y0:       19.8008181 +/- 0.003483 (0.02%) (init= 19.7995)
+    p0_x_fwhm:   3.35408866 +/- 0.010989 (0.33%) (init= 3.330336)
+    p0_y_fwhm:   3.45617443 +/- 0.012049 (0.35%) (init= 3.499061)
+    p0_x_eta:   -0.13190841 +/- 0.038761 (29.38%) (init= 0)
+    p0_y_eta:    0.16318989 +/- 0.027558 (16.89%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 41N-H, 77N-H
+
+[[Fit Statistics]]
+    # function evals   = 55
+    # data points      = 7860
+    # variables        = 12
+    chi-square         = 21671.457
+    reduced chi-square = 2.761
+    Akaike info crit   = 7995.686
+    Bayesian info crit = 8079.321
+[[Variables]]
+    p0_x0:       369.607576 +/- 0.003213 (0.00%) (init= 369.6177)
+    p0_y0:       70.9210994 +/- 0.002911 (0.00%) (init= 70.91769)
+    p0_x_fwhm:   3.04308578 +/- 0.008439 (0.28%) (init= 2.930953)
+    p0_y_fwhm:   3.36577408 +/- 0.009209 (0.27%) (init= 3.388749)
+    p0_x_eta:   -0.29737269 +/- 0.019124 (6.43%) (init= 0)
+    p0_y_eta:    0.10244506 +/- 0.015703 (15.33%) (init= 0)
+    p1_x0:       367.669155 +/- 0.005549 (0.00%) (init= 367.6433)
+    p1_y0:       76.4723568 +/- 0.005396 (0.01%) (init= 76.4775)
+    p1_x_fwhm:   3.17895127 +/- 0.015831 (0.50%) (init= 3.114669)
+    p1_y_fwhm:   3.58861013 +/- 0.017889 (0.50%) (init= 3.629123)
+    p1_x_eta:   -0.13375131 +/- 0.048539 (36.29%) (init= 0)
+    p1_y_eta:    0.18926790 +/- 0.034305 (18.13%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 15N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 10918.981
+    reduced chi-square = 2.783
+    Akaike info crit   = 4027.922
+    Bayesian info crit = 4065.581
+[[Variables]]
+    p0_x0:       223.461650 +/- 0.002100 (0.00%) (init= 223.461)
+    p0_y0:       87.9166981 +/- 0.002333 (0.00%) (init= 87.91664)
+    p0_x_fwhm:   3.06565024 +/- 0.007194 (0.23%) (init= 2.965093)
+    p0_y_fwhm:   3.20915741 +/- 0.007681 (0.24%) (init= 3.206168)
+    p0_x_eta:   -0.30283514 +/- 0.016765 (5.54%) (init= 0)
+    p0_y_eta:   -0.01661128 +/- 0.017916 (107.86%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 33N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 5367.719
+    reduced chi-square = 1.466
+    Akaike info crit   = 1408.615
+    Bayesian info crit = 1445.859
+[[Variables]]
+    p0_x0:       178.321789 +/- 0.003272 (0.00%) (init= 178.3272)
+    p0_y0:       51.5257010 +/- 0.003501 (0.01%) (init= 51.52576)
+    p0_x_fwhm:   3.16004954 +/- 0.010606 (0.34%) (init= 3.087614)
+    p0_y_fwhm:   3.39059566 +/- 0.012672 (0.37%) (init= 3.397774)
+    p0_x_eta:   -0.34626794 +/- 0.035518 (10.26%) (init= 0)
+    p0_y_eta:    0.02094585 +/- 0.028599 (136.54%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 132N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 7869.477
+    reduced chi-square = 2.075
+    Akaike info crit   = 2778.636
+    Bayesian info crit = 2816.091
+[[Variables]]
+    p0_x0:       381.936013 +/- 0.002975 (0.00%) (init= 381.9356)
+    p0_y0:       150.944670 +/- 0.003347 (0.00%) (init= 150.944)
+    p0_x_fwhm:   3.15831866 +/- 0.010006 (0.32%) (init= 3.132023)
+    p0_y_fwhm:   3.45579171 +/- 0.011349 (0.33%) (init= 3.508454)
+    p0_x_eta:   -0.12279260 +/- 0.032194 (26.22%) (init= 0)
+    p0_y_eta:    0.14639502 +/- 0.019992 (13.66%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 114N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4323
+    # variables        = 6
+    chi-square         = 8893.815
+    reduced chi-square = 2.060
+    Akaike info crit   = 3130.640
+    Bayesian info crit = 3168.871
+[[Variables]]
+    p0_x0:       345.670064 +/- 0.001890 (0.00%) (init= 345.6699)
+    p0_y0:       79.3195658 +/- 0.002103 (0.00%) (init= 79.31886)
+    p0_x_fwhm:   3.21569540 +/- 0.006478 (0.20%) (init= 3.148683)
+    p0_y_fwhm:   3.41795303 +/- 0.007196 (0.21%) (init= 3.460459)
+    p0_x_eta:   -0.21003846 +/- 0.015163 (7.22%) (init= 0)
+    p0_y_eta:    0.10644741 +/- 0.012274 (11.53%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 97N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 9829.097
+    reduced chi-square = 2.505
+    Akaike info crit   = 3614.661
+    Bayesian info crit = 3652.319
+[[Variables]]
+    p0_x0:       451.419246 +/- 0.002766 (0.00%) (init= 451.4241)
+    p0_y0:       122.731559 +/- 0.003008 (0.00%) (init= 122.733)
+    p0_x_fwhm:   3.08506362 +/- 0.009012 (0.29%) (init= 3.036347)
+    p0_y_fwhm:   3.41456269 +/- 0.010352 (0.30%) (init= 3.476451)
+    p0_x_eta:   -0.20642879 +/- 0.026769 (12.97%) (init= 0)
+    p0_y_eta:    0.15535157 +/- 0.017179 (11.06%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 108N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4585
+    # variables        = 6
+    chi-square         = 9413.533
+    reduced chi-square = 2.056
+    Akaike info crit   = 3310.258
+    Bayesian info crit = 3348.841
+[[Variables]]
+    p0_x0:       188.548131 +/- 0.002288 (0.00%) (init= 188.5473)
+    p0_y0:       122.419150 +/- 0.002776 (0.00%) (init= 122.4237)
+    p0_x_fwhm:   3.13776073 +/- 0.007865 (0.25%) (init= 3.057826)
+    p0_y_fwhm:   3.53704073 +/- 0.009678 (0.27%) (init= 3.663953)
+    p0_x_eta:   -0.24694895 +/- 0.018503 (7.49%) (init= 0)
+    p0_y_eta:    0.28515442 +/- 0.013995 (4.91%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 92N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 11218.925
+    reduced chi-square = 2.859
+    Akaike info crit   = 4134.423
+    Bayesian info crit = 4172.082
+[[Variables]]
+    p0_x0:       422.952561 +/- 0.001679 (0.00%) (init= 422.9516)
+    p0_y0:       193.263947 +/- 0.002016 (0.00%) (init= 193.264)
+    p0_x_fwhm:   2.85842773 +/- 0.005562 (0.19%) (init= 2.796157)
+    p0_y_fwhm:   3.29694962 +/- 0.006758 (0.20%) (init= 3.306366)
+    p0_x_eta:   -0.26138576 +/- 0.016217 (6.20%) (init= 0)
+    p0_y_eta:    0.02285966 +/- 0.011624 (50.85%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 2N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 11344.281
+    reduced chi-square = 2.991
+    Akaike info crit   = 4168.014
+    Bayesian info crit = 4205.469
+[[Variables]]
+    p0_x0:       494.970577 +/- 0.001786 (0.00%) (init= 494.9703)
+    p0_y0:       187.481780 +/- 0.002264 (0.00%) (init= 187.4815)
+    p0_x_fwhm:   2.70154895 +/- 0.005783 (0.21%) (init= 2.610546)
+    p0_y_fwhm:   3.23848660 +/- 0.008136 (0.25%) (init= 3.21709)
+    p0_x_eta:   -0.37176714 +/- 0.016359 (4.40%) (init= 0)
+    p0_y_eta:   -0.06596521 +/- 0.017938 (27.19%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 44N-H, 79N-H
+
+[[Fit Statistics]]
+    # function evals   = 120
+    # data points      = 6419
+    # variables        = 12
+    chi-square         = 13318.499
+    reduced chi-square = 2.079
+    Akaike info crit   = 4709.175
+    Bayesian info crit = 4790.379
+[[Variables]]
+    p0_x0:       344.521103 +/- 0.007642 (0.00%) (init= 344.5919)
+    p0_y0:       211.287377 +/- 0.006655 (0.00%) (init= 211.3139)
+    p0_x_fwhm:   3.07074115 +/- 0.010433 (0.34%) (init= 2.833558)
+    p0_y_fwhm:   3.81553728 +/- 0.012562 (0.33%) (init= 3.754169)
+    p0_x_eta:   -0.47813419 +/- 0.019791 (4.14%) (init= 0)
+    p0_y_eta:    0.27655073 +/- 0.020942 (7.57%) (init= 0)
+    p1_x0:       342.967001 +/- 0.006839 (0.00%) (init= 343.0646)
+    p1_y0:       208.078490 +/- 0.009353 (0.00%) (init= 208.1296)
+    p1_x_fwhm:   2.89965261 +/- 0.011557 (0.40%) (init= 2.842625)
+    p1_y_fwhm:   3.79547608 +/- 0.016333 (0.43%) (init= 3.846517)
+    p1_x_eta:   -0.24771315 +/- 0.025147 (10.15%) (init= 0)
+    p1_y_eta:   -0.75020280 +/- 0.054372 (7.25%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+    C(p0_x0, p1_y_eta)           =  0.882 
+
+
+* Peak(s): 146N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3406
+    # variables        = 6
+    chi-square         = 6614.197
+    reduced chi-square = 1.945
+    Akaike info crit   = 2272.494
+    Bayesian info crit = 2309.293
+[[Variables]]
+    p0_x0:       338.884828 +/- 0.003736 (0.00%) (init= 338.8839)
+    p0_y0:       148.232737 +/- 0.004111 (0.00%) (init= 148.2328)
+    p0_x_fwhm:   3.18145659 +/- 0.012605 (0.40%) (init= 3.166694)
+    p0_y_fwhm:   3.42344204 +/- 0.014120 (0.41%) (init= 3.442984)
+    p0_x_eta:   -0.07150033 +/- 0.040209 (56.24%) (init= 0)
+    p0_y_eta:    0.08220901 +/- 0.035499 (43.18%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 40N-H, 61N-H
+
+[[Fit Statistics]]
+    # function evals   = 68
+    # data points      = 7991
+    # variables        = 12
+    chi-square         = 35331.991
+    reduced chi-square = 4.428
+    Akaike info crit   = 11902.405
+    Bayesian info crit = 11986.238
+[[Variables]]
+    p0_x0:       292.282094 +/- 0.002730 (0.00%) (init= 292.2875)
+    p0_y0:       169.455240 +/- 0.002751 (0.00%) (init= 169.4571)
+    p0_x_fwhm:   3.03227204 +/- 0.008069 (0.27%) (init= 2.955803)
+    p0_y_fwhm:   3.47239541 +/- 0.008513 (0.25%) (init= 3.38261)
+    p0_x_eta:   -0.35189783 +/- 0.025435 (7.23%) (init= 0)
+    p0_y_eta:   -0.27455400 +/- 0.017649 (6.43%) (init= 0)
+    p1_x0:       294.042601 +/- 0.003351 (0.00%) (init= 294.0753)
+    p1_y0:       163.413796 +/- 0.002843 (0.00%) (init= 163.4018)
+    p1_x_fwhm:   3.11212597 +/- 0.008979 (0.29%) (init= 3.037852)
+    p1_y_fwhm:   3.29572791 +/- 0.009150 (0.28%) (init= 3.249144)
+    p1_x_eta:   -0.12922109 +/- 0.027030 (20.92%) (init= 0)
+    p1_y_eta:    0.00253087 +/- 0.014602 (576.98%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 126EN-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 10353.679
+    reduced chi-square = 2.730
+    Akaike info crit   = 3820.893
+    Bayesian info crit = 3858.348
+[[Variables]]
+    p0_x0:       12.7410446 +/- 0.002591 (0.02%) (init= 12.7414)
+    p0_y0:       236.862029 +/- 0.002507 (0.00%) (init= 236.8608)
+    p0_x_fwhm:   3.30721940 +/- 0.008761 (0.26%) (init= 3.237369)
+    p0_y_fwhm:   3.10535851 +/- 0.008463 (0.27%) (init= 3.079064)
+    p0_x_eta:   -0.22164274 +/- 0.020395 (9.20%) (init= 0)
+    p0_y_eta:   -0.12795172 +/- 0.026481 (20.70%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 121N-H, 130N-H
+
+[[Fit Statistics]]
+    # function evals   = 42
+    # data points      = 6943
+    # variables        = 12
+    chi-square         = 23165.085
+    reduced chi-square = 3.342
+    Akaike info crit   = 8389.706
+    Bayesian info crit = 8471.852
+[[Variables]]
+    p0_x0:       313.006001 +/- 0.003633 (0.00%) (init= 313.0045)
+    p0_y0:       147.097146 +/- 0.009312 (0.01%) (init= 147.082)
+    p0_x_fwhm:   3.19948649 +/- 0.012077 (0.38%) (init= 3.192522)
+    p0_y_fwhm:   3.63760007 +/- 0.018667 (0.51%) (init= 3.613128)
+    p0_x_eta:   -0.05062151 +/- 0.035977 (71.07%) (init= 0)
+    p0_y_eta:   -0.17735966 +/- 0.033861 (19.09%) (init= 0)
+    p1_x0:       313.045940 +/- 0.002425 (0.00%) (init= 313.0482)
+    p1_y0:       142.790641 +/- 0.006729 (0.00%) (init= 142.7927)
+    p1_x_fwhm:   3.19362484 +/- 0.007772 (0.24%) (init= 3.148063)
+    p1_y_fwhm:   3.71727153 +/- 0.013874 (0.37%) (init= 3.698958)
+    p1_x_eta:   -0.19217816 +/- 0.021153 (11.01%) (init= 0)
+    p1_y_eta:   -0.03582448 +/- 0.023165 (64.66%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 21N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4323
+    # variables        = 6
+    chi-square         = 13522.054
+    reduced chi-square = 3.132
+    Akaike info crit   = 4941.830
+    Bayesian info crit = 4980.060
+[[Variables]]
+    p0_x0:       340.467403 +/- 0.002305 (0.00%) (init= 340.4648)
+    p0_y0:       9.53810822 +/- 0.002802 (0.03%) (init= 9.537543)
+    p0_x_fwhm:   2.98290198 +/- 0.007811 (0.26%) (init= 2.879216)
+    p0_y_fwhm:   3.39645556 +/- 0.009521 (0.28%) (init= 3.442692)
+    p0_x_eta:   -0.31019911 +/- 0.018103 (5.84%) (init= 0)
+    p0_y_eta:    0.11699722 +/- 0.015731 (13.45%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 154N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 6113.397
+    reduced chi-square = 1.669
+    Akaike info crit   = 1885.747
+    Bayesian info crit = 1922.991
+[[Variables]]
+    p0_x0:       182.145277 +/- 0.004150 (0.00%) (init= 182.1515)
+    p0_y0:       141.356423 +/- 0.003764 (0.00%) (init= 141.3571)
+    p0_x_fwhm:   3.60673905 +/- 0.014310 (0.40%) (init= 3.67223)
+    p0_y_fwhm:   3.37422817 +/- 0.013006 (0.39%) (init= 3.375802)
+    p0_x_eta:    0.25733985 +/- 0.031418 (12.21%) (init= 0)
+    p0_y_eta:    0.01007922 +/- 0.033325 (330.63%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 163N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 5399.312
+    reduced chi-square = 1.529
+    Akaike info crit   = 1508.125
+    Bayesian info crit = 1545.151
+[[Variables]]
+    p0_x0:       250.414474 +/- 0.002419 (0.00%) (init= 250.425)
+    p0_y0:       173.571440 +/- 0.002761 (0.00%) (init= 173.5716)
+    p0_x_fwhm:   2.92378016 +/- 0.007561 (0.26%) (init= 2.777225)
+    p0_y_fwhm:   3.22393278 +/- 0.009788 (0.30%) (init= 3.201558)
+    p0_x_eta:   -0.62894018 +/- 0.025060 (3.98%) (init= 0)
+    p0_y_eta:   -0.06803215 +/- 0.022152 (32.56%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 125N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 7145.230
+    reduced chi-square = 1.951
+    Akaike info crit   = 2457.817
+    Bayesian info crit = 2495.061
+[[Variables]]
+    p0_x0:       373.872006 +/- 0.002723 (0.00%) (init= 373.8708)
+    p0_y0:       125.512191 +/- 0.002924 (0.00%) (init= 125.5122)
+    p0_x_fwhm:   3.12222727 +/- 0.009175 (0.29%) (init= 3.098675)
+    p0_y_fwhm:   3.35686252 +/- 0.010578 (0.32%) (init= 3.359414)
+    p0_x_eta:   -0.11314057 +/- 0.028803 (25.46%) (init= 0)
+    p0_y_eta:    0.00711663 +/- 0.023673 (332.66%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 30N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 9084.283
+    reduced chi-square = 2.395
+    Akaike info crit   = 3323.998
+    Bayesian info crit = 3361.453
+[[Variables]]
+    p0_x0:       349.376412 +/- 0.002807 (0.00%) (init= 349.3757)
+    p0_y0:       19.1716516 +/- 0.003033 (0.02%) (init= 19.17113)
+    p0_x_fwhm:   3.20581542 +/- 0.009727 (0.30%) (init= 3.159676)
+    p0_y_fwhm:   3.36537362 +/- 0.010231 (0.30%) (init= 3.364374)
+    p0_x_eta:   -0.15201440 +/- 0.023156 (15.23%) (init= 0)
+    p0_y_eta:   -0.00592164 +/- 0.023239 (392.46%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 137N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4192
+    # variables        = 6
+    chi-square         = 9246.684
+    reduced chi-square = 2.209
+    Akaike info crit   = 3328.237
+    Bayesian info crit = 3366.283
+[[Variables]]
+    p0_x0:       181.228938 +/- 0.003702 (0.00%) (init= 181.2326)
+    p0_y0:       75.3735527 +/- 0.003338 (0.00%) (init= 75.37494)
+    p0_x_fwhm:   3.61300344 +/- 0.012942 (0.36%) (init= 3.662903)
+    p0_y_fwhm:   3.36245750 +/- 0.011391 (0.34%) (init= 3.394252)
+    p0_x_eta:    0.18646286 +/- 0.028986 (15.55%) (init= 0)
+    p0_y_eta:    0.09603875 +/- 0.021409 (22.29%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 72N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3275
+    # variables        = 6
+    chi-square         = 5388.702
+    reduced chi-square = 1.648
+    Akaike info crit   = 1642.906
+    Bayesian info crit = 1679.471
+[[Variables]]
+    p0_x0:       364.407827 +/- 0.003451 (0.00%) (init= 364.4173)
+    p0_y0:       135.842871 +/- 0.003856 (0.00%) (init= 135.8433)
+    p0_x_fwhm:   3.18217489 +/- 0.010801 (0.34%) (init= 3.093205)
+    p0_y_fwhm:   3.43955932 +/- 0.012791 (0.37%) (init= 3.444373)
+    p0_x_eta:   -0.42702156 +/- 0.035849 (8.40%) (init= 0)
+    p0_y_eta:    0.02190086 +/- 0.044947 (205.23%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 32N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 11400.397
+    reduced chi-square = 2.811
+    Akaike info crit   = 4203.841
+    Bayesian info crit = 4241.696
+[[Variables]]
+    p0_x0:       311.564846 +/- 0.001989 (0.00%) (init= 311.5617)
+    p0_y0:       210.890527 +/- 0.002245 (0.00%) (init= 210.8911)
+    p0_x_fwhm:   2.99481507 +/- 0.006741 (0.23%) (init= 2.942476)
+    p0_y_fwhm:   3.33106502 +/- 0.007495 (0.23%) (init= 3.349783)
+    p0_x_eta:   -0.17959550 +/- 0.016788 (9.35%) (init= 0)
+    p0_y_eta:    0.05444562 +/- 0.013804 (25.35%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 71N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3275
+    # variables        = 6
+    chi-square         = 5650.781
+    reduced chi-square = 1.729
+    Akaike info crit   = 1798.433
+    Bayesian info crit = 1834.998
+[[Variables]]
+    p0_x0:       171.833772 +/- 0.004299 (0.00%) (init= 171.8321)
+    p0_y0:       53.6870322 +/- 0.004866 (0.01%) (init= 53.6868)
+    p0_x_fwhm:   3.15329140 +/- 0.014511 (0.46%) (init= 3.131156)
+    p0_y_fwhm:   3.34627479 +/- 0.016019 (0.48%) (init= 3.3442)
+    p0_x_eta:   -0.10794012 +/- 0.046024 (42.64%) (init= 0)
+    p0_y_eta:   -0.01121337 +/- 0.051136 (456.03%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 84N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 6425.195
+    reduced chi-square = 1.694
+    Akaike info crit   = 2008.333
+    Bayesian info crit = 2045.788
+[[Variables]]
+    p0_x0:       367.382344 +/- 0.002590 (0.00%) (init= 367.3823)
+    p0_y0:       183.692142 +/- 0.002547 (0.00%) (init= 183.6923)
+    p0_x_fwhm:   3.38496283 +/- 0.009105 (0.27%) (init= 3.390644)
+    p0_y_fwhm:   3.38027358 +/- 0.008852 (0.26%) (init= 3.375493)
+    p0_x_eta:    0.02016862 +/- 0.021967 (108.92%) (init= 0)
+    p0_y_eta:   -0.01659794 +/- 0.020861 (125.69%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 126N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 11064.252
+    reduced chi-square = 2.917
+    Akaike info crit   = 4073.061
+    Bayesian info crit = 4110.516
+[[Variables]]
+    p0_x0:       508.246206 +/- 0.001860 (0.00%) (init= 508.2507)
+    p0_y0:       146.088502 +/- 0.002196 (0.00%) (init= 146.0883)
+    p0_x_fwhm:   2.87760200 +/- 0.006245 (0.22%) (init= 2.807819)
+    p0_y_fwhm:   3.28573388 +/- 0.007268 (0.22%) (init= 3.302709)
+    p0_x_eta:   -0.28432855 +/- 0.018638 (6.56%) (init= 0)
+    p0_y_eta:    0.04741607 +/- 0.012866 (27.14%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 135N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 6276.984
+    reduced chi-square = 1.714
+    Akaike info crit   = 1982.607
+    Bayesian info crit = 2019.852
+[[Variables]]
+    p0_x0:       449.815433 +/- 0.002480 (0.00%) (init= 449.813)
+    p0_y0:       146.351556 +/- 0.003246 (0.00%) (init= 146.3531)
+    p0_x_fwhm:   3.00416575 +/- 0.008321 (0.28%) (init= 2.948542)
+    p0_y_fwhm:   3.71061921 +/- 0.011586 (0.31%) (init= 3.749707)
+    p0_x_eta:   -0.24449570 +/- 0.025856 (10.58%) (init= 0)
+    p0_y_eta:    0.14211870 +/- 0.027445 (19.31%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 6N-H, 66N-H, 131N-H
+
+[[Fit Statistics]]
+    # function evals   = 117
+    # data points      = 11659
+    # variables        = 18
+    chi-square         = 26606.225
+    reduced chi-square = 2.286
+    Akaike info crit   = 9655.454
+    Bayesian info crit = 9788.003
+[[Variables]]
+    p0_x0:       372.515982 +/- 0.006764 (0.00%) (init= 372.598)
+    p0_y0:       148.754725 +/- 0.005473 (0.00%) (init= 148.7394)
+    p0_x_fwhm:   3.58696724 +/- 0.020057 (0.56%) (init= 3.3197)
+    p0_y_fwhm:   3.46245148 +/- 0.018233 (0.53%) (init= 3.476568)
+    p0_x_eta:   -0.02615909 +/- 0.049079 (187.62%) (init= 0)
+    p0_y_eta:    0.09056390 +/- 0.047848 (52.83%) (init= 0)
+    p1_x0:       366.531172 +/- 0.003703 (0.00%) (init= 366.5369)
+    p1_y0:       149.025417 +/- 0.003334 (0.00%) (init= 149.0349)
+    p1_x_fwhm:   3.30342804 +/- 0.009705 (0.29%) (init= 3.164908)
+    p1_y_fwhm:   3.36956131 +/- 0.010113 (0.30%) (init= 3.337608)
+    p1_x_eta:   -0.51840359 +/- 0.024124 (4.65%) (init= 0)
+    p1_y_eta:   -0.04244576 +/- 0.023803 (56.08%) (init= 0)
+    p2_x0:       361.879807 +/- 0.002368 (0.00%) (init= 361.8748)
+    p2_y0:       145.252418 +/- 0.003120 (0.00%) (init= 145.2203)
+    p2_x_fwhm:   3.10486242 +/- 0.007556 (0.24%) (init= 3.044311)
+    p2_y_fwhm:   3.46927228 +/- 0.009583 (0.28%) (init= 3.435638)
+    p2_x_eta:   -0.19826662 +/- 0.019102 (9.63%) (init= 0)
+    p2_y_eta:    0.12552367 +/- 0.016497 (13.14%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 118N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 4716
+    # variables        = 6
+    chi-square         = 7815.427
+    reduced chi-square = 1.659
+    Akaike info crit   = 2394.234
+    Bayesian info crit = 2432.986
+[[Variables]]
+    p0_x0:       249.792158 +/- 0.002378 (0.00%) (init= 249.7926)
+    p0_y0:       128.016336 +/- 0.002397 (0.00%) (init= 128.0157)
+    p0_x_fwhm:   3.43904447 +/- 0.008082 (0.24%) (init= 3.424339)
+    p0_y_fwhm:   3.44816291 +/- 0.008169 (0.24%) (init= 3.496437)
+    p0_x_eta:   -0.04587151 +/- 0.018209 (39.70%) (init= 0)
+    p0_y_eta:    0.11613078 +/- 0.013340 (11.49%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 47N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3275
+    # variables        = 6
+    chi-square         = 7507.939
+    reduced chi-square = 2.297
+    Akaike info crit   = 2729.081
+    Bayesian info crit = 2765.646
+[[Variables]]
+    p0_x0:       242.999131 +/- 0.003949 (0.00%) (init= 242.9987)
+    p0_y0:       123.952871 +/- 0.003929 (0.00%) (init= 123.9526)
+    p0_x_fwhm:   3.25064912 +/- 0.013280 (0.41%) (init= 3.232058)
+    p0_y_fwhm:   3.23369475 +/- 0.013223 (0.41%) (init= 3.215219)
+    p0_x_eta:   -0.10005734 +/- 0.044619 (44.59%) (init= 0)
+    p0_y_eta:   -0.09785818 +/- 0.043950 (44.91%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 7N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3275
+    # variables        = 6
+    chi-square         = 3981.927
+    reduced chi-square = 1.218
+    Akaike info crit   = 652.092
+    Bayesian info crit = 688.657
+[[Variables]]
+    p0_x0:       352.610734 +/- 0.005470 (0.00%) (init= 352.6226)
+    p0_y0:       142.153765 +/- 0.005987 (0.00%) (init= 142.1535)
+    p0_x_fwhm:   3.14180747 +/- 0.016283 (0.52%) (init= 3.053716)
+    p0_y_fwhm:   3.47448122 +/- 0.019773 (0.57%) (init= 3.477792)
+    p0_x_eta:   -0.39380342 +/- 0.044668 (11.34%) (init= 0)
+    p0_y_eta:    0.01687049 +/- 0.071045 (421.12%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 56N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 5721.959
+    reduced chi-square = 1.458
+    Akaike info crit   = 1488.390
+    Bayesian info crit = 1526.048
+[[Variables]]
+    p0_x0:       245.280862 +/- 0.003042 (0.00%) (init= 245.2811)
+    p0_y0:       106.439720 +/- 0.002970 (0.00%) (init= 106.4397)
+    p0_x_fwhm:   3.43074124 +/- 0.010566 (0.31%) (init= 3.435607)
+    p0_y_fwhm:   3.38984619 +/- 0.010682 (0.32%) (init= 3.389232)
+    p0_x_eta:    0.01737839 +/- 0.024853 (143.01%) (init= 0)
+    p0_y_eta:   -0.00155036 +/- 0.024427 (1575.58%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 1013N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 4407.135
+    reduced chi-square = 1.162
+    Akaike info crit   = 576.102
+    Bayesian info crit = 613.557
+[[Variables]]
+    p0_x0:       405.866709 +/- 0.003842 (0.00%) (init= 405.8622)
+    p0_y0:       5.89929662 +/- 0.007629 (0.13%) (init= 5.895878)
+    p0_x_fwhm:   2.53129292 +/- 0.012030 (0.48%) (init= 2.389014)
+    p0_y_fwhm:   4.25179211 +/- 0.026638 (0.63%) (init= 4.309038)
+    p0_x_eta:   -0.58889182 +/- 0.034738 (5.90%) (init= 0)
+    p0_y_eta:    0.21619503 +/- 0.054548 (25.23%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 36N-H, 75N-H, 93N-H
+
+[[Fit Statistics]]
+    # function evals   = 1516
+    # data points      = 9301
+    # variables        = 18
+    chi-square         = 15161.836
+    reduced chi-square = 1.633
+    Akaike info crit   = 4581.023
+    Bayesian info crit = 4709.505
+[[Variables]]
+    p0_x0:       230.133023 +/- 0.002012 (0.00%) (init= 230.1422)
+    p0_y0:       130.269473 +/- 0.001389 (0.00%) (init= 130.2772)
+    p0_x_fwhm:   3.12598058 +/- 0.005235 (0.17%) (init= 3.087565)
+    p0_y_fwhm:   3.19730946 +/- 0.010078 (0.32%) (init= 3.301518)
+    p0_x_eta:   -0.08746016 +/- 0.011488 (13.14%) (init= 0)
+    p0_y_eta:   -0.27720944 +/- 0.018601 (6.71%) (init= 0)
+    p1_x0:       227.271879 +/- 0.013071 (0.01%) (init= 227.2195)
+    p1_y0:       122.769200 +/- 0.007341 (0.01%) (init= 122.7781)
+    p1_x_fwhm:   3.33191579 +/- 0.024106 (0.72%) (init= 3.194847)
+    p1_y_fwhm:   3.71561316 +/- 0.018652 (0.50%) (init= 3.642955)
+    p1_x_eta:   -0.01788084 +/- 0.053402 (298.66%) (init= 0)
+    p1_y_eta:   -0.00556157 +/- 0.048411 (870.46%) (init= 0)
+    p2_x0:       229.862495 +/- 0.013867 (0.01%) (init= 229.5206)
+    p2_y0:       129.883078 +/- 0.032241 (0.02%) (init= 129.2076)
+    p2_x_fwhm:   3.37093244 +/- 0.024302 (0.72%) (init= 2.990789)
+    p2_y_fwhm:   9.88024328 +/- 0.225846 (2.29%) (init= 9.767311)
+    p2_x_eta:   -0.80172366 +/- 0.074793 (9.33%) (init= 0)
+    p2_y_eta:   -0.99999999 +/- 0.186636 (18.66%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+    C(p0_y_fwhm, p2_y_fwhm)      =  0.811 
+
+
+* Peak(s): 4N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 6130.614
+    reduced chi-square = 1.736
+    Akaike info crit   = 1957.407
+    Bayesian info crit = 1994.433
+[[Variables]]
+    p0_x0:       364.885855 +/- 0.003549 (0.00%) (init= 364.884)
+    p0_y0:       84.7209046 +/- 0.004018 (0.00%) (init= 84.7204)
+    p0_x_fwhm:   3.14804319 +/- 0.011937 (0.38%) (init= 3.118851)
+    p0_y_fwhm:   3.45785600 +/- 0.014111 (0.41%) (init= 3.488325)
+    p0_x_eta:   -0.13996276 +/- 0.038375 (27.42%) (init= 0)
+    p0_y_eta:    0.10981842 +/- 0.032307 (29.42%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 91N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4454
+    # variables        = 6
+    chi-square         = 6104.343
+    reduced chi-square = 1.372
+    Akaike info crit   = 1415.892
+    Bayesian info crit = 1454.301
+[[Variables]]
+    p0_x0:       441.512812 +/- 0.001613 (0.00%) (init= 441.514)
+    p0_y0:       98.7912025 +/- 0.001918 (0.00%) (init= 98.79136)
+    p0_x_fwhm:   3.06468353 +/- 0.005490 (0.18%) (init= 2.983967)
+    p0_y_fwhm:   3.47345957 +/- 0.006471 (0.19%) (init= 3.541935)
+    p0_x_eta:   -0.25549671 +/- 0.013029 (5.10%) (init= 0)
+    p0_y_eta:    0.15402955 +/- 0.009776 (6.35%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 69N-H, 99N-H
+
+[[Fit Statistics]]
+    # function evals   = 68
+    # data points      = 7467
+    # variables        = 12
+    chi-square         = 13409.153
+    reduced chi-square = 1.799
+    Akaike info crit   = 4395.512
+    Bayesian info crit = 4478.531
+[[Variables]]
+    p0_x0:       393.656495 +/- 0.005491 (0.00%) (init= 393.6395)
+    p0_y0:       135.593999 +/- 0.007276 (0.01%) (init= 135.5547)
+    p0_x_fwhm:   3.29022544 +/- 0.010488 (0.32%) (init= 3.092962)
+    p0_y_fwhm:   4.19745833 +/- 0.015348 (0.37%) (init= 4.175734)
+    p0_x_eta:   -0.57331269 +/- 0.024330 (4.24%) (init= 0)
+    p0_y_eta:   -0.42587159 +/- 0.039174 (9.20%) (init= 0)
+    p1_x0:       391.542973 +/- 0.004750 (0.00%) (init= 391.5202)
+    p1_y0:       131.949770 +/- 0.003395 (0.00%) (init= 131.9463)
+    p1_x_fwhm:   3.22157093 +/- 0.008095 (0.25%) (init= 3.069396)
+    p1_y_fwhm:   3.60404679 +/- 0.006970 (0.19%) (init= 3.533864)
+    p1_x_eta:   -0.22424885 +/- 0.015400 (6.87%) (init= 0)
+    p1_y_eta:   -0.06398892 +/- 0.014473 (22.62%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+    C(p0_y_eta, p1_x0)           = -0.823 
+
+
+* Peak(s): 89N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4978
+    # variables        = 6
+    chi-square         = 21914.797
+    reduced chi-square = 4.408
+    Akaike info crit   = 7390.062
+    Bayesian info crit = 7429.139
+[[Variables]]
+    p0_x0:       178.732714 +/- 0.001815 (0.00%) (init= 178.733)
+    p0_y0:       162.919816 +/- 0.002050 (0.00%) (init= 162.9195)
+    p0_x_fwhm:   3.12888174 +/- 0.006024 (0.19%) (init= 3.028746)
+    p0_y_fwhm:   3.33491933 +/- 0.006610 (0.20%) (init= 3.387419)
+    p0_x_eta:   -0.30818668 +/- 0.013910 (4.51%) (init= 0)
+    p0_y_eta:    0.11171532 +/- 0.009228 (8.26%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 27N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 6042.701
+    reduced chi-square = 1.711
+    Akaike info crit   = 1906.319
+    Bayesian info crit = 1943.345
+[[Variables]]
+    p0_x0:       234.344040 +/- 0.002591 (0.00%) (init= 234.3508)
+    p0_y0:       110.745449 +/- 0.002950 (0.00%) (init= 110.7456)
+    p0_x_fwhm:   3.02186663 +/- 0.008475 (0.28%) (init= 2.936964)
+    p0_y_fwhm:   3.38650014 +/- 0.010172 (0.30%) (init= 3.381554)
+    p0_x_eta:   -0.37138584 +/- 0.027064 (7.29%) (init= 0)
+    p0_y_eta:   -0.01371231 +/- 0.023463 (171.11%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 3N-H, 158N-H
+
+[[Fit Statistics]]
+    # function evals   = 55
+    # data points      = 7729
+    # variables        = 12
+    chi-square         = 21841.114
+    reduced chi-square = 2.830
+    Akaike info crit   = 8052.999
+    Bayesian info crit = 8136.431
+[[Variables]]
+    p0_x0:       246.116993 +/- 0.003217 (0.00%) (init= 246.1265)
+    p0_y0:       161.662736 +/- 0.003305 (0.00%) (init= 161.6628)
+    p0_x_fwhm:   3.05088008 +/- 0.010212 (0.33%) (init= 3.061159)
+    p0_y_fwhm:   3.43049568 +/- 0.010530 (0.31%) (init= 3.347482)
+    p0_x_eta:   -0.05978902 +/- 0.028799 (48.17%) (init= 0)
+    p0_y_eta:   -0.27555647 +/- 0.023516 (8.53%) (init= 0)
+    p1_x0:       249.208005 +/- 0.001935 (0.00%) (init= 249.22)
+    p1_y0:       155.641139 +/- 0.001872 (0.00%) (init= 155.6395)
+    p1_x_fwhm:   3.05701492 +/- 0.006038 (0.20%) (init= 2.978046)
+    p1_y_fwhm:   3.14516929 +/- 0.006187 (0.20%) (init= 3.174403)
+    p1_x_eta:   -0.24377676 +/- 0.019437 (7.97%) (init= 0)
+    p1_y_eta:    0.09688417 +/- 0.010094 (10.42%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 90N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 8684.678
+    reduced chi-square = 2.142
+    Akaike info crit   = 3098.892
+    Bayesian info crit = 3136.747
+[[Variables]]
+    p0_x0:       438.288540 +/- 0.001912 (0.00%) (init= 438.2897)
+    p0_y0:       226.430615 +/- 0.002086 (0.00%) (init= 226.4289)
+    p0_x_fwhm:   3.08372736 +/- 0.006493 (0.21%) (init= 3.070265)
+    p0_y_fwhm:   3.40852994 +/- 0.007251 (0.21%) (init= 3.461779)
+    p0_x_eta:   -0.05798005 +/- 0.019270 (33.24%) (init= 0)
+    p0_y_eta:    0.13863456 +/- 0.012589 (9.08%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 9N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3275
+    # variables        = 6
+    chi-square         = 5175.318
+    reduced chi-square = 1.583
+    Akaike info crit   = 1510.584
+    Bayesian info crit = 1547.149
+[[Variables]]
+    p0_x0:       400.682478 +/- 0.004712 (0.00%) (init= 400.6844)
+    p0_y0:       130.883728 +/- 0.005146 (0.00%) (init= 130.8838)
+    p0_x_fwhm:   3.16886358 +/- 0.016117 (0.51%) (init= 3.185803)
+    p0_y_fwhm:   3.50979531 +/- 0.016958 (0.48%) (init= 3.510549)
+    p0_x_eta:    0.07793182 +/- 0.046252 (59.35%) (init= 0)
+    p0_y_eta:    0.00648203 +/- 0.062965 (971.38%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 123N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 5878.722
+    reduced chi-square = 1.665
+    Akaike info crit   = 1809.010
+    Bayesian info crit = 1846.036
+[[Variables]]
+    p0_x0:       436.354639 +/- 0.002549 (0.00%) (init= 436.3593)
+    p0_y0:       216.220286 +/- 0.002719 (0.00%) (init= 216.2207)
+    p0_x_fwhm:   3.08866232 +/- 0.008433 (0.27%) (init= 3.042781)
+    p0_y_fwhm:   3.32931942 +/- 0.009354 (0.28%) (init= 3.344484)
+    p0_x_eta:   -0.20238717 +/- 0.025801 (12.75%) (init= 0)
+    p0_y_eta:    0.05212759 +/- 0.020651 (39.62%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 58N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 17967.402
+    reduced chi-square = 4.737
+    Akaike info crit   = 5914.967
+    Bayesian info crit = 5952.422
+[[Variables]]
+    p0_x0:       238.274951 +/- 0.001956 (0.00%) (init= 238.2745)
+    p0_y0:       175.867569 +/- 0.002012 (0.00%) (init= 175.8674)
+    p0_x_fwhm:   3.01023222 +/- 0.006480 (0.22%) (init= 2.93061)
+    p0_y_fwhm:   3.03708422 +/- 0.006535 (0.22%) (init= 2.995723)
+    p0_x_eta:   -0.26313956 +/- 0.015421 (5.86%) (init= 0)
+    p0_y_eta:   -0.14446833 +/- 0.015005 (10.39%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 67N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 7246.745
+    reduced chi-square = 1.787
+    Akaike info crit   = 2363.819
+    Bayesian info crit = 2401.674
+[[Variables]]
+    p0_x0:       303.660733 +/- 0.003060 (0.00%) (init= 303.6602)
+    p0_y0:       138.618922 +/- 0.003095 (0.00%) (init= 138.6192)
+    p0_x_fwhm:   3.36276419 +/- 0.010671 (0.32%) (init= 3.334319)
+    p0_y_fwhm:   3.35027724 +/- 0.011019 (0.33%) (init= 3.35383)
+    p0_x_eta:   -0.09409223 +/- 0.025215 (26.80%) (init= 0)
+    p0_y_eta:    0.01037784 +/- 0.025029 (241.18%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 94N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 8439.923
+    reduced chi-square = 2.151
+    Akaike info crit   = 3015.832
+    Bayesian info crit = 3053.490
+[[Variables]]
+    p0_x0:       380.479505 +/- 0.002371 (0.00%) (init= 380.4805)
+    p0_y0:       142.644218 +/- 0.002619 (0.00%) (init= 142.6434)
+    p0_x_fwhm:   3.10652024 +/- 0.008061 (0.26%) (init= 3.036613)
+    p0_y_fwhm:   3.34308457 +/- 0.009326 (0.28%) (init= 3.353518)
+    p0_x_eta:   -0.23288511 +/- 0.019702 (8.46%) (init= 0)
+    p0_y_eta:    0.03184794 +/- 0.020617 (64.74%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 64N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 6133.328
+    reduced chi-square = 1.737
+    Akaike info crit   = 1958.972
+    Bayesian info crit = 1995.999
+[[Variables]]
+    p0_x0:       274.065199 +/- 0.002816 (0.00%) (init= 274.0652)
+    p0_y0:       106.766803 +/- 0.003516 (0.00%) (init= 106.7657)
+    p0_x_fwhm:   2.99562857 +/- 0.009421 (0.31%) (init= 2.945379)
+    p0_y_fwhm:   3.50364104 +/- 0.012219 (0.35%) (init= 3.537592)
+    p0_x_eta:   -0.22172198 +/- 0.028919 (13.04%) (init= 0)
+    p0_y_eta:    0.12950714 +/- 0.028205 (21.78%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 46N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3406
+    # variables        = 6
+    chi-square         = 6965.621
+    reduced chi-square = 2.049
+    Akaike info crit   = 2448.816
+    Bayesian info crit = 2485.616
+[[Variables]]
+    p0_x0:       291.444631 +/- 0.003140 (0.00%) (init= 291.4539)
+    p0_y0:       89.1584299 +/- 0.003440 (0.00%) (init= 89.15815)
+    p0_x_fwhm:   3.03170359 +/- 0.009887 (0.33%) (init= 2.934737)
+    p0_y_fwhm:   3.27675418 +/- 0.011613 (0.35%) (init= 3.286955)
+    p0_x_eta:   -0.42186303 +/- 0.030841 (7.31%) (init= 0)
+    p0_y_eta:    0.03989828 +/- 0.028884 (72.40%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 129N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4454
+    # variables        = 6
+    chi-square         = 8651.118
+    reduced chi-square = 1.945
+    Akaike info crit   = 2968.948
+    Bayesian info crit = 3007.357
+[[Variables]]
+    p0_x0:       242.550110 +/- 0.002014 (0.00%) (init= 242.5484)
+    p0_y0:       94.2559005 +/- 0.002357 (0.00%) (init= 94.25518)
+    p0_x_fwhm:   3.08735689 +/- 0.006936 (0.22%) (init= 3.000435)
+    p0_y_fwhm:   3.41440644 +/- 0.008035 (0.24%) (init= 3.460775)
+    p0_x_eta:   -0.26214786 +/- 0.016118 (6.15%) (init= 0)
+    p0_y_eta:    0.11132477 +/- 0.013254 (11.91%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 85N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 8204.074
+    reduced chi-square = 2.023
+    Akaike info crit   = 2867.702
+    Bayesian info crit = 2905.557
+[[Variables]]
+    p0_x0:       226.867810 +/- 0.002136 (0.00%) (init= 226.8683)
+    p0_y0:       95.5961618 +/- 0.002416 (0.00%) (init= 95.59634)
+    p0_x_fwhm:   3.15282919 +/- 0.006862 (0.22%) (init= 3.062554)
+    p0_y_fwhm:   3.40625197 +/- 0.008692 (0.26%) (init= 3.409941)
+    p0_x_eta:   -0.31331016 +/- 0.016628 (5.31%) (init= 0)
+    p0_y_eta:    0.00270691 +/- 0.019600 (724.08%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 127N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 13818.689
+    reduced chi-square = 3.522
+    Akaike info crit   = 4953.513
+    Bayesian info crit = 4991.172
+[[Variables]]
+    p0_x0:       260.142544 +/- 0.002100 (0.00%) (init= 260.1441)
+    p0_y0:       173.506053 +/- 0.002517 (0.00%) (init= 173.5051)
+    p0_x_fwhm:   2.93694849 +/- 0.007020 (0.24%) (init= 2.868287)
+    p0_y_fwhm:   3.35186463 +/- 0.008714 (0.26%) (init= 3.387086)
+    p0_x_eta:   -0.29266320 +/- 0.021481 (7.34%) (init= 0)
+    p0_y_eta:    0.09468529 +/- 0.015862 (16.75%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 53N-H, 147N-H
+
+[[Fit Statistics]]
+    # function evals   = 233
+    # data points      = 5895
+    # variables        = 12
+    chi-square         = 15704.211
+    reduced chi-square = 2.669
+    Akaike info crit   = 5800.065
+    Bayesian info crit = 5880.247
+[[Variables]]
+    p0_x0:       292.906586 +/- 0.003087 (0.00%) (init= 292.9213)
+    p0_y0:       190.907750 +/- 0.002837 (0.00%) (init= 190.9163)
+    p0_x_fwhm:   2.88873097 +/- 0.004544 (0.16%) (init= 2.773352)
+    p0_y_fwhm:   3.37029763 +/- 0.006077 (0.18%) (init= 3.338591)
+    p0_x_eta:   -0.44861438 +/- 0.009127 (2.03%) (init= 0)
+    p0_y_eta:    0.06360108 +/- 0.007455 (11.72%) (init= 0)
+    p1_x0:       292.082599 +/- 0.022670 (0.01%) (init= 292.3231)
+    p1_y0:       188.300546 +/- 0.080670 (0.04%) (init= 188.5979)
+    p1_x_fwhm:   3.21317814 +/- 0.051709 (1.61%) (init= 2.899999)
+    p1_y_fwhm:   4.50894836 +/- 0.137913 (3.06%) (init= 4.728804)
+    p1_x_eta:    0.79346053 +/- 0.080545 (10.15%) (init= 0)
+    p1_y_eta:   -0.99999905 +/- 0.156265 (15.63%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+    C(p0_x0, p1_y0)              =  0.891 
+    C(p0_x0, p1_y_fwhm)          =  0.841 
+    C(p1_y0, p1_y_fwhm)          =  0.829 
+
+
+* Peak(s): 153N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 8618.284
+    reduced chi-square = 2.125
+    Akaike info crit   = 3067.727
+    Bayesian info crit = 3105.582
+[[Variables]]
+    p0_x0:       296.706736 +/- 0.002671 (0.00%) (init= 296.7065)
+    p0_y0:       124.653180 +/- 0.002836 (0.00%) (init= 124.6536)
+    p0_x_fwhm:   3.24619801 +/- 0.009156 (0.28%) (init= 3.20577)
+    p0_y_fwhm:   3.36513778 +/- 0.010022 (0.30%) (init= 3.36676)
+    p0_x_eta:   -0.13041382 +/- 0.021146 (16.21%) (init= 0)
+    p0_y_eta:    0.00384329 +/- 0.022874 (595.17%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 119N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 4192
+    # variables        = 6
+    chi-square         = 6677.078
+    reduced chi-square = 1.595
+    Akaike info crit   = 1963.387
+    Bayesian info crit = 2001.432
+[[Variables]]
+    p0_x0:       419.865654 +/- 0.002024 (0.00%) (init= 419.8674)
+    p0_y0:       145.192413 +/- 0.002255 (0.00%) (init= 145.193)
+    p0_x_fwhm:   3.19694833 +/- 0.006588 (0.21%) (init= 3.140288)
+    p0_y_fwhm:   3.43946381 +/- 0.007688 (0.22%) (init= 3.466794)
+    p0_x_eta:   -0.18188070 +/- 0.014636 (8.05%) (init= 0)
+    p0_y_eta:    0.07535939 +/- 0.014320 (19.00%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 5N-H, 10N-H, 76N-H
+
+[[Fit Statistics]]
+    # function evals   = 288
+    # data points      = 6681
+    # variables        = 18
+    chi-square         = 8077.720
+    reduced chi-square = 1.212
+    Akaike info crit   = 1304.335
+    Bayesian info crit = 1426.861
+[[Variables]]
+    p0_x0:       335.462268 +/- 0.014723 (0.00%) (init= 335.0378)
+    p0_y0:       158.490992 +/- 0.026111 (0.02%) (init= 158.1695)
+    p0_x_fwhm:   3.17840659 +/- 0.024416 (0.77%) (init= 2.945366)
+    p0_y_fwhm:   3.04499826 +/- 0.039015 (1.28%) (init= 3.83914)
+    p0_x_eta:   -0.00445413 +/- 0.034727 (779.68%) (init= 0)
+    p0_y_eta:    0.53078906 +/- 0.027382 (5.16%) (init= 0)
+    p1_x0:       332.689229 +/- 0.015595 (0.00%) (init= 332.7231)
+    p1_y0:       160.076948 +/- 0.008670 (0.01%) (init= 160.0899)
+    p1_x_fwhm:   2.93225497 +/- 0.019356 (0.66%) (init= 2.886255)
+    p1_y_fwhm:   3.26984456 +/- 0.019721 (0.60%) (init= 3.343466)
+    p1_x_eta:   -0.34922295 +/- 0.068127 (19.51%) (init= 0)
+    p1_y_eta:    0.24820851 +/- 0.025758 (10.38%) (init= 0)
+    p2_x0:       335.873337 +/- 0.015362 (0.00%) (init= 335.8155)
+    p2_y0:       159.674352 +/- 0.024811 (0.02%) (init= 159.3852)
+    p2_x_fwhm:   3.45986621 +/- 0.021795 (0.63%) (init= 3.362509)
+    p2_y_fwhm:   3.02011325 +/- 0.024590 (0.81%) (init= 3.291662)
+    p2_x_eta:   -0.13690830 +/- 0.035040 (25.59%) (init= 0)
+    p2_y_eta:    0.05608391 +/- 0.022674 (40.43%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+    C(p2_y0, p2_y_fwhm)          = -0.863 
+    C(p1_x0, p2_x_fwhm)          = -0.802 
+
+
+* Peak(s): 19N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4323
+    # variables        = 6
+    chi-square         = 6738.039
+    reduced chi-square = 1.561
+    Akaike info crit   = 1930.631
+    Bayesian info crit = 1968.861
+[[Variables]]
+    p0_x0:       275.809380 +/- 0.001119 (0.00%) (init= 275.8059)
+    p0_y0:       124.462804 +/- 0.001301 (0.00%) (init= 124.463)
+    p0_x_fwhm:   2.96822607 +/- 0.003757 (0.13%) (init= 2.908387)
+    p0_y_fwhm:   3.35015655 +/- 0.004307 (0.13%) (init= 3.393694)
+    p0_x_eta:   -0.25884296 +/- 0.011571 (4.47%) (init= 0)
+    p0_y_eta:    0.09399634 +/- 0.006212 (6.61%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 142N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 5267.258
+    reduced chi-square = 1.389
+    Akaike info crit   = 1253.407
+    Bayesian info crit = 1290.862
+[[Variables]]
+    p0_x0:       379.713531 +/- 0.002982 (0.00%) (init= 379.7137)
+    p0_y0:       52.3819947 +/- 0.003187 (0.01%) (init= 52.38147)
+    p0_x_fwhm:   3.36164651 +/- 0.010141 (0.30%) (init= 3.315254)
+    p0_y_fwhm:   3.42906285 +/- 0.011279 (0.33%) (init= 3.45178)
+    p0_x_eta:   -0.16451882 +/- 0.025135 (15.28%) (init= 0)
+    p0_y_eta:    0.07814894 +/- 0.026887 (34.41%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 140N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 6979.516
+    reduced chi-square = 1.840
+    Akaike info crit   = 2322.710
+    Bayesian info crit = 2360.165
+[[Variables]]
+    p0_x0:       438.519136 +/- 0.002690 (0.00%) (init= 438.5214)
+    p0_y0:       249.637160 +/- 0.002791 (0.00%) (init= 249.637)
+    p0_x_fwhm:   3.17652684 +/- 0.009096 (0.29%) (init= 3.137724)
+    p0_y_fwhm:   3.34299715 +/- 0.009908 (0.30%) (init= 3.342096)
+    p0_x_eta:   -0.13815248 +/- 0.022290 (16.13%) (init= 0)
+    p0_y_eta:   -0.00469721 +/- 0.022295 (474.65%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 83N-H, 161N-H
+
+[[Fit Statistics]]
+    # function evals   = 55
+    # data points      = 7729
+    # variables        = 12
+    chi-square         = 11732.245
+    reduced chi-square = 1.520
+    Akaike info crit   = 3249.788
+    Bayesian info crit = 3333.220
+[[Variables]]
+    p0_x0:       323.110896 +/- 0.002147 (0.00%) (init= 323.1143)
+    p0_y0:       215.436850 +/- 0.002409 (0.00%) (init= 215.4377)
+    p0_x_fwhm:   3.08326588 +/- 0.006255 (0.20%) (init= 3.002496)
+    p0_y_fwhm:   3.45534378 +/- 0.007343 (0.21%) (init= 3.491961)
+    p0_x_eta:   -0.35234320 +/- 0.017339 (4.92%) (init= 0)
+    p0_y_eta:    0.09821547 +/- 0.013697 (13.95%) (init= 0)
+    p1_x0:       328.445047 +/- 0.002626 (0.00%) (init= 328.4737)
+    p1_y0:       214.785961 +/- 0.002422 (0.00%) (init= 214.7632)
+    p1_x_fwhm:   3.22339149 +/- 0.008160 (0.25%) (init= 3.116818)
+    p1_y_fwhm:   3.31298752 +/- 0.007227 (0.22%) (init= 3.273084)
+    p1_x_eta:   -0.04707400 +/- 0.017105 (36.34%) (init= 0)
+    p1_y_eta:   -0.06372863 +/- 0.016557 (25.98%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 62N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 5241.657
+    reduced chi-square = 1.382
+    Akaike info crit   = 1234.897
+    Bayesian info crit = 1272.352
+[[Variables]]
+    p0_x0:       374.331961 +/- 0.002280 (0.00%) (init= 374.3323)
+    p0_y0:       102.635513 +/- 0.002387 (0.00%) (init= 102.6352)
+    p0_x_fwhm:   3.25809268 +/- 0.007847 (0.24%) (init= 3.228271)
+    p0_y_fwhm:   3.38319803 +/- 0.008390 (0.25%) (init= 3.375743)
+    p0_x_eta:   -0.10679417 +/- 0.019342 (18.11%) (init= 0)
+    p0_y_eta:   -0.02515127 +/- 0.019844 (78.90%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 23N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3275
+    # variables        = 6
+    chi-square         = 5256.153
+    reduced chi-square = 1.608
+    Akaike info crit   = 1561.342
+    Bayesian info crit = 1597.906
+[[Variables]]
+    p0_x0:       360.055457 +/- 0.003128 (0.00%) (init= 360.0558)
+    p0_y0:       48.9587232 +/- 0.003355 (0.01%) (init= 48.95854)
+    p0_x_fwhm:   3.15470643 +/- 0.010546 (0.33%) (init= 3.129636)
+    p0_y_fwhm:   3.31189278 +/- 0.011264 (0.34%) (init= 3.302056)
+    p0_x_eta:   -0.12368542 +/- 0.033883 (27.40%) (init= 0)
+    p0_y_eta:   -0.05607233 +/- 0.038535 (68.73%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 1011N-H
+
+[[Fit Statistics]]
+    # function evals   = 38
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 3564.628
+    reduced chi-square = 1.010
+    Akaike info crit   = 39.520
+    Bayesian info crit = 76.547
+[[Variables]]
+    p0_x0:       426.826025 +/- 0.004878 (0.00%) (init= 426.8201)
+    p0_y0:       4.38553817 +/- 0.011027 (0.25%) (init= 4.392086)
+    p0_x_fwhm:   2.51123175 +/- 0.015249 (0.61%) (init= 2.349117)
+    p0_y_fwhm:   4.52820228 +/- 0.037851 (0.84%) (init= 4.561452)
+    p0_x_eta:   -0.66238159 +/- 0.045077 (6.81%) (init= 0)
+    p0_y_eta:    0.36441666 +/- 0.115616 (31.73%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 157N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 6853.974
+    reduced chi-square = 1.747
+    Akaike info crit   = 2197.824
+    Bayesian info crit = 2235.482
+[[Variables]]
+    p0_x0:       397.638757 +/- 0.002404 (0.00%) (init= 397.6384)
+    p0_y0:       32.9386723 +/- 0.002636 (0.01%) (init= 32.93819)
+    p0_x_fwhm:   3.20716321 +/- 0.008340 (0.26%) (init= 3.149149)
+    p0_y_fwhm:   3.33759013 +/- 0.008692 (0.26%) (init= 3.348374)
+    p0_x_eta:   -0.17861374 +/- 0.019193 (10.75%) (init= 0)
+    p0_y_eta:    0.03572376 +/- 0.018858 (52.79%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 82N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 12510.847
+    reduced chi-square = 3.085
+    Akaike info crit   = 4581.302
+    Bayesian info crit = 4619.158
+[[Variables]]
+    p0_x0:       194.854308 +/- 0.002163 (0.00%) (init= 194.8524)
+    p0_y0:       3.85982950 +/- 0.002443 (0.06%) (init= 3.86072)
+    p0_x_fwhm:   3.05827826 +/- 0.007311 (0.24%) (init= 3.033898)
+    p0_y_fwhm:   3.40802261 +/- 0.008250 (0.24%) (init= 3.448704)
+    p0_x_eta:   -0.10766006 +/- 0.022192 (20.61%) (init= 0)
+    p0_y_eta:    0.10173853 +/- 0.013675 (13.44%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 141N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 4930.114
+    reduced chi-square = 1.396
+    Akaike info crit   = 1186.579
+    Bayesian info crit = 1223.605
+[[Variables]]
+    p0_x0:       287.993434 +/- 0.003168 (0.00%) (init= 287.9931)
+    p0_y0:       150.570449 +/- 0.003269 (0.00%) (init= 150.5707)
+    p0_x_fwhm:   3.39852981 +/- 0.010527 (0.31%) (init= 3.390114)
+    p0_y_fwhm:   3.50295431 +/- 0.011571 (0.33%) (init= 3.513638)
+    p0_x_eta:   -0.05159535 +/- 0.037825 (73.31%) (init= 0)
+    p0_y_eta:    0.03958496 +/- 0.028035 (70.82%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 38N-H
+
+[[Fit Statistics]]
+    # function evals   = 38
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 22144.683
+    reduced chi-square = 5.838
+    Akaike info crit   = 6709.103
+    Bayesian info crit = 6746.558
+[[Variables]]
+    p0_x0:       301.212749 +/- 0.001635 (0.00%) (init= 301.2193)
+    p0_y0:       175.898412 +/- 0.001910 (0.00%) (init= 175.8985)
+    p0_x_fwhm:   2.77639422 +/- 0.004653 (0.17%) (init= 2.597141)
+    p0_y_fwhm:   2.99989138 +/- 0.006129 (0.20%) (init= 2.956568)
+    p0_x_eta:   -0.66864360 +/- 0.011930 (1.78%) (init= 0)
+    p0_y_eta:   -0.14880352 +/- 0.013742 (9.24%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 104N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 5830.459
+    reduced chi-square = 1.592
+    Akaike info crit   = 1711.931
+    Bayesian info crit = 1749.176
+[[Variables]]
+    p0_x0:       177.503826 +/- 0.003632 (0.00%) (init= 177.5172)
+    p0_y0:       81.9264503 +/- 0.003983 (0.00%) (init= 81.92497)
+    p0_x_fwhm:   3.19478770 +/- 0.010814 (0.34%) (init= 3.080175)
+    p0_y_fwhm:   3.49744155 +/- 0.013239 (0.38%) (init= 3.51542)
+    p0_x_eta:   -0.55149990 +/- 0.034993 (6.35%) (init= 0)
+    p0_y_eta:    0.06264249 +/- 0.028350 (45.26%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 139N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3406
+    # variables        = 6
+    chi-square         = 4900.824
+    reduced chi-square = 1.441
+    Akaike info crit   = 1251.323
+    Bayesian info crit = 1288.123
+[[Variables]]
+    p0_x0:       387.254765 +/- 0.002938 (0.00%) (init= 387.2568)
+    p0_y0:       156.955470 +/- 0.003161 (0.00%) (init= 156.9548)
+    p0_x_fwhm:   3.30834712 +/- 0.009668 (0.29%) (init= 3.284687)
+    p0_y_fwhm:   3.54096012 +/- 0.010467 (0.30%) (init= 3.557989)
+    p0_x_eta:   -0.12441522 +/- 0.032555 (26.17%) (init= 0)
+    p0_y_eta:    0.08283751 +/- 0.027008 (32.60%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 162N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 4061
+    # variables        = 6
+    chi-square         = 10543.611
+    reduced chi-square = 2.600
+    Akaike info crit   = 3886.563
+    Bayesian info crit = 3924.418
+[[Variables]]
+    p0_x0:       453.066277 +/- 0.002435 (0.00%) (init= 453.0688)
+    p0_y0:       130.589558 +/- 0.002639 (0.00%) (init= 130.5896)
+    p0_x_fwhm:   3.10063585 +/- 0.007625 (0.25%) (init= 3.06198)
+    p0_y_fwhm:   3.32516693 +/- 0.009528 (0.29%) (init= 3.333447)
+    p0_x_eta:   -0.13436351 +/- 0.016597 (12.35%) (init= 0)
+    p0_y_eta:    0.02293248 +/- 0.020843 (90.89%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 24N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 7552.965
+    reduced chi-square = 1.991
+    Akaike info crit   = 2622.681
+    Bayesian info crit = 2660.136
+[[Variables]]
+    p0_x0:       309.635371 +/- 0.003040 (0.00%) (init= 309.6347)
+    p0_y0:       111.913788 +/- 0.003268 (0.00%) (init= 111.9133)
+    p0_x_fwhm:   3.26475310 +/- 0.010572 (0.32%) (init= 3.231471)
+    p0_y_fwhm:   3.38570881 +/- 0.010868 (0.32%) (init= 3.402345)
+    p0_x_eta:   -0.11132552 +/- 0.025291 (22.72%) (init= 0)
+    p0_y_eta:    0.05702352 +/- 0.023855 (41.83%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 115N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3930
+    # variables        = 6
+    chi-square         = 14210.047
+    reduced chi-square = 3.621
+    Akaike info crit   = 5063.268
+    Bayesian info crit = 5100.926
+[[Variables]]
+    p0_x0:       369.170147 +/- 0.002117 (0.00%) (init= 369.1689)
+    p0_y0:       201.279854 +/- 0.002260 (0.00%) (init= 201.2792)
+    p0_x_fwhm:   3.06556302 +/- 0.006948 (0.23%) (init= 3.02527)
+    p0_y_fwhm:   3.23864546 +/- 0.007794 (0.24%) (init= 3.216969)
+    p0_x_eta:   -0.13298381 +/- 0.015464 (11.63%) (init= 0)
+    p0_y_eta:   -0.06953526 +/- 0.017068 (24.55%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 151N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3406
+    # variables        = 6
+    chi-square         = 5824.239
+    reduced chi-square = 1.713
+    Akaike info crit   = 1839.284
+    Bayesian info crit = 1876.084
+[[Variables]]
+    p0_x0:       255.322469 +/- 0.003330 (0.00%) (init= 255.3264)
+    p0_y0:       159.281299 +/- 0.003477 (0.00%) (init= 159.2802)
+    p0_x_fwhm:   3.36819458 +/- 0.010686 (0.32%) (init= 3.337589)
+    p0_y_fwhm:   3.53657056 +/- 0.011934 (0.34%) (init= 3.56241)
+    p0_x_eta:   -0.16852380 +/- 0.036271 (21.52%) (init= 0)
+    p0_y_eta:    0.12040497 +/- 0.031866 (26.47%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 95N-H
+
+[[Fit Statistics]]
+    # function evals   = 17
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 6690.889
+    reduced chi-square = 1.764
+    Akaike info crit   = 2162.268
+    Bayesian info crit = 2199.723
+[[Variables]]
+    p0_x0:       394.457595 +/- 0.003350 (0.00%) (init= 394.4576)
+    p0_y0:       151.851804 +/- 0.003569 (0.00%) (init= 151.8515)
+    p0_x_fwhm:   3.36825859 +/- 0.011825 (0.35%) (init= 3.36771)
+    p0_y_fwhm:   3.55790164 +/- 0.011961 (0.34%) (init= 3.56311)
+    p0_x_eta:   -0.00167487 +/- 0.028112 (1678.50%) (init= 0)
+    p0_y_eta:    0.02014934 +/- 0.028387 (140.89%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 68N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3799
+    # variables        = 6
+    chi-square         = 6562.220
+    reduced chi-square = 1.730
+    Akaike info crit   = 2088.499
+    Bayesian info crit = 2125.954
+[[Variables]]
+    p0_x0:       225.542406 +/- 0.003316 (0.00%) (init= 225.5429)
+    p0_y0:       150.791446 +/- 0.003728 (0.00%) (init= 150.7897)
+    p0_x_fwhm:   3.19245224 +/- 0.011263 (0.35%) (init= 3.124922)
+    p0_y_fwhm:   3.39318074 +/- 0.012867 (0.38%) (init= 3.435808)
+    p0_x_eta:   -0.22611120 +/- 0.027353 (12.10%) (init= 0)
+    p0_y_eta:    0.16271195 +/- 0.030248 (18.59%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 134N-H, 148N-H
+
+[[Fit Statistics]]
+    # function evals   = 55
+    # data points      = 6419
+    # variables        = 12
+    chi-square         = 8619.515
+    reduced chi-square = 1.345
+    Akaike info crit   = 1916.106
+    Bayesian info crit = 1997.310
+[[Variables]]
+    p0_x0:       440.613091 +/- 0.004598 (0.00%) (init= 440.6163)
+    p0_y0:       139.462925 +/- 0.009425 (0.01%) (init= 139.4414)
+    p0_x_fwhm:   3.22622441 +/- 0.010859 (0.34%) (init= 3.192239)
+    p0_y_fwhm:   3.64886525 +/- 0.015194 (0.42%) (init= 3.676939)
+    p0_x_eta:   -0.14075059 +/- 0.027497 (19.54%) (init= 0)
+    p0_y_eta:    0.17145151 +/- 0.026881 (15.68%) (init= 0)
+    p1_x0:       444.339486 +/- 0.005109 (0.00%) (init= 444.3294)
+    p1_y0:       140.907684 +/- 0.005454 (0.00%) (init= 140.9273)
+    p1_x_fwhm:   3.20514243 +/- 0.011392 (0.36%) (init= 3.213324)
+    p1_y_fwhm:   3.42018530 +/- 0.012110 (0.35%) (init= 3.400656)
+    p1_x_eta:   -0.12356287 +/- 0.051329 (41.54%) (init= 0)
+    p1_y_eta:   -0.00828327 +/- 0.025697 (310.23%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+    C(p0_y0, p1_x_eta)           = -0.906 
+
+
+* Peak(s): 54N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 4454
+    # variables        = 6
+    chi-square         = 9703.372
+    reduced chi-square = 2.182
+    Akaike info crit   = 3480.200
+    Bayesian info crit = 3518.610
+[[Variables]]
+    p0_x0:       189.123879 +/- 0.003502 (0.00%) (init= 189.1228)
+    p0_y0:       131.248080 +/- 0.003430 (0.00%) (init= 131.2442)
+    p0_x_fwhm:   3.61239049 +/- 0.011684 (0.32%) (init= 3.584154)
+    p0_y_fwhm:   3.41099710 +/- 0.011967 (0.35%) (init= 3.500579)
+    p0_x_eta:   -0.08163829 +/- 0.022930 (28.09%) (init= 0)
+    p0_y_eta:    0.23236480 +/- 0.020051 (8.63%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 18N-H
+
+[[Fit Statistics]]
+    # function evals   = 31
+    # data points      = 3668
+    # variables        = 6
+    chi-square         = 7397.406
+    reduced chi-square = 2.020
+    Akaike info crit   = 2585.039
+    Bayesian info crit = 2622.283
+[[Variables]]
+    p0_x0:       143.895921 +/- 0.002373 (0.00%) (init= 143.8928)
+    p0_y0:       23.3372737 +/- 0.002850 (0.01%) (init= 23.33714)
+    p0_x_fwhm:   2.85097422 +/- 0.007890 (0.28%) (init= 2.792761)
+    p0_y_fwhm:   3.31006921 +/- 0.010062 (0.30%) (init= 3.301017)
+    p0_x_eta:   -0.24372772 +/- 0.022842 (9.37%) (init= 0)
+    p0_y_eta:   -0.03010190 +/- 0.022219 (73.81%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
+* Peak(s): 78N-H
+
+[[Fit Statistics]]
+    # function evals   = 24
+    # data points      = 3537
+    # variables        = 6
+    chi-square         = 5626.944
+    reduced chi-square = 1.594
+    Akaike info crit   = 1654.185
+    Bayesian info crit = 1691.211
+[[Variables]]
+    p0_x0:       329.967861 +/- 0.003638 (0.00%) (init= 329.9669)
+    p0_y0:       73.8125127 +/- 0.004006 (0.01%) (init= 73.81114)
+    p0_x_fwhm:   3.32664011 +/- 0.012166 (0.37%) (init= 3.314195)
+    p0_y_fwhm:   3.57112780 +/- 0.013752 (0.39%) (init= 3.605228)
+    p0_x_eta:   -0.06650971 +/- 0.042131 (63.35%) (init= 0)
+    p0_y_eta:    0.13465682 +/- 0.032178 (23.90%) (init= 0)
+[[Correlations]] (unreported correlations are <  0.800)
+
+
