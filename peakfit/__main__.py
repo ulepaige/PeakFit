@@ -1,12 +1,27 @@
 import argparse
 import os
 import os.path
+import sys
 
 import lmfit as lf
 import nmrglue as ng
 import numpy as np
 
 from peakfit import clustering, computing, monte_carlo, shapes, util
+
+
+def print_peaks(peaks, files=None):
+    if files is None:
+        files = (sys.stdout, )
+
+    message = "*  Peak(s): "
+    message += ", ".join(['{:s}'.format(peak[0].decode("utf-8")) for peak in peaks])
+    message += "  *"
+    stars = "*" * len(message)
+    message = '\n'.join([stars, message, stars])
+
+    for file in files:
+        print(message, end='\n\n', file=file)
 
 
 def calc_err(params_mc_list):
@@ -74,14 +89,7 @@ def main():
 
     for peaks, x_grid, y_grid, data_to_fit in clusters:
 
-        message = "*  Peak(s): "
-        message += ", ".join(['{:s}'.format(peak[0].decode("utf-8")) for peak in peaks])
-        message += "  *"
-        stars = "*" * len(message)
-        message = '\n'.join([stars, message, stars])
-
-        print(message, end='\n\n')
-        print(message, end='\n\n', file=file_logs)
+        print_peaks(peaks, files=(sys.stdout, file_logs))
 
         n_peaks = len(peaks)
         params = shapes.create_params(peaks)
