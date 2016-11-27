@@ -74,8 +74,11 @@ def main():
 
     for peaks, x_grid, y_grid, data_to_fit in clusters:
 
-        message = "* Peak(s): "
+        message = "*  Peak(s): "
         message += ", ".join(['{:s}'.format(peak[0].decode("utf-8")) for peak in peaks])
+        message += "  *"
+        stars = "*" * len(message)
+        message = '\n'.join([stars, message, stars])
 
         print(message, end='\n\n')
         print(message, end='\n\n', file=file_logs)
