@@ -10,6 +10,27 @@ import numpy as np
 from peakfit import clustering, computing, monte_carlo, shapes, util
 
 
+def parse_command_line():
+    description = 'Perform peak integration in pseudo-3D.'
+
+    parser = argparse.ArgumentParser(description=description)
+
+    parser.add_argument('-s', dest='path_spectra', required=True)
+    parser.add_argument('-l', dest='path_list_peak', required=True)
+    parser.add_argument('-z', dest='path_list_z', required=True)
+    parser.add_argument('-t', dest='contour_level', required=True, type=float)
+    parser.add_argument('-o', dest='path_output', default='Fits')
+    parser.add_argument('-n', dest='noise', default=1.0, type=float)
+    parser.add_argument(
+        '--mc',
+        dest='noise_box',
+        default=None,
+        nargs=5,
+        metavar=('X_MIN', 'X_MAX', 'Y_MIN', 'Y_MAX', 'N'))
+
+    return parser.parse_args()
+
+
 def print_peaks(peaks, files=None):
     if files is None:
         files = (sys.stdout, )
@@ -38,24 +59,8 @@ def calc_err(params_mc_list):
 
 
 def main():
-    description = 'Perform peak integration in pseudo-3D.'
 
-    parser = argparse.ArgumentParser(description=description)
-
-    parser.add_argument('-s', dest='path_spectra', required=True)
-    parser.add_argument('-l', dest='path_list_peak', required=True)
-    parser.add_argument('-z', dest='path_list_z', required=True)
-    parser.add_argument('-t', dest='contour_level', required=True, type=float)
-    parser.add_argument('-o', dest='path_output', default='Fits')
-    parser.add_argument('-n', dest='noise', default=1.0, type=float)
-    parser.add_argument(
-        '--mc',
-        dest='noise_box',
-        default=None,
-        nargs=5,
-        metavar=('X_MIN', 'X_MAX', 'Y_MIN', 'Y_MAX', 'N'))
-
-    arguments = parser.parse_args()
+    arguments = parse_command_line()
 
     dic, spectra = ng.fileio.pipe.read(arguments.path_spectra)
     peak_list = np.genfromtxt(arguments.path_list_peak, dtype=None).reshape(-1)
