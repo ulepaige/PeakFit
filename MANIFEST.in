@@ -1,2 +1,6 @@
+graft peakfit examples
+global-exclude *.py[cod] __pycache__ .DS_Store
+
+# Versioneer
 include versioneer.py
 include peakfit/_version.py

@@ -1,6 +1,11 @@
-from itertools import product
+import collections
+import itertools
 
 import numpy as np
+
+from peakfit import util
+
+Peak = collections.namedtuple("Peak", ["name", "x_pt", "y_pt", "x_alias", "y_alias"])
 
 
 def flood_fill(data, mask, threshold, cluster_id, x_start, y_start):
@@ -12,7 +17,9 @@ def flood_fill(data, mask, threshold, cluster_id, x_start, y_start):
 
         x, y = stack.pop()
 
-        if (abs(data[y, x]) >= threshold and mask[0, y, x] == 0.0) or mask[0, y, x] < 0.0:
+        if (abs(data[y, x]) >= threshold and mask[0, y, x] == 0.0) or mask[
+            0, y, x
+        ] < 0.0:
 
             mask[:, y, x] = cluster_id
 
@@ -32,48 +39,33 @@ def flood_fill(data, mask, threshold, cluster_id, x_start, y_start):
 def mark_peaks(mask, peak_list, ucx, ucy):
     """Marks peaks in mask"""
 
-    print('- Marking peaks...')
+    print("- Marking peaks...")
 
     nz, ny, nx = mask.shape
 
     for peak in peak_list:
 
-        x_pt = ucx.f(peak[2], 'ppm')
-        y_pt = ucy.f(peak[1], 'ppm')
+        x_index = ucx.i(peak[2], "ppm") % nx
+        y_index = ucy.i(peak[1], "ppm") % ny
 
-        x_pt %= nx
-        y_pt %= ny
+        x_index = util.clamp(x_index, 2, nx - 2)
+        y_index = util.clamp(y_index, 2, ny - 2)
 
-        x_index = int(x_pt + 0.5)
-        y_index = int(y_pt + 0.5)
-
-        if x_index == 0:
-            x_index += 1
-
-        if y_index == 0:
-            y_index += 1
-
-        if x_index == nx - 1:
-            x_index -= 1
-
-        if y_index == ny - 1:
-            y_index -= 1
-
-        mask[:, y_index - 2:y_index + 3, x_index - 2:x_index + 3] = -1.0
+        mask[:, y_index - 2 : y_index + 3, x_index - 2 : x_index + 3] = -1.0
 
     return mask
 
 
-def find_disjoint_regions(data, mask, contour_level):
+def find_independent_regions(data, mask, contour_level):
     """Finds regions of the spectra above the contour level threshold."""
 
-    print('- Segmenting the spectra according to the threshold level...')
+    print("- Segmenting the spectra according to the threshold level...")
 
     nz, ny, nx = data.shape
 
     cluster_index = 0
 
-    for y, x in product(range(ny), range(nx)):
+    for y, x in itertools.product(range(ny), range(nx)):
 
         if mask[0, y, x] <= 0.0:
             cluster_index += 1
@@ -82,42 +74,33 @@ def find_disjoint_regions(data, mask, contour_level):
     return mask
 
 
-def make_peak_clusters(spectra, mask, peak_list, ucx, ucy):
+def cluster_peaks(spectra, mask, peak_list, ucx, ucy):
     """Identifies overlapping peaks."""
 
-    print('- Clustering of peaks...')
+    print("- Clustering of peaks...")
 
     nz, ny, nx = mask.shape
 
-    peak_list_pt = []
+    names = peak_list["f0"]
+    x_pts = ucx.f(peak_list["f2"], "ppm")
+    y_pts = ucy.f(peak_list["f1"], "ppm")
+    x_aliases = x_pts // nx
+    y_aliases = y_pts // ny
+    x_pts %= nx
+    y_pts %= ny
+    peaks = zip(names, x_pts, y_pts, x_aliases, y_aliases)
 
-    for peak in peak_list:
-        x_pt = ucx.f(peak[2], 'ppm')
-        y_pt = ucy.f(peak[1], 'ppm')
+    cluster_ids = list(mask[0, np.rint(y_pts).astype(int), np.rint(x_pts).astype(int)])
 
-        x_alias = x_pt // nx
-        y_alias = y_pt // ny
-
-        x_pt %= nx
-        y_pt %= ny
-
-        peak_list_pt.append((peak[0], x_pt, y_pt, x_alias, y_alias))
-
-    peak_clusters = {}
-
-    for peak in peak_list_pt:
-        x, y = peak[1:3]
-        x = int(round(x))
-        y = int(round(y))
-        cluster_id = mask[0, y, x]
+    peak_clusters = dict()
+    for cluster_id, peak in zip(cluster_ids, peaks):
         peak_clusters.setdefault(cluster_id, []).append(peak)
 
     clusters = []
 
-    for index, (cluster_id, peak_cluster) in enumerate(peak_clusters.items()):
-        y_grid, x_grid = np.where(mask[0, :, :] == cluster_id)
-        n_fit = len(x_grid)
-        data_to_fit = spectra[:, y_grid, x_grid].reshape((nz, n_fit)).T
-        clusters.append((peak_cluster, x_grid, y_grid, data_to_fit))
+    for cluster_id, peak_cluster in peak_clusters.items():
+        grid_y, grid_x = np.where(mask[0] == cluster_id)
+        data_to_fit = spectra[:, grid_y, grid_x].reshape((nz, grid_x.size)).T
+        clusters.append((peak_cluster, grid_x, grid_y, data_to_fit))
 
     return clusters
