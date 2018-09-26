@@ -26,10 +26,18 @@ setup(
     install_requires=[
         "numpy>=1.0",
         "scipy>=1.0",
+        "matplotlib>=2.0",
+        "natsort>=2.0",
         "nmrglue",
         "lmfit>=0.9.11",
         "asteval>=0.9.11",
     ],
     python_requires=">=3.5",
-    entry_points={"console_scripts": ["peakfit = peakfit.__main__:main"]},
+    entry_points={
+        "console_scripts": [
+            "peakfit = peakfit.__main__:main",
+            "plot_cpmg = peakfit.plot_cpmg:main",
+            "plot_cest = peakfit.plot_cest:main",
+        ]
+    },
 )

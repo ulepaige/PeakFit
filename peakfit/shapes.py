@@ -26,7 +26,7 @@ def create_params(peaks):
         params.add(y0_name, value=y0)
         params.add(x_fwhm_name, value=5.0, min=0.001, max=25.0)
         params.add(y_fwhm_name, value=5.0, min=0.001, max=25.0)
-        params.add(x_eta_name, value=0.0, min=-1.0, max=+1.0, vary=False)
-        params.add(y_eta_name, value=0.0, min=-1.0, max=+1.0, vary=False)
+        params.add(x_eta_name, value=0.5, min=-1.0, max=+1.0, vary=False)
+        params.add(y_eta_name, value=0.5, min=-1.0, max=+1.0, vary=False)
 
     return params

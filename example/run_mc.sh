@@ -6,3 +6,5 @@ peakfit  \
     -n 12139.0 \
     --mc 9.7ppm 10.5ppm 113ppm 128ppm 50 \
     -o FitsMC
+
+    plot_cest -f Fits/*N-H.out

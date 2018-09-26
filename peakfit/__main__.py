@@ -95,7 +95,7 @@ def main():
         out = lf.minimize(computing.residuals, params, args=args_fit)
 
         for name, param in out.params.items():
-            if 'eta' in name:
+            if "eta" in name:
                 param.set(min=param.min, max=param.max, vary=True)
 
         out = lf.minimize(computing.residuals, out.params, args=args_fit)

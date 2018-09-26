@@ -11,12 +11,12 @@ def calculate_shape_amplitudes(
 
     for index in range(n_peaks):
         prefix = "p{:d}_".format(index)
-        x0 = params["".join([prefix, "x0"])]
-        y0 = params["".join([prefix, "y0"])]
-        x_fwhm = params["".join([prefix, "x_fwhm"])]
-        y_fwhm = params["".join([prefix, "y_fwhm"])]
-        x_eta = params["".join([prefix, "x_eta"])]
-        y_eta = params["".join([prefix, "y_eta"])]
+        x0 = params["".join([prefix, "x0"])].value
+        y0 = params["".join([prefix, "y0"])].value
+        x_fwhm = params["".join([prefix, "x_fwhm"])].value
+        y_fwhm = params["".join([prefix, "y_fwhm"])].value
+        x_eta = params["".join([prefix, "x_eta"])].value
+        y_eta = params["".join([prefix, "y_eta"])].value
 
         shapes.append(pvoigt2d(x_list, y_list, x0, y0, x_fwhm, y_fwhm, x_eta, y_eta))
 

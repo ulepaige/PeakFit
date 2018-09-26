@@ -5,3 +5,6 @@ peakfit  \
     -t 8e4 \
     -n 12139.0 \
     -o Fits
+
+plot_cest -f Fits/*N-H.out
+
