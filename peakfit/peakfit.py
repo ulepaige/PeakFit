@@ -22,7 +22,7 @@ LOGO = """
 *  Perform peak integration in pseudo-3D  *
 *  spectra                                *
 *                                         *
-*  Version: {:<28s} *
+*  Version: {:<29s} *
 *                                         *
 * * * * * * * * * * * * * * * * * * * * * *
 """.format(
