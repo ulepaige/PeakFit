@@ -1,5 +1,5 @@
 graft peakfit
-graft examples
+prune examples
 global-exclude *.py[cod] __pycache__ .DS_Store
 
 # Versioneer
