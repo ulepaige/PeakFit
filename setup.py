@@ -35,7 +35,7 @@ setup(
     python_requires=">=3.5",
     entry_points={
         "console_scripts": [
-            "peakfit = peakfit.__main__:main",
+            "peakfit = peakfit.peakfit:main",
             "plot_cpmg = peakfit.plot_cpmg:main",
             "plot_cest = peakfit.plot_cest:main",
         ]
