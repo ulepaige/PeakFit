@@ -8,7 +8,7 @@ def pvoigt2d(x, y, x0, y0, x_fwhm, y_fwhm, x_eta, y_eta):
     )
 
 
-def create_params(peaks):
+def create_params(peaks, pvoigt=False):
     params = lf.Parameters()
 
     for index, peak in enumerate(peaks):
@@ -24,9 +24,14 @@ def create_params(peaks):
 
         params.add(x0_name, value=x0)
         params.add(y0_name, value=y0)
-        params.add(x_fwhm_name, value=5.0, min=0.001, max=25.0)
-        params.add(y_fwhm_name, value=5.0, min=0.001, max=25.0)
-        params.add(x_eta_name, value=0.5, min=-1.0, max=+1.0, vary=False)
-        params.add(y_eta_name, value=0.5, min=-1.0, max=+1.0, vary=False)
+
+        params.add(x_fwhm_name, value=2.0, min=0.001, max=25.0)
+        params.add(y_fwhm_name, value=2.0, min=0.001, max=25.0)
+        params.add(x_eta_name, value=0.0, min=-1.0, max=+1.0, vary=False)
+        params.add(y_eta_name, value=0.0, min=-1.0, max=+1.0, vary=False)
+
+        if pvoigt:
+            params[x_eta_name].set(value=0.5)
+            params[y_eta_name].set(value=0.5)
 
     return params

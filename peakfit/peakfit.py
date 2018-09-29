@@ -35,19 +35,19 @@ def parse_command_line():
 
     parser = argparse.ArgumentParser(description=description)
 
-    parser.add_argument("-s", dest="path_spectra", required=True)
-    parser.add_argument("-l", dest="path_list_peak", required=True)
-    parser.add_argument("-z", dest="path_list_z", required=True)
-    parser.add_argument("-t", dest="contour_level", required=True, type=float)
-    parser.add_argument("-o", dest="path_output", default="Fits", type=pathlib.Path)
-    parser.add_argument("-n", dest="noise", default=1.0, type=float)
+    parser.add_argument("--spectra", "-s", dest="path to spectra", required=True)
+    parser.add_argument("--lists", "-l", dest="path_list_peak", required=True)
+    parser.add_argument("--zvalues", "-z", dest="path_list_z", required=True)
+    parser.add_argument("--ct", "-t", dest="contour_level", required=True, type=float)
+    parser.add_argument("--out", "-o", dest="path_output", default="Fits", type=pathlib.Path)
+    parser.add_argument("--noise", "-n", dest="noise", default=1.0, type=float)
     parser.add_argument(
         "--mc",
         dest="noise_box",
-        default=None,
         nargs=5,
         metavar=("X_MIN", "X_MAX", "Y_MIN", "Y_MAX", "N"),
     )
+    parser.add_argument("--pvoigt", dest="pvoigt", action="store_true")
 
     return parser.parse_args()
 
@@ -99,18 +99,19 @@ def main():
         print_peaks(peaks, files=(sys.stdout, file_logs))
 
         n_peaks = len(peaks)
-        params = shapes.create_params(peaks)
+        params = shapes.create_params(peaks, args.pvoigt)
         args_fit = (grid_x, grid_y, data_to_fit, n_peaks, args.noise)
 
         out = lf.minimize(computing.residuals, params, args=args_fit)
 
-        for name, param in out.params.items():
-            if "eta" in name:
-                param.set(min=param.min, max=param.max, vary=True)
+        if args.pvoigt:
+            for name, param in out.params.items():
+                if "eta" in name:
+                    param.set(min=param.min, max=param.max, vary=True)
 
-        out = lf.minimize(computing.residuals, out.params, args=args_fit)
+            out = lf.minimize(computing.residuals, out.params, args=args_fit)
 
-        message = lf.fit_report(out)
+        message = lf.fit_report(out, show_correl=0.5)
         print(message, end="\n\n\n")
         print(message, end="\n\n\n", file=file_logs)
 
