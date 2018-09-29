@@ -1,0 +1,46 @@
+language: python
+
+sudo: false
+
+python:
+    - 3.5
+    - 3.6
+env:
+    global:
+        - CONDA_DEPS="numpy scipy matplotlib lmfit asteval natsort pytest pytest-cov"
+        - PACKAGENAME="peakfit"
+
+before_install:
+    - export MINICONDA=$HOME/miniconda
+    - export PATH="$MINICONDA/bin:$PATH"
+    - hash -r
+    - wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
+    - bash miniconda.sh -b -f -p $MINICONDA
+    - conda config --set always_yes yes
+    - conda update conda
+    - conda info -a
+    - conda create -n testenv python=$TRAVIS_PYTHON_VERSION
+    - source activate testenv
+    - conda install -c conda-forge $CONDA_DEPS
+    - pip install nmrglue
+
+install:
+    - python setup.py install
+
+script:
+    - pytest -v --color=yes --cov=$PACKAGENAME tests
+
+after_success:
+    - conda install -c conda-forge codecov
+    - codecov
+
+deploy:
+    provider: pypi
+    distributions: sdist bdist_wheel
+    user: gbouvignies
+    password:
+        secure: LTzb5JRbdncF7rxBp74invpgUUsSrQRKTaduUPl9WSenVx6P0D8qgs+UxV+TJkmqsprL0+rPSTQxItJkWL0SHGIuI6MH8rQkMPPHluVz4+LsaGP6A8SoLFjDYtmLoZh2a4AtYPjJ/bkZ+NdsOvY55TMty5Zep/6fy/zLTWLtE/CcMrv8/UW3qgVT7nU1BjG64jigT37vLl8lBZ6WFz9PWMT4F9JJzlR4KsgHPgEEgDBVDvio43G4bmhfQYLTEPgx6kKRVRSyJzmNy7p68GVmR8sV719I71pCuzttjS90MSdn3YpuuJVyvs4u9WQdQEVW0x3+iqDhdr7SERWhXzShgi4zSNPrIYsrA28Cn+wbNMVA1QwOz2jmuJ8QiZgu8LcFuy/0kVS/Rpf+E41QRLAn6G9mqK0k61T1uzE916wbFGIy8UoK4Y4La8HiSRTBPzIYQGKZqMQqHc4Eilg33EsRavLYuhOUcGJSTxq0M3H9zFI+05AoGAUoItA4TtmnmC5xl1zBoP2zedlchePjOCL/rXsHzbGpAA/5AOBPOO8obInGgxn9pBvB00B/G1TmdisG4ZBp8PE0cAp2ezPaZhTPp+auLq2Mu9baEh0CrEGV1z75Erty+6skRZbSqKK/6F4uezZaeIsbJPBGPd1ik73nl0doYpQK9wJD1T+FR/VdCI4=
+    on:
+        tags: true
+        repo: gbouvignies/PeakFit
+        condition: $TRAVIS_PYTHON_VERSION = "3.6"
