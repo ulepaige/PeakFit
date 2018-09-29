@@ -1,46 +1,39 @@
 language: python
-
 sudo: false
-
 python:
-    - 3.5
-    - 3.6
+- 3.5
+- 3.6
 env:
-    global:
-        - CONDA_DEPS="numpy scipy matplotlib lmfit asteval natsort pytest pytest-cov"
-        - PACKAGENAME="peakfit"
-
+  global:
+  - CONDA_DEPS="numpy scipy matplotlib lmfit asteval natsort pytest pytest-cov"
+  - PACKAGENAME="peakfit"
 before_install:
-    - export MINICONDA=$HOME/miniconda
-    - export PATH="$MINICONDA/bin:$PATH"
-    - hash -r
-    - wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
-    - bash miniconda.sh -b -f -p $MINICONDA
-    - conda config --set always_yes yes
-    - conda update conda
-    - conda info -a
-    - conda create -n testenv python=$TRAVIS_PYTHON_VERSION
-    - source activate testenv
-    - conda install -c conda-forge $CONDA_DEPS
-    - pip install nmrglue
-
+- export MINICONDA=$HOME/miniconda
+- export PATH="$MINICONDA/bin:$PATH"
+- hash -r
+- wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
+- bash miniconda.sh -b -f -p $MINICONDA
+- conda config --set always_yes yes
+- conda update conda
+- conda info -a
+- conda create -n testenv python=$TRAVIS_PYTHON_VERSION
+- source activate testenv
+- conda install -c conda-forge $CONDA_DEPS
+- pip install nmrglue
 install:
-    - python setup.py install
-
+- python setup.py install
 script:
-    - pytest -v --color=yes --cov=$PACKAGENAME tests
-
+- pytest -v --color=yes --cov=$PACKAGENAME tests
 after_success:
-    - conda install -c conda-forge codecov
-    - codecov
-
+- conda install -c conda-forge codecov
+- codecov
 deploy:
-    provider: pypi
-    distributions: sdist bdist_wheel
-    user: gbouvignies
-    password:
-        secure: LTzb5JRbdncF7rxBp74invpgUUsSrQRKTaduUPl9WSenVx6P0D8qgs+UxV+TJkmqsprL0+rPSTQxItJkWL0SHGIuI6MH8rQkMPPHluVz4+LsaGP6A8SoLFjDYtmLoZh2a4AtYPjJ/bkZ+NdsOvY55TMty5Zep/6fy/zLTWLtE/CcMrv8/UW3qgVT7nU1BjG64jigT37vLl8lBZ6WFz9PWMT4F9JJzlR4KsgHPgEEgDBVDvio43G4bmhfQYLTEPgx6kKRVRSyJzmNy7p68GVmR8sV719I71pCuzttjS90MSdn3YpuuJVyvs4u9WQdQEVW0x3+iqDhdr7SERWhXzShgi4zSNPrIYsrA28Cn+wbNMVA1QwOz2jmuJ8QiZgu8LcFuy/0kVS/Rpf+E41QRLAn6G9mqK0k61T1uzE916wbFGIy8UoK4Y4La8HiSRTBPzIYQGKZqMQqHc4Eilg33EsRavLYuhOUcGJSTxq0M3H9zFI+05AoGAUoItA4TtmnmC5xl1zBoP2zedlchePjOCL/rXsHzbGpAA/5AOBPOO8obInGgxn9pBvB00B/G1TmdisG4ZBp8PE0cAp2ezPaZhTPp+auLq2Mu9baEh0CrEGV1z75Erty+6skRZbSqKK/6F4uezZaeIsbJPBGPd1ik73nl0doYpQK9wJD1T+FR/VdCI4=
-    on:
-        tags: true
-        repo: gbouvignies/PeakFit
-        condition: $TRAVIS_PYTHON_VERSION = "3.6"
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: gbouvignies
+  password:
+    secure: K2+vJf9mctKVzywlGlhi6roUranS240wAfeKT0JG1AHD42yjAa6jxkBCh1RKvsjTcsMufrwwQRhdL2fvLuBCjHRnpNklDYvYFzQEc8RgvYuj6ctSvXZwAoMa7EvH2gV6AAm/3TxMG5/aTRcfbzBxZW6f5UohOt5POpxiFi3qBq9Dxnbf1eGjkwzqRIu1MXlNDGxCOtwZpIRxw1aPvnyFst+msFf80ElXuAL4XkM3SQ1Jxwg9qqw1GnWSYbTvmNk+LTtSqAn1OToAWFzNZ9lJEyAsrz4MUpqqQkIk2LJDTXYW70eNbqXZaVFcAPqJ23lnyOrQIEKYhmUFEBxEiGpphU600uVQDlIy7UADf8VCbXEuXDY6qaDPdYuN2SHOoKJ4+JtlG8bL/or8EizcMf4PWHr70HZP4mWimZoTWxJMjX6h7h/VNeQDE2VyJGxCKb/psNn3Hxgf8rlilAi2LeRMLh/Ck+M1Flb3X3qRG1fF3iOugWTsFKrMBVDMgEDzr3NLxDCEdVlG9lqpSqAuOSzouVJ/JfGq1HyxA2XE7OZwB7CpXGVf9zH0ofv0TKCZfpH+IT3O1NDXgtUcFiSgclJac/mijKYI9p8DfyEbD79tTeWGyWp6ig6GktCBqU/apReZvO/+UQCJeZAYLTGnGMQl3aAIvuK5jOGQlCfLu9xdt/g=
+  on:
+    tags: true
+    repo: gbouvignies/PeakFit
+    condition: $TRAVIS_PYTHON_VERSION = "3.6"
