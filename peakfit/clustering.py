@@ -44,7 +44,6 @@ def mark_peaks(mask, peak_list, ucx, ucy):
     nz, ny, nx = mask.shape
 
     for peak in peak_list:
-
         x_index = ucx.i(peak[2], "ppm") % nx
         y_index = ucy.i(peak[1], "ppm") % ny
 

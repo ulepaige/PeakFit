@@ -35,11 +35,17 @@ def parse_command_line():
 
     parser = argparse.ArgumentParser(description=description)
 
-    parser.add_argument("--spectra", "-s", dest="path to spectra", required=True)
-    parser.add_argument("--lists", "-l", dest="path_list_peak", required=True)
+    parser.add_argument(
+        "--spectra", "-s", dest="path_spectra", required=True, type=pathlib.Path
+    )
+    parser.add_argument(
+        "--list", "-l", dest="path_list", required=True, type=pathlib.Path
+    )
     parser.add_argument("--zvalues", "-z", dest="path_list_z", required=True)
     parser.add_argument("--ct", "-t", dest="contour_level", required=True, type=float)
-    parser.add_argument("--out", "-o", dest="path_output", default="Fits", type=pathlib.Path)
+    parser.add_argument(
+        "--out", "-o", dest="path_output", default="Fits", type=pathlib.Path
+    )
     parser.add_argument("--noise", "-n", dest="noise", default=1.0, type=float)
     parser.add_argument(
         "--mc",
@@ -59,10 +65,11 @@ def main():
     args = parse_command_line()
 
     # Read spectra
-    dic, spectra = ng.fileio.pipe.read(args.path_spectra)
+    dic, spectra = ng.fileio.pipe.read(str(args.path_spectra))
 
     # Read peak list
-    peak_list = np.genfromtxt(args.path_list_peak, dtype=None, encoding="utf-8")
+    lines = args.path_list.read_text().replace("Ass", "#").splitlines()
+    peak_list = np.genfromtxt(lines, dtype=None, encoding="utf-8")
 
     # Read z values
     list_z = np.genfromtxt(args.path_list_z, dtype=None)
@@ -111,7 +118,7 @@ def main():
 
             out = lf.minimize(computing.residuals, out.params, args=args_fit)
 
-        message = lf.fit_report(out, show_correl=0.5)
+        message = lf.fit_report(out, min_correl=0.5)
         print(message, end="\n\n\n")
         print(message, end="\n\n\n", file=file_logs)
 
