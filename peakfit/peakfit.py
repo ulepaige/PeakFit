@@ -6,13 +6,17 @@ import lmfit as lf
 import nmrglue as ng
 import numpy as np
 
-from peakfit import clustering, computing, monte_carlo, shapes, __version__
+from peakfit import __version__
+from peakfit import clustering
+from peakfit import computing
+from peakfit import monte_carlo
+from peakfit import shapes
 from peakfit.util import print_peaks
 
 
-LOGO = """
+LOGO = r"""
 
-* * * * * * * * * * * * * * * * * * * * * * 
+* * * * * * * * * * * * * * * * * * * * * *
 *    ____            _    _____ _ _       *
 *   |  _ \ ___  __ _| | _|  ___(_) |_     *
 *   | |_) / _ \/ _` | |/ / |_  | | __|    *
@@ -53,7 +57,9 @@ def parse_command_line():
         nargs=5,
         metavar=("X_MIN", "X_MAX", "Y_MIN", "Y_MAX", "N"),
     )
+    parser.add_argument("--fixed", dest="fixed", action="store_true")
     parser.add_argument("--pvoigt", dest="pvoigt", action="store_true")
+    parser.add_argument("--lorentzian", dest="lorentzian", action="store_true")
 
     return parser.parse_args()
 
@@ -81,12 +87,10 @@ def main():
     ucy = ng.pipe.make_uc(dic, spectra, dim=1)
     ucx = ng.pipe.make_uc(dic, spectra, dim=2)
 
-    len_z, len_y, len_x = spectra.shape
-
     # Define the active spectral regions for the fit
     mask = np.zeros_like(spectra)
     mask = clustering.mark_peaks(mask, peak_list, ucx, ucy)
-    mask = clustering.find_independent_regions(spectra, mask, args.contour_level)
+    mask = clustering.find_independent_regions(mask, spectra, args.contour_level)
 
     # Cluster peaks
     clusters = clustering.cluster_peaks(spectra, mask, peak_list, ucx, ucy)
@@ -97,38 +101,37 @@ def main():
 
     print("- Lineshape fitting...", end="\n\n\n")
 
+    string_shifts = []
     string_amplitudes = []
 
     file_logs = (args.path_output / "logs.out").open("w")
 
-    for peaks, grid_x, grid_y, data_to_fit in clusters:
+    for peaks, x, y, data in clusters:
 
         print_peaks(peaks, files=(sys.stdout, file_logs))
 
-        n_peaks = len(peaks)
-        params = shapes.create_params(peaks, args.pvoigt)
-        args_fit = (grid_x, grid_y, data_to_fit, n_peaks, args.noise)
+        params = shapes.create_params(peaks, ucx, ucy, args.pvoigt, args.lorentzian)
+        args_func = (x, y, data, peaks, ucx, ucy, args.noise)
+        kwargs = {"args": args_func, "method": "least_squares"}
 
-        out = lf.minimize(computing.residuals, params, args=args_fit)
-
+        # out = lf.minimize(computing.residuals, params, **kwargs)
+        if not args.fixed:
+            for name, param in params.items():
+                if "x0" in name or "y0" in name:
+                    param.set(min=param.min, max=param.max, vary=True)
+            # out = lf.minimize(computing.residuals, out.params, **kwargs)
         if args.pvoigt:
-            for name, param in out.params.items():
+            for name, param in params.items():
                 if "eta" in name:
                     param.set(min=param.min, max=param.max, vary=True)
-
-            out = lf.minimize(computing.residuals, out.params, args=args_fit)
+        out = lf.minimize(computing.residuals, params, **kwargs)
 
         message = lf.fit_report(out, min_correl=0.5)
         print(message, end="\n\n\n")
         print(message, end="\n\n\n", file=file_logs)
 
-        _shapes, amplitudes = computing.calculate_shape_amplitudes(
-            out.params, *(args_fit[:4])
-        )
-
-        data_sim = computing.simulate_data(
-            out.params, grid_x, grid_y, data_to_fit, n_peaks
-        )
+        args_cal = args_func[:6]
+        _, amplitudes = computing.calculate_shape_amplitudes(out.params, *args_cal)
 
         #
         # Monte-Carlo
@@ -144,116 +147,94 @@ def main():
             bounds_x = sorted(ucx.i(bound_x) for bound_x in noise_box[0:2])
             bounds_y = sorted(ucy.i(bound_y) for bound_y in noise_box[2:4])
 
-            grid_for_noise = monte_carlo.get_noise_grid(
-                bounds_x, bounds_y, grid_x, grid_y
-            )
+            grid_noise = monte_carlo.get_noise_grid(bounds_x, bounds_y, x, y)
+
+            data_sim = computing.simulate_data(out.params, *args_cal)
 
             params_mc_list = []
             amplitudes_mc_list = []
 
-            for x, y in sample(grid_for_noise, n_iter):
-                x_noise_list = grid_x - min(grid_x) + x
-                y_noise_list = grid_y - min(grid_y) + y
+            for xn, yn in sample(grid_noise, n_iter):
+                x_noise = x - min(x) + xn
+                y_noise = y - min(y) + yn
 
-                data_noise = (
-                    spectra[:, y_noise_list, x_noise_list]
-                    .reshape((len_z, grid_x.size))
-                    .T
-                )
+                nz = spectra.shape[0]
+                data_noise = spectra[:, y_noise, x_noise].reshape((nz, x.size)).T
 
                 data_mc = data_sim + data_noise
-                args_mc = (grid_x, grid_y, data_mc, n_peaks)
-                out_mc = lf.minimize(computing.residuals, out.params, args=args_mc)
+                args_mc = (x, y, data_mc, peaks, ucx, ucy)
+                kwargs_mc = {"args": args_mc, "method": "least_squares"}
+                out_mc = lf.minimize(computing.residuals, out.params, **kwargs_mc)
 
-                _shapes_mc, amplitudes_mc = computing.calculate_shape_amplitudes(
+                _, amplitudes_mc = computing.calculate_shape_amplitudes(
                     out_mc.params, *args_mc
                 )
 
                 params_mc_list.append(out_mc.params.valuesdict())
                 amplitudes_mc_list.append(amplitudes_mc)
 
-            params_err = calc_err_from_mc(params_mc_list)
+            parerrs = calc_err_from_mc(params_mc_list)
             amplitudes_err = np.std(amplitudes_mc_list, axis=0, ddof=1)
 
         else:
-
-            params_err = {param.name: param.stderr for param in out.params.values()}
+            parerrs = {param.name: param.stderr for param in out.params.values()}
             amplitudes_err = np.zeros_like(amplitudes) + args.noise
 
         for index, peak in enumerate(peaks):
-            name, _, _, x_alias, y_alias = peak
+            name, _, _, _, _ = peak
 
-            string_amplitudes.append("{:>15s}".format(name))
+            pre = f"p{index}_"
+            parvals = out.params.valuesdict()
 
-            x_scale_ppm = abs(ucx.ppm(1.0) - ucx.ppm(0.0))
-            y_scale_ppm = abs(ucx.ppm(1.0) - ucx.ppm(0.0))
-            x_scale_hz = abs(ucx.hz(1.0) - ucx.hz(0.0))
-            y_scale_hz = abs(ucy.hz(1.0) - ucy.hz(0.0))
+            parerrs_ = {k: v if v is not None else 0.0 for k, v in parerrs.items()}
+            x_ppm = parvals[f"{pre}x0"]
+            y_ppm = parvals[f"{pre}y0"]
+            x_ppm_e = parerrs_[f"{pre}x0"]
+            y_ppm_e = parerrs_[f"{pre}y0"]
 
-            prefix = "p{}_".format(index)
+            xw_hz = parvals[f"{pre}x_fwhm"]
+            yw_hz = parvals[f"{pre}y_fwhm"]
+            xw_hz_e = parerrs_[f"{pre}x_fwhm"]
+            yw_hz_e = parerrs_[f"{pre}y_fwhm"]
 
-            x0 = out.params["".join([prefix, "x0"])].value
-            y0 = out.params["".join([prefix, "y0"])].value
-            x0_err = params_err["".join([prefix, "x0"])]
-            y0_err = params_err["".join([prefix, "y0"])]
+            x_eta = parvals[f"{pre}x_eta"]
+            y_eta = parvals[f"{pre}y_eta"]
+            x_eta_e = parerrs_[f"{pre}x_eta"]
+            y_eta_e = parerrs_[f"{pre}y_eta"]
 
-            x_fwhm = out.params["".join([prefix, "x_fwhm"])].value
-            y_fwhm = out.params["".join([prefix, "y_fwhm"])].value
-            x_fwhm_err = params_err["".join([prefix, "x_fwhm"])]
-            y_fwhm_err = params_err["".join([prefix, "y_fwhm"])]
-
-            x_eta = out.params["".join([prefix, "x_eta"])].value
-            y_eta = out.params["".join([prefix, "y_eta"])].value
-            x_eta_err = params_err["".join([prefix, "x_eta"])]
-            y_eta_err = params_err["".join([prefix, "y_eta"])]
-
-            amplitude_err = np.mean(amplitudes_err[index])
+            ampl_e = np.mean(amplitudes_err[index])
 
             filename = args.path_output / "".join([name, ".out"])
 
             with filename.open("w") as f:
 
-                f.write("# Name: {:>10s}\n".format(name))
-                f.write(
-                    "# y_ppm: {:10.5f} {:10.5f}\n".format(
-                        ucy.ppm(y0 + y_alias * len_y), y0_err * y_scale_ppm
-                    )
-                )
-                f.write(
-                    "# yw_hz: {:10.5f} {:10.5f}\n".format(
-                        y_fwhm * y_scale_hz, y_fwhm_err * y_scale_hz
-                    )
-                )
-                f.write("# y_eta: {:10.5f} {:10.5f}\n".format(y_eta, y_eta_err))
-                f.write(
-                    "# x_ppm: {:10.5f} {:10.5f}\n".format(
-                        ucx.ppm(x0 + x_alias * len_x), x0_err * x_scale_ppm
-                    )
-                )
-                f.write(
-                    "# xw_hz: {:10.5f} {:10.5f}\n".format(
-                        x_fwhm * x_scale_hz, x_fwhm_err * x_scale_hz
-                    )
-                )
-                f.write("# x_eta: {:10.5f} {:10.5f}\n".format(x_eta, x_eta_err))
-
+                f.write(f"# Name: {name:>10s}\n")
+                f.write(f"# y_ppm: {y_ppm:10.5f} {y_ppm_e:10.5f}\n")
+                f.write(f"# yw_hz: {yw_hz:10.5f} {yw_hz_e:10.5f}\n")
+                f.write(f"# y_eta: {y_eta:10.5f} {y_eta_e:10.5f}\n")
+                f.write(f"# x_ppm: {x_ppm:10.5f} {x_ppm_e:10.5f}\n")
+                f.write(f"# xw_hz: {xw_hz:10.5f} {xw_hz_e:10.5f}\n")
+                f.write(f"# x_eta: {x_eta:10.5f} {x_eta_e:10.5f}\n")
                 f.write("#---------------------------------------------\n")
-                f.write("# {:>10s}  {:>14s}  {:>14s}\n".format("Z", "I", "I_err"))
+                f.write(f"# {'Z':>10s}  {'I':>14s}  {'I_err':>14s}\n")
 
-                for z, amplitude in zip(list_z, amplitudes[index]):
-                    f.write(
-                        "  {:>10s}  {:14.6e}  {:14.6e}\n".format(
-                            str(z), amplitude, amplitude_err
-                        )
-                    )
-                    string_amplitudes.append("{:14.6e}".format(amplitude))
+                string_shifts.append(f"{name:>15s} {y_ppm:10.5f} {x_ppm:10.5f}\n")
+
+                string_amplitudes.append(f"{name:>15s}")
+
+                for z, ampl in zip(list_z, amplitudes[index]):
+                    f.write(f"  {str(z):>10s}  {ampl:14.6e}  {ampl_e:14.6e}\n")
+                    string_amplitudes.append(f"{ampl:14.6e}")
 
                 string_amplitudes.append("\n")
 
     file_logs.close()
 
-    filename = args.path_output / "amplitudes.out"
-    filename.write_text(" ".join(string_amplitudes))
+    file_amplitudes = args.path_output / "amplitudes.out"
+    file_amplitudes.write_text(" ".join(string_amplitudes))
+
+    file_shifts = args.path_output / "shifts.out"
+    file_shifts.write_text(" ".join(string_shifts))
 
 
 def calc_err_from_mc(params_mc_list):

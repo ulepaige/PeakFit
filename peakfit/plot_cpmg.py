@@ -1,8 +1,8 @@
 import argparse
 import pathlib
+import re
 
 import matplotlib.pyplot as plt
-from natsort import natsorted
 import numpy as np
 from matplotlib.backends.backend_pdf import PdfPages
 
@@ -29,9 +29,11 @@ def plot(files, time_t2):
     print()
     print("Reading files...")
 
-    for a_file in files:
+    files_ordered = sorted(files, key=lambda x: int(re.sub(r"\D", "", str(x))))
 
-        print("  * {}".format(a_file.name))
+    for a_file in files_ordered:
+
+        print(f"  * {a_file.name}")
 
         data = np.loadtxt(
             a_file,
@@ -66,8 +68,8 @@ def plot(files, time_t2):
     print("Plotting...")
 
     with PdfPages("profiles.pdf") as pdf:
-        for name in natsorted(figs):
-            pdf.savefig(figs[name])
+        for fig in figs.values():
+            pdf.savefig(fig)
 
     print("  * profiles.pdf")
 
