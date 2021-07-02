@@ -6,5 +6,4 @@ peakfit  \
     -n 12139.0 \
     -o Fits
 
-plot_cest -f Fits/*N-H.out
-
+plot_cest -f FitsMC/*N-H.out --ref 0

@@ -1,101 +1,65 @@
-import itertools as it
+import collections as cl
 
 import numpy as np
 
-from peakfit import util
+
+Spectra = cl.namedtuple("Spectra", "data ucx ucy")
+Peak = cl.namedtuple("Peak", "name x0 y0")
+Cluster = cl.namedtuple("Cluster", "peaks x y data")
 
 
-def mark_peaks(mask, peak_list, ucx, ucy):
-    """Marks peaks in mask"""
+def cluster_peaks(spectra: Spectra, peaks: np.ndarray, contour_level: float) -> list:
 
-    print("- Marking peaks...")
+    print("- Segmenting the spectra and clustering the peaks...")
 
-    ny, nx = mask.shape[1:]
+    nz, ny, nx = spectra.data.shape
 
-    for peak in peak_list:
-        x_index = ucx.i(peak[2], "ppm") % nx
-        y_index = ucy.i(peak[1], "ppm") % ny
+    peaks_ppm = {name: Peak(name, x, y) for name, y, x in peaks}
 
-        x_index = util.clamp(x_index, 2, nx - 2)
-        y_index = util.clamp(y_index, 2, ny - 2)
+    x_pts = np.rint(spectra.ucx.f(peaks["x"], "ppm")).astype(int)
+    y_pts = np.rint(spectra.ucy.f(peaks["y"], "ppm")).astype(int)
+    peaks_pt = {name: (x, y) for name, x, y in zip(peaks["names"], x_pts, y_pts)}
 
-        ymin, ymax = y_index - 2, y_index + 3
-        xmin, xmax = x_index - 2, x_index + 3
-        mask[:, ymin:ymax, xmin:xmax] = -1.0
-
-    return mask
-
-
-def find_independent_regions(mask, data, contour_level):
-    """Finds regions of the spectra above the contour level threshold."""
-
-    print("- Segmenting the spectra according to the threshold level...")
-
-    # ref = np.argmax([np.linalg.norm(datum) for datum in data])
-    plane = np.linalg.norm(data, ord=np.inf, axis=0)
-    ny, nx = data.shape[1:]
-    cluster_index = 0
-    for y, x in it.product(range(ny), range(nx)):
-        if mask[0, y, x] <= 0.0:
-            cluster_index += 1
-            # flood_fill(data[ref], mask, contour_level, cluster_index, x, y)
-            _flood_fill(mask, plane, contour_level, cluster_index, x, y)
-    return mask
-
-
-def _flood_fill(mask, data, threshold, cluster_id, x_start, y_start):
-    ny, nx = data.shape
-    stack = [(x_start, y_start)]
-    while stack:
-        x, y = stack.pop()
-        above = abs(data[y, x]) >= threshold
-        unvisited = mask[0, y, x] == 0.0
-        is_peak = mask[0, y, x] < 0.0
-        if (above and unvisited) or is_peak:
-            mask[:, y, x] = cluster_id
-            if x > 0:
-                stack.append((x - 1, y))
-            if x < (nx - 1):
-                stack.append((x + 1, y))
-            if y > 0:
-                stack.append((x, y - 1))
-            if y < (ny - 1):
-                stack.append((x, y + 1))
-
-
-def cluster_peaks(spectra, mask, peak_list, ucx, ucy):
-    """Identifies overlapping peaks."""
-
-    print("- Clustering of peaks...")
-
-    nz, ny, nx = spectra.shape
-
-    names = peak_list["f0"]
-    x_ppm = peak_list["f2"]
-    y_ppm = peak_list["f1"]
-    x0 = ucx.unit(0, "ppm")
-    x1 = ucx.unit(nx, "ppm")
-    y0 = ucy.unit(0, "ppm")
-    y1 = ucy.unit(ny, "ppm")
-    x_aliases = ((x_ppm - x0) // (x1 - x0)) * (x1 - x0)
-    y_aliases = ((y_ppm - y0) // (y1 - y0)) * (y1 - y0)
-
-    peak_list = list(zip(names, x_ppm, x_aliases, y_ppm, y_aliases))
-
-    x_indexes = [ucx.i(x, "ppm") for x in x_ppm - x_aliases]
-    y_indexes = [ucy.i(y, "ppm") for y in y_ppm - y_aliases]
-
-    cluster_ids = list(mask[0, y_indexes, x_indexes])
-
-    peak_clusters = {}
-    for cluster_id, peak in zip(cluster_ids, peak_list):
-        peak_clusters.setdefault(cluster_id, []).append(peak)
+    names = set(peaks_pt)
 
     clusters = []
-    nz = spectra.shape[0]
-    for cluster_id, peak_cluster in peak_clusters.items():
-        y, x = np.where(mask[0] == cluster_id)
-        data = spectra[:, y, x].reshape((nz, x.size)).T
-        clusters.append((peak_cluster, x, y, data))
+    for name, (x_pt, y_pt) in peaks_pt.items():
+        if name not in names:
+            continue
+
+        region = _flood(x_pt, y_pt, spectra, contour_level)
+
+        peak_names = {name for name in names if peaks_pt[name] in region}
+
+        x_reg, y_reg = np.asarray(region).T
+
+        data_cluster = (
+            spectra.data[:, y_reg % ny, x_reg % nx].reshape((nz, len(region))).T
+        )
+
+        x_cluster = spectra.ucx.unit(x_reg, "ppm")
+        y_cluster = spectra.ucy.unit(y_reg, "ppm")
+
+        peak_cluster = [peaks_ppm[name] for name in peak_names]
+
+        clusters.append(Cluster(peak_cluster, x_cluster, y_cluster, data_cluster))
+
+        names = names - peak_names
 
     return sorted(clusters, key=lambda x: len(x[0]))
+
+
+def _flood(x_start: int, y_start: int, spectra: Spectra, threshold: float) -> list:
+    ny, nx = spectra.data.shape[1:]
+    stack = [(x_start, y_start)]
+    points = set()
+    while stack:
+        x, y = stack.pop()
+        above = abs(spectra.data[0, y % ny, x % nx]) >= threshold
+        unvisited = (x, y) not in points
+        if above and unvisited:
+            points.add((x, y))
+            stack.extend([(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)])
+    if len(points) < 9:
+        points = zip(range(x_start - 1, x_start + 2), range(y_start - 1, y_start + 2))
+    return list(points)

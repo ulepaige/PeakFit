@@ -87,7 +87,7 @@ ENV/
 .DS_Store
 
 # PeakFit
-examples/Fits
+examples/Fits*
 examples/profiles.pdf
 
 # sandbox

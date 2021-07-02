@@ -10,7 +10,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 def main():
 
     args = get_args()
-    plot(args.files)
+    plot(args)
 
     return
 
@@ -18,34 +18,32 @@ def main():
 def get_args():
     parser = argparse.ArgumentParser(description="Plot CEST profiles.")
     parser.add_argument("-f", "--files", nargs="+", type=pathlib.Path)
+    parser.add_argument("--ref", nargs="+", type=int, default=-1)
     return parser.parse_args()
 
 
-def plot(files):
+def plot(args):
 
     figs = {}
 
     print()
     print("Reading files...")
 
-    files_ordered = sorted(files, key=lambda x: int(re.sub(r"\D", "", str(x))))
+    files_ordered = sorted(args.files, key=lambda x: int(re.sub(r"\D", "", str(x))))
 
     for a_file in files_ordered:
 
         print(f"  * {a_file.name}")
 
-        data = np.loadtxt(
-            a_file,
-            dtype={
-                "names": ("offset", "intensity", "error"),
-                "formats": ("i4", "f8", "f8"),
-            },
-        )
+        data = np.genfromtxt(a_file, dtype=None, names=("offset", "intensity", "error"))
 
-        data_ref = data[abs(data["offset"]) >= 1e4]
-        if not data_ref:
-            data_ref = data[np.argmax(abs(data["intensity"]))]
-        data_cest = data[abs(data["offset"]) < 1e4]
+        if args.ref == -1:
+            ref = abs(data["offset"]) >= 1e4
+        else:
+            ref = np.full_like(data["offset"], False, dtype=bool)
+            ref[args.ref] = True
+        data_ref = data[ref]
+        data_cest = data[~ref]
 
         figs[a_file.name] = make_fig(a_file.name, data_cest, data_ref)
 
@@ -72,30 +70,14 @@ def offset_to_nu_cpmg(offset, time_t2):
     return nu_cpmg
 
 
-def intensity_to_r2eff(intensity, intensity_ref, time_t2):
-
-    if np.any(intensity / intensity_ref <= 0.0):
-        print(intensity / intensity_ref)
-        print()
-
-    return -np.log(intensity / intensity_ref) / time_t2
-
-
-def make_ens(data, size=1000):
-
-    return data["intensity"] + data["error"] * np.random.randn(
-        size, len(data["intensity"])
-    )
-
-
 def make_fig(name, data_cest, data_ref):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.errorbar(
         data_cest["offset"],
         data_cest["intensity"] / np.mean(data_ref["intensity"]),
-        yerr=data_cest["error"] / np.mean(data_ref["intensity"]),
-        fmt="o",
+        yerr=data_cest["error"] / abs(np.mean(data_ref["intensity"])),
+        fmt=".",
     )
     ax.set_title(name)
     ax.set_xlabel(r"$B_1$ offset (Hz)")

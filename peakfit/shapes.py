@@ -1,5 +1,6 @@
 import lmfit as lf
 import nmrglue.analysis.lineshapes1d as ls
+import numpy as np
 
 
 def pvoigt2d(x, y, x0, y0, x_fwhm, y_fwhm, x_eta, y_eta):
@@ -8,37 +9,45 @@ def pvoigt2d(x, y, x0, y0, x_fwhm, y_fwhm, x_eta, y_eta):
     return shapex * shapey
 
 
-def create_params(peaks, ucx, ucy, pvoigt=False, lorenztian=False):
+def create_params(peaks, spectra, clargs):
 
-    scalex = abs(ucx.ppm(ucx.f(10, "hz")))
-    scaley = abs(ucy.ppm(ucy.f(10, "hz")))
+    ucx = spectra.ucx
+    ucy = spectra.ucy
 
-    params = lf.Parameters()
+    hz2ppm_x = abs(ucx.ppm(ucx.f(1, "hz")))
+    hz2ppm_y = abs(ucy.ppm(ucy.f(1, "hz")))
 
-    for index, (_, x0, _, y0, _) in enumerate(peaks):
+    vary_position = not clargs.fixed
+
+    params = lf.Parameters(usersyms={"ucx": ucx, "ucy": ucy})
+
+    for index, peak in enumerate(peaks):
         pre = f"p{index}_"
-        x0_name = "".join([pre, "x0"])
-        y0_name = "".join([pre, "y0"])
-        x_fwhm_name = "".join([pre, "x_fwhm"])
-        y_fwhm_name = "".join([pre, "y_fwhm"])
-        x_eta_name = "".join([pre, "x_eta"])
-        y_eta_name = "".join([pre, "y_eta"])
 
-        params.add(x0_name, value=x0, min=x0 - scalex, max=x0 + scalex, vary=False)
-        params.add(y0_name, value=y0, min=y0 - scaley, max=y0 + scaley, vary=False)
+        x0, x0min, x0max = peak.x0 + np.array([0.0, -10.0, 10.0]) * hz2ppm_x
+        y0, y0min, y0max = peak.y0 + np.array([0.0, -10.0, 10.0]) * hz2ppm_y
 
-        params.add(x_fwhm_name, value=20.0, min=0.1, max=200.0)
-        params.add(y_fwhm_name, value=20.0, min=0.1, max=200.0)
+        params.add(f"{pre}x0", value=x0, min=x0min, max=x0max, vary=vary_position)
+        params.add(f"{pre}y0", value=y0, min=y0min, max=y0max, vary=vary_position)
+
+        params.add(f"{pre}x_fwhm", value=20.0, min=0.1, max=200.0)
+        params.add(f"{pre}y_fwhm", value=20.0, min=0.1, max=200.0)
+
+        params.add(f"{pre}x_fwhm_ppm", expr=f"{pre}x_fwhm * {hz2ppm_x}")
+        params.add(f"{pre}y_fwhm_ppm", expr=f"{pre}y_fwhm * {hz2ppm_y}")
 
         # By default, the shape is gaussian (eta = 0.0)
-        if pvoigt:
-            params.add(x_eta_name, value=0.5, min=-1.0, max=+1.0, vary=False)
-            params.add(y_eta_name, value=0.5, min=-1.0, max=+1.0, vary=False)
-        elif lorenztian:
-            params.add(x_eta_name, value=1.0, min=-1.0, max=+1.0, vary=False)
-            params.add(y_eta_name, value=1.0, min=-1.0, max=+1.0, vary=False)
+        if clargs.pvoigt:
+            vary_eta = True
+            value_eta = 0.5
+        elif clargs.lorentzian:
+            vary_eta = False
+            value_eta = 1.0
         else:
-            params.add(x_eta_name, value=0.0, min=-1.0, max=+1.0, vary=False)
-            params.add(y_eta_name, value=0.0, min=-1.0, max=+1.0, vary=False)
+            vary_eta = False
+            value_eta = 0.0
+
+        params.add(f"{pre}x_eta", value=value_eta, min=-1.0, max=+1.0, vary=vary_eta)
+        params.add(f"{pre}y_eta", value=value_eta, min=-1.0, max=+1.0, vary=vary_eta)
 
     return params
