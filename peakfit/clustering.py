@@ -1,4 +1,5 @@
 import collections as cl
+import itertools as it
 
 import numpy as np
 
@@ -46,7 +47,43 @@ def cluster_peaks(spectra: Spectra, peaks: np.ndarray, contour_level: float) -> 
 
         names = names - peak_names
 
+    clusters = _merge_close_clusters(clusters, spectra, 20.0)
+
     return sorted(clusters, key=lambda x: len(x[0]))
+
+
+def _merge_close_clusters(clusters, spectra, cutoff):
+    grouped = True
+    while grouped:
+        grouped = False
+        for cluster1, cluster2 in it.combinations(clusters, 2):
+            if _distance(cluster1, cluster2, spectra) <= cutoff:
+                merged = _merge_clusters(cluster1, cluster2)
+                clusters.remove(cluster1)
+                clusters.remove(cluster2)
+                clusters.append(merged)
+                grouped = True
+                break
+    return clusters
+
+
+def _merge_clusters(cluster1, cluster2):
+    peak_cluster = [*cluster1.peaks, *cluster2.peaks]
+    x_cluster = np.hstack((cluster1.x, cluster2.x))
+    y_cluster = np.hstack((cluster1.y, cluster2.y))
+    data_cluster = np.vstack((cluster1.data, cluster2.data))
+    return Cluster(peak_cluster, x_cluster, y_cluster, data_cluster)
+
+
+def _distance(cluster1, cluster2, spectra):
+    ucx, ucy = spectra.ucx, spectra.ucy
+    distances2 = [
+        (ucx.hz(ucx.f(peak1.x0, "ppm")) - ucx.hz(ucx.f(peak2.x0, "ppm"))) ** 2
+        + (ucy.hz(ucy.f(peak1.y0, "ppm")) - ucy.hz(ucy.f(peak2.y0, "ppm"))) ** 2
+        for peak1, peak2 in it.product(cluster1.peaks, cluster2.peaks)
+    ]
+
+    return np.sqrt(min(distances2))
 
 
 def _flood(x_start: int, y_start: int, spectra: Spectra, threshold: float) -> list:
