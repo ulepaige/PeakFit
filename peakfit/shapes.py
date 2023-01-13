@@ -30,8 +30,8 @@ def create_params(peaks, spectra, clargs):
         params.add(f"{pre}x0", value=x0, min=x0min, max=x0max, vary=vary_position)
         params.add(f"{pre}y0", value=y0, min=y0min, max=y0max, vary=vary_position)
 
-        params.add(f"{pre}x_fwhm", value=20.0, min=0.1, max=200.0)
-        params.add(f"{pre}y_fwhm", value=20.0, min=0.1, max=200.0)
+        params.add(f"{pre}x_fwhm", value=15.0, min=0.1, max=200.0)
+        params.add(f"{pre}y_fwhm", value=15.0, min=0.1, max=200.0)
 
         params.add(f"{pre}x_fwhm_ppm", expr=f"{pre}x_fwhm * {hz2ppm_x}")
         params.add(f"{pre}y_fwhm_ppm", expr=f"{pre}y_fwhm * {hz2ppm_y}")

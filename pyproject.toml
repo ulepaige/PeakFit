@@ -1,57 +1,43 @@
 [tool.poetry]
-name        = "PeakFit"
-version     = "0.2.0-dev2"
+name = "PeakFit"
+version = "0.3.0"
 description = "PeakFit allow for lineshape fitting in pseudo-3D NMR spectra."
-license     = "BSD 3-Clause"
+license = "GPL-3.0-only"
 classifiers = [
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: BSD License",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.5",
-  "Programming Language :: Python :: 3.6",
-  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
 ]
-authors     = ["Guillaume Bouvignies <gbouvignies@gmail.com>"]
-readme      = "README.md"
-repository  = "https://github.com/gbouvignies/PeakFit"
-homepage    = "https://github.com/gbouvignies/PeakFit"
+authors = ["Guillaume Bouvignies <gbouvignies@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/gbouvignies/PeakFit"
+homepage = "https://github.com/gbouvignies/PeakFit"
 
-    [tool.poetry.dependencies]
-    python     = ">=3.8,<3.10"
-    numpy      = "^1.20.2"
-    scipy      = "^1.6.3"
-    matplotlib = "^3.4.1"
-    lmfit      = "^1.0.2"
-    nmrglue    = "^0.8"
+  [tool.poetry.dependencies]
+  python     = ">=3.9,<3.10"
+  numpy      = "^1.24.1"
+  scipy      = "^1.10.0"
+  matplotlib = "^3.6.3"
+  lmfit      = "^1.1.0"
+  nmrglue    = "^0.9"
 
-    [tool.poetry.dev-dependencies]
-    black      = "^21.5b2"
-    pre-commit = "^2.12.1"
-    flake8     = "^3.9.1"
+  [tool.poetry.dev-dependencies]
+  black      = "^22.3.0"
+  pre-commit = "^2.18.1"
+  flake8     = "^4.0.1"
 
-    [tool.poetry.scripts]
-    peakfit   = "peakfit.peakfit:main"
-    plot_cpmg = "peakfit.plot_cpmg:main"
-    plot_cest = "peakfit.plot_cest:main"
+  [tool.poetry.scripts]
+  peakfit   = "peakfit.peakfit:main"
+  plot_cpmg = "peakfit.plot_cpmg:main"
+  plot_cest = "peakfit.plot_cest:main"
+
 
 
 [tool.black]
-line-length    = 88
-target-version = ['py38']
-include        = '\.pyi?$'
-exclude        = '''
-/(
-    \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''
+target-version = ['py39']
 
 
 [build-system]
