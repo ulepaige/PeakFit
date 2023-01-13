@@ -41,12 +41,19 @@ def parse_command_line() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=description)
 
     parser.add_argument(
-        "--spectra", "-s", dest="path_spectra", required=True, type=pathlib.Path
+        "--spectra",
+        "-s",
+        dest="path_spectra",
+        required=True,
+        type=pathlib.Path,
+        nargs="+",
     )
     parser.add_argument(
         "--list", "-l", dest="path_list", required=True, type=pathlib.Path
     )
-    parser.add_argument("--zvalues", "-z", dest="path_z_values", required=True)
+    parser.add_argument(
+        "--zvalues", "-z", dest="path_z_values", required=True, nargs="+"
+    )
     parser.add_argument("--ct", "-t", dest="contour_level", required=True, type=float)
     parser.add_argument(
         "--out", "-o", dest="path_output", default="Fits", type=pathlib.Path
@@ -71,7 +78,14 @@ def main() -> None:
     clargs = parse_command_line()
 
     # Read spectra
-    dic, data = ng.fileio.pipe.read(str(clargs.path_spectra))
+    dic_list = []
+    data_list = []
+    for path in clargs.path_spectra:
+        dic, data = ng.fileio.pipe.read(str(path))
+        dic_list.append(dic)
+        data_list.append(data)
+    data = np.concatenate(data_list, axis=0)
+    dic = dic_list[0]
 
     # Normalize spectra related to noise
     if clargs.noise < 0.0:
@@ -92,7 +106,8 @@ def main() -> None:
     )
 
     # Read z values
-    z_values = np.genfromtxt(clargs.path_z_values, dtype=None)
+    z_list = [np.genfromtxt(path, dtype=None) for path in clargs.path_z_values]
+    z_values = np.concatenate(z_list)
 
     # Create the output directory
     clargs.path_output.mkdir(parents=True, exist_ok=True)
