@@ -1,182 +1,60 @@
-import argparse
-import pathlib
+"""Main module"""
 import random
 import sys
+from collections.abc import Sequence
+from pathlib import Path
 
 import lmfit as lf
 import nmrglue as ng
 import numpy as np
 import numpy.random as nr
 
-import peakfit.clustering as pcl
-import peakfit.computing as pco
-import peakfit.shapes as ps
-import peakfit.util as pu
-from peakfit import __version__
+from peakfit.cli import build_parser
+from peakfit.clustering import Cluster
+from peakfit.clustering import cluster_peaks
+from peakfit.clustering import Spectra
+from peakfit.computing import calculate_shape_heights
+from peakfit.computing import residuals
+from peakfit.computing import simulate_data
+from peakfit.messages import print_logo
+from peakfit.messages import print_peaks
+from peakfit.shapes import create_params
 
 
-LOGO = r"""
+def read_spectra(
+    paths_spectra: Sequence[Path],
+    paths_z_values: Sequence[Path],
+    exclude_list: Sequence[int],
+) -> Spectra:
+    """Read NMRPipe spectra and return a Spectra object"""
 
-* * * * * * * * * * * * * * * * * * * * * *
-*    ____            _    _____ _ _       *
-*   |  _ \ ___  __ _| | _|  ___(_) |_     *
-*   | |_) / _ \/ _` | |/ / |_  | | __|    *
-*   |  __/  __/ (_| |   <|  _| | | |_     *
-*   |_|   \___|\__,_|_|\_\_|   |_|\__|    *
-*                                         *
-*  Perform peak integration in pseudo-3D  *
-*  spectra                                *
-*                                         *
-*  Version: {:<29s} *
-*                                         *
-* * * * * * * * * * * * * * * * * * * * * *
-""".format(
-    __version__
-)
-
-
-def parse_command_line() -> argparse.Namespace:
-    description = "Perform peak integration in pseudo-3D."
-
-    parser = argparse.ArgumentParser(description=description)
-
-    parser.add_argument(
-        "--spectra",
-        "-s",
-        dest="path_spectra",
-        required=True,
-        type=pathlib.Path,
-        nargs="+",
-    )
-    parser.add_argument(
-        "--list", "-l", dest="path_list", required=True, type=pathlib.Path
-    )
-    parser.add_argument(
-        "--zvalues", "-z", dest="path_z_values", required=True, nargs="+"
-    )
-    parser.add_argument("--ct", "-t", dest="contour_level", required=True, type=float)
-    parser.add_argument(
-        "--out", "-o", dest="path_output", default="Fits", type=pathlib.Path
-    )
-    parser.add_argument("--noise", "-n", dest="noise", default=1.0, type=float)
-    parser.add_argument(
-        "--mc",
-        nargs=5,
-        metavar=("X_MIN", "X_MAX", "Y_MIN", "Y_MAX", "N"),
-    )
-    parser.add_argument("--fixed", dest="fixed", action="store_true")
-    parser.add_argument("--pvoigt", dest="pvoigt", action="store_true")
-    parser.add_argument("--lorentzian", dest="lorentzian", action="store_true")
-
-    return parser.parse_args()
-
-
-def main() -> None:
-
-    print(LOGO)
-
-    clargs = parse_command_line()
-
-    # Read spectra
+    # Read NMRPipe spectra
     dic_list = []
     data_list = []
-    for path in clargs.path_spectra:
+    for path in paths_spectra:
         dic, data = ng.fileio.pipe.read(str(path))
         dic_list.append(dic)
         data_list.append(data)
     data = np.concatenate(data_list, axis=0)
-    dic = dic_list[0]
 
-    # Normalize spectra related to noise
-    if clargs.noise < 0.0:
-        clargs.noise = 1.0
-        print("Warning: `noise` option is < 0.0 (set to 1.0)")
+    # Read z values
+    z_list = [np.genfromtxt(path, dtype=None) for path in paths_z_values]
+    z_values = np.concatenate(z_list)
+
+    # Exclude planes
+    if exclude_list:
+        exclude_array = np.full_like(z_values, False, np.bool_)
+        exclude_array[exclude_list] = True
+        data = data[~exclude_array]
+        z_values = z_values[~exclude_array]
 
     # Create unit conversion object for indirect and direct dimension
+    dic = dic_list[0]
     ucy = ng.pipe.make_uc(dic, data, dim=1)
     ucx = ng.pipe.make_uc(dic, data, dim=2)
 
-    # Create 'Spectra' object
-    spectra = pcl.Spectra(data, ucx, ucy)
-
-    # Read peak list
-    lines = clargs.path_list.read_text().replace("Ass", "#").splitlines()
-    peaks = np.genfromtxt(
-        lines, dtype=None, encoding="utf-8", names=("names", "y", "x")
-    )
-
-    # Read z values
-    z_list = [np.genfromtxt(path, dtype=None) for path in clargs.path_z_values]
-    z_values = np.concatenate(z_list)
-
-    # Create the output directory
-    clargs.path_output.mkdir(parents=True, exist_ok=True)
-
-    # Cluster peaks
-    clusters = pcl.cluster_peaks(spectra, peaks, clargs.contour_level)
-
-    with (clargs.path_output / "logs.out").open("w") as file_logs:
-        shifts = run_fit(clargs, spectra, z_values, clusters, file_logs)
-
-    with (clargs.path_output / "shifts.out").open("w") as file_shifts:
-        write_shifts(peaks["names"], shifts, file_shifts)
-
-
-def run_fit(clargs, spectra, z_values, clusters, file_logs):
-
-    print("- Lineshape fitting...", end="\n\n\n")
-
-    shifts = {}
-
-    for cluster in clusters:
-
-        pu.print_peaks(cluster.peaks, files=(sys.stdout, file_logs))
-
-        params = ps.create_params(cluster.peaks, spectra, clargs)
-
-        out = lf.minimize(
-            pco.residuals,
-            params,
-            args=(cluster, clargs.noise),
-            method="least_squares",
-            verbose=2,
-        )
-
-        _, heights = pco.calculate_shape_heights(out.params, cluster)
-
-        out.init_vals.extend(heights.ravel())
-        out._calculate_statistics()
-
-        print(f"\nReduced Chi2 = {out.redchi}\n\n")
-        print(lf.fit_report(out, min_correl=0.5), end="\n\n\n", file=file_logs)
-
-        params_err = {param.name: param.stderr for param in out.params.values()}
-        height_err = np.full_like(heights, clargs.noise)
-
-        shifts.update(
-            {
-                peak.name: (out.params[f"p{i}_x0"].value, out.params[f"p{i}_y0"].value)
-                for i, peak in enumerate(cluster.peaks)
-            }
-        )
-
-        # Monte-Carlo
-        if clargs.mc and int(clargs.mc[4]) > 1:
-            params_err, height_err = monte_carlo(
-                clargs.mc, spectra, cluster, out, clargs.noise
-            )
-
-        write_profiles(
-            clargs.path_output,
-            z_values,
-            cluster,
-            out.params,
-            heights,
-            params_err,
-            height_err,
-        )
-
-    return shifts
+    # Create and return 'Spectra' object
+    return Spectra(data, ucx, ucy, z_values)
 
 
 def write_profiles(path, z_values, cluster, params, heights, params_err, height_err):
@@ -219,41 +97,6 @@ def write_profiles(path, z_values, cluster, params, heights, params_err, height_
             )
 
 
-def monte_carlo(mc, spectra, cluster, result, noise):
-
-    n_iter, spectra_noise = extract_noise_spectra(mc, spectra)
-
-    x_pt = np.rint(spectra.ucx.f(cluster.x, "ppm")).astype(int)
-    y_pt = np.rint(spectra.ucy.f(cluster.y, "ppm")).astype(int)
-
-    data_sim = pco.simulate_data(result.params, cluster)
-
-    mc_list = []
-
-    for _ in range(int(n_iter)):
-
-        data_noise = get_some_noise(spectra, spectra_noise, x_pt, y_pt)
-        data_mc = data_sim + data_noise
-        cluster_mc = pcl.Cluster(cluster.peaks, cluster.x, cluster.y, data_mc)
-
-        params_mc = lf.minimize(
-            pco.residuals,
-            result.params,
-            args=(cluster_mc, noise),
-            method="least_squares",
-        ).params
-
-        _shapes, heights = pco.calculate_shape_heights(params_mc, cluster_mc)
-
-        mc_list.append((params_mc, heights))
-
-    params_list, heights_list = zip(*mc_list)
-
-    params_err, height_err = calc_err_from_mc(params_list, heights_list)
-
-    return params_err, height_err
-
-
 def get_some_noise(spectra, noise, x_pt, y_pt):
     nr.shuffle(noise)
 
@@ -292,11 +135,137 @@ def calc_err_from_mc(params_list, heights_list):
     return params_err, height_err
 
 
+def monte_carlo(mc, spectra, cluster, result, noise):
+
+    n_iter, spectra_noise = extract_noise_spectra(mc, spectra)
+
+    x_pt = np.rint(spectra.ucx.f(cluster.x, "ppm")).astype(int)
+    y_pt = np.rint(spectra.ucy.f(cluster.y, "ppm")).astype(int)
+
+    data_sim = simulate_data(result.params, cluster)
+
+    mc_list = []
+
+    for _ in range(int(n_iter)):
+
+        data_noise = get_some_noise(spectra, spectra_noise, x_pt, y_pt)
+        data_mc = data_sim + data_noise
+        cluster_mc = Cluster(cluster.peaks, cluster.x, cluster.y, data_mc)
+
+        params_mc = lf.minimize(
+            residuals,
+            result.params,
+            args=(cluster_mc, noise),
+            method="least_squares",
+        ).params
+
+        _shapes, heights = calculate_shape_heights(params_mc, cluster_mc)
+
+        mc_list.append((params_mc, heights))
+
+    params_list, heights_list = zip(*mc_list)
+
+    params_err, height_err = calc_err_from_mc(params_list, heights_list)
+
+    return params_err, height_err
+
+
+def run_fit(clargs, spectra, clusters, file_logs):
+
+    print("- Lineshape fitting...", end="\n\n\n")
+
+    shifts = {}
+
+    for cluster in clusters:
+
+        print_peaks(cluster.peaks, files=(sys.stdout, file_logs))
+
+        params = create_params(cluster.peaks, spectra, clargs)
+
+        out = lf.minimize(
+            residuals,
+            params,
+            args=(cluster, clargs.noise),
+            method="least_squares",
+            verbose=2,
+        )
+
+        _, heights = calculate_shape_heights(out.params, cluster)
+
+        out.init_vals.extend(heights.ravel())
+        out._calculate_statistics()
+
+        print(f"\nReduced Chi2 = {out.redchi}\n\n")
+        print(lf.fit_report(out, min_correl=0.5), end="\n\n\n", file=file_logs)
+
+        params_err = {param.name: param.stderr for param in out.params.values()}
+        height_err = np.full_like(heights, clargs.noise)
+
+        shifts.update(
+            {
+                peak.name: (out.params[f"p{i}_x0"].value, out.params[f"p{i}_y0"].value)
+                for i, peak in enumerate(cluster.peaks)
+            }
+        )
+
+        # Monte-Carlo
+        if clargs.mc and int(clargs.mc[4]) > 1:
+            params_err, height_err = monte_carlo(
+                clargs.mc, spectra, cluster, out, clargs.noise
+            )
+
+        write_profiles(
+            clargs.path_output,
+            spectra.z_values,
+            cluster,
+            out.params,
+            heights,
+            params_err,
+            height_err,
+        )
+
+    return shifts
+
+
 def write_shifts(names, shifts, file_shifts):
     for name in names:
         file_shifts.write(
             f"{name:>15s} {shifts[name][1]:10.5f} {shifts[name][0]:10.5f}\n"
         )
+
+
+def main() -> None:
+    """Run peakfit"""
+
+    print_logo()
+
+    parser = build_parser()
+    clargs = parser.parse_args()
+
+    spectra = read_spectra(clargs.path_spectra, clargs.path_z_values, clargs.exclude)
+
+    # Normalize spectra related to noise
+    if clargs.noise < 0.0:
+        clargs.noise = 1.0
+        print("Warning: `noise` option is < 0.0 (set to 1.0)")
+
+    # Read peak list
+    lines = clargs.path_list.read_text().replace("Ass", "#").splitlines()
+    peaks = np.genfromtxt(
+        lines, dtype=None, encoding="utf-8", names=("names", "y", "x")
+    )
+
+    # Create the output directory
+    clargs.path_output.mkdir(parents=True, exist_ok=True)
+
+    # Cluster peaks
+    clusters = cluster_peaks(spectra, peaks, clargs.contour_level)
+
+    with (clargs.path_output / "logs.out").open("w") as file_logs:
+        shifts = run_fit(clargs, spectra, clusters, file_logs)
+
+    with (clargs.path_output / "shifts.out").open("w") as file_shifts:
+        write_shifts(peaks["names"], shifts, file_shifts)
 
 
 if __name__ == "__main__":
