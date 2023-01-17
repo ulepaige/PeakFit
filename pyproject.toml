@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "PeakFit"
-version = "0.3.2"
+version = "0.4.0"
 description = "PeakFit allow for lineshape fitting in pseudo-3D NMR spectra."
 license = "GPL-3.0-only"
 classifiers = [
@@ -23,6 +23,7 @@ homepage = "https://github.com/gbouvignies/PeakFit"
   matplotlib = "^3.6.3"
   lmfit      = "^1.1.0"
   nmrglue    = "^0.9"
+  rich       = "^13.1.0"
 
   [tool.poetry.dev-dependencies]
   black      = "^22.3.0"
@@ -30,10 +31,10 @@ homepage = "https://github.com/gbouvignies/PeakFit"
   flake8     = "^4.0.1"
 
   [tool.poetry.scripts]
-  peakfit   = "peakfit.peakfit:main"
-  plot_cpmg = "peakfit.plot_cpmg:main"
-  plot_cest = "peakfit.plot_cest:main"
-
+  peakfit          = "peakfit.peakfit:main"
+  plot_cpmg        = "peakfit.plot_cpmg:main"
+  plot_cest        = "peakfit.plot_cest:main"
+  plot_intensities = "peakfit.plot_intensities:main"
 
 
 [tool.black]
