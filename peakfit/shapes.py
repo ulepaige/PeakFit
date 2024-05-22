@@ -10,7 +10,6 @@ def pvoigt2d(x, y, x0, y0, x_fwhm, y_fwhm, x_eta, y_eta):
 
 
 def create_params(peaks, spectra, clargs):
-
     ucx = spectra.ucx
     ucy = spectra.ucy
 
