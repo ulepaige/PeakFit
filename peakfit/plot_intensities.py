@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_pdf import PdfPages
 
+from peakfit.messages import print_filename, print_plotting, print_reading_files
+
 
 def get_args():
     parser = argparse.ArgumentParser(description="Plot intensity profiles.")
@@ -24,35 +26,25 @@ def make_fig(name, data):
     return fig
 
 
-def plot(args):
-
+def plot(args) -> None:
     figs = {}
 
-    print()
-    print("Reading files...")
+    print_reading_files()
 
     files_ordered = sorted(args.files, key=lambda x: int(re.sub(r"\D", "", str(x))))
 
     for a_file in files_ordered:
-
-        print(f"  * {a_file.name}")
-
+        print_filename(a_file)
         data = np.genfromtxt(a_file, dtype=None, names=("xlabel", "intensity", "error"))
         figs[a_file.name] = make_fig(a_file.name, data)
 
-    print()
-    print("Plotting...")
+    print_plotting()
 
     with PdfPages("profiles.pdf") as pdf:
         for fig in figs.values():
             pdf.savefig(fig)
 
-    print("  * profiles.pdf")
 
-
-def main():
-
+def main() -> None:
     args = get_args()
     plot(args)
-
-    return

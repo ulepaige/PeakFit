@@ -1,4 +1,5 @@
 """The parsing module contains the code for the parsing of command-line arguments."""
+
 from __future__ import annotations
 
 from argparse import ArgumentParser
@@ -21,11 +22,15 @@ def build_parser() -> ArgumentParser:
     )
     parser.add_argument("--list", "-l", dest="path_list", required=True, type=Path)
     parser.add_argument(
-        "--zvalues", "-z", dest="path_z_values", required=True, nargs="+"
+        "--zvalues",
+        "-z",
+        dest="path_z_values",
+        required=True,
+        nargs="+",
     )
-    parser.add_argument("--ct", "-t", dest="contour_level", required=True, type=float)
+    parser.add_argument("--ct", "-t", dest="contour_level", type=float)
     parser.add_argument("--out", "-o", dest="path_output", default="Fits", type=Path)
-    parser.add_argument("--noise", "-n", dest="noise", default=1.0, type=float)
+    parser.add_argument("--noise", "-n", dest="noise", type=float)
     parser.add_argument(
         "--mc",
         nargs=5,

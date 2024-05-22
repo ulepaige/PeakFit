@@ -1,5 +1,4 @@
 import numpy as np
-import scipy.linalg as sl
 
 import peakfit.shapes as ps
 
@@ -19,11 +18,11 @@ def calculate_shape_heights(params, cluster):
                 params[f"{pre}y_fwhm_ppm"],
                 params[f"{pre}x_eta"],
                 params[f"{pre}y_eta"],
-            )
+            ),
         )
 
     shapes = np.asarray(shapes).T
-    amp_values = sl.lstsq(shapes, cluster.data)[0]
+    amp_values = np.linalg.lstsq(shapes, cluster.data, rcond=None)[0]
 
     return shapes, amp_values
 

@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_pdf import PdfPages
 
+from peakfit.messages import print_filename, print_plotting, print_reading_files
+
 
 def get_args():
     parser = argparse.ArgumentParser(description="Plot CPMG R2eff profiles.")
@@ -15,7 +17,6 @@ def get_args():
 
 
 def ncyc_to_nu_cpmg(ncyc, time_t2):
-
     nu_cpmg = []
 
     for a_ncyc in ncyc:
@@ -32,9 +33,9 @@ def intensity_to_r2eff(intensity, intensity_ref, time_t2):
 
 
 def make_ens(data, size=1000):
-
     return data["intensity"] + data["error"] * np.random.randn(
-        size, len(data["intensity"])
+        size,
+        len(data["intensity"]),
     )
 
 
@@ -50,19 +51,15 @@ def make_fig(name, nu_cpmg, r2_exp, r2_erd, r2_eru):
     return fig
 
 
-def plot(files, time_t2):
-
+def plot(files, time_t2) -> None:
     figs = {}
 
-    print()
-    print("Reading files...")
+    print_reading_files()
 
     files_ordered = sorted(files, key=lambda x: int(re.sub(r"\D", "", str(x))))
 
     for a_file in files_ordered:
-
-        print(f"  * {a_file.name}")
-
+        print_filename(a_file)
         data = np.loadtxt(
             a_file,
             dtype={
@@ -70,41 +67,32 @@ def plot(files, time_t2):
                 "formats": ("i4", "f8", "f8"),
             },
         )
-
         data_ref = data[data["ncyc"] == 0]
         data_cpmg = data[data["ncyc"] != 0]
-
         intensity_ref = np.mean(data_ref["intensity"])
         error_ref = np.mean(data_ref["error"]) / np.sqrt(len(data_ref))
-
         nu_cpmg = ncyc_to_nu_cpmg(data_cpmg["ncyc"], time_t2)
-
         r2_exp = intensity_to_r2eff(data_cpmg["intensity"], intensity_ref, time_t2)
         r2_ens = intensity_to_r2eff(
             make_ens(data_cpmg),
             make_ens(
-                {"intensity": np.array([intensity_ref]), "error": np.array([error_ref])}
+                {
+                    "intensity": np.array([intensity_ref]),
+                    "error": np.array([error_ref]),
+                },
             ),
             time_t2,
         )
-
         r2_erd, r2_eru = abs(np.percentile(r2_ens, [15.9, 84.1], axis=0) - r2_exp)
-
         figs[a_file.name] = make_fig(a_file.name, nu_cpmg, r2_exp, r2_erd, r2_eru)
 
-    print()
-    print("Plotting...")
+    print_plotting()
 
     with PdfPages("profiles.pdf") as pdf:
         for fig in figs.values():
             pdf.savefig(fig)
 
-    print("  * profiles.pdf")
 
-
-def main():
-
+def main() -> None:
     args = get_args()
     plot(args.files, args.time_t2)
-
-    return

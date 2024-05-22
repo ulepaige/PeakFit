@@ -1,6 +1,6 @@
-"""Main module"""
+"""Main module."""
+
 import random
-import sys
 from collections.abc import Sequence
 from pathlib import Path
 
@@ -10,14 +10,17 @@ import numpy as np
 import numpy.random as nr
 
 from peakfit.cli import build_parser
-from peakfit.clustering import Cluster
-from peakfit.clustering import cluster_peaks
-from peakfit.clustering import Spectra
-from peakfit.computing import calculate_shape_heights
-from peakfit.computing import residuals
-from peakfit.computing import simulate_data
-from peakfit.messages import print_logo
-from peakfit.messages import print_peaks
+from peakfit.clustering import Cluster, Spectra, cluster_peaks
+from peakfit.computing import calculate_shape_heights, residuals, simulate_data
+from peakfit.messages import (
+    export_html,
+    print_estimated_noise,
+    print_fit_report,
+    print_fitting,
+    print_logo,
+    print_peaks,
+)
+from peakfit.noise import estimate_noise
 from peakfit.shapes import create_params
 
 
@@ -26,8 +29,7 @@ def read_spectra(
     paths_z_values: Sequence[Path],
     exclude_list: Sequence[int],
 ) -> Spectra:
-    """Read NMRPipe spectra and return a Spectra object"""
-
+    """Read NMRPipe spectra and return a Spectra object."""
     # Read NMRPipe spectra
     dic_list = []
     data_list = []
@@ -43,7 +45,7 @@ def read_spectra(
 
     # Exclude planes
     if exclude_list:
-        exclude_array = np.full_like(z_values, False, np.bool_)
+        exclude_array = np.full_like(z_values, fill_value=False, dtype=np.bool_)
         exclude_array[exclude_list] = True
         data = data[~exclude_array]
         z_values = z_values[~exclude_array]
@@ -57,7 +59,15 @@ def read_spectra(
     return Spectra(data, ucx, ucy, z_values)
 
 
-def write_profiles(path, z_values, cluster, params, heights, params_err, height_err):
+def write_profiles(
+    path,
+    z_values,
+    cluster,
+    params,
+    heights,
+    params_err,
+    height_err,
+) -> None:
     for i, peak in enumerate(cluster.peaks):
         vals = params.valuesdict()
         errs = {k: v if v is not None else 0.0 for k, v in params_err.items()}
@@ -91,9 +101,9 @@ def write_profiles(path, z_values, cluster, params, heights, params_err, height_
             f.write(f"# {'Z':>10s}  {'I':>14s}  {'I_err':>14s}\n")
             f.write(
                 "\n".join(
-                    f"  {str(z):>10s}  {ampl:14.6e}  {ampl_e:14.6e}"
-                    for z, ampl in zip(z_values, heights[i])
-                )
+                    f"  {z!s:>10s}  {ampl:14.6e}  {ampl_e:14.6e}"
+                    for z, ampl in zip(z_values, heights[i], strict=False)
+                ),
             )
 
 
@@ -122,7 +132,6 @@ def extract_noise_spectra(mc, spectra):
 
 
 def calc_err_from_mc(params_list, heights_list):
-
     params_dict = {}
 
     for params_mc in params_list:
@@ -136,7 +145,6 @@ def calc_err_from_mc(params_list, heights_list):
 
 
 def monte_carlo(mc, spectra, cluster, result, noise):
-
     n_iter, spectra_noise = extract_noise_spectra(mc, spectra)
 
     x_pt = np.rint(spectra.ucx.f(cluster.x, "ppm")).astype(int)
@@ -147,7 +155,6 @@ def monte_carlo(mc, spectra, cluster, result, noise):
     mc_list = []
 
     for _ in range(int(n_iter)):
-
         data_noise = get_some_noise(spectra, spectra_noise, x_pt, y_pt)
         data_mc = data_sim + data_noise
         cluster_mc = Cluster(cluster.peaks, cluster.x, cluster.y, data_mc)
@@ -163,22 +170,20 @@ def monte_carlo(mc, spectra, cluster, result, noise):
 
         mc_list.append((params_mc, heights))
 
-    params_list, heights_list = zip(*mc_list)
+    params_list, heights_list = zip(*mc_list, strict=False)
 
     params_err, height_err = calc_err_from_mc(params_list, heights_list)
 
     return params_err, height_err
 
 
-def run_fit(clargs, spectra, clusters, file_logs):
-
-    print("- Lineshape fitting...", end="\n\n\n")
+def run_fit(clargs, spectra, clusters):
+    print_fitting()
 
     shifts = {}
 
     for cluster in clusters:
-
-        print_peaks(cluster.peaks, files=(sys.stdout, file_logs))
+        print_peaks(cluster.peaks)
 
         params = create_params(cluster.peaks, spectra, clargs)
 
@@ -192,11 +197,7 @@ def run_fit(clargs, spectra, clusters, file_logs):
 
         _, heights = calculate_shape_heights(out.params, cluster)
 
-        out.init_vals.extend(heights.ravel())
-        out._calculate_statistics()
-
-        print(f"\nReduced Chi2 = {out.redchi}\n\n")
-        print(lf.fit_report(out, min_correl=0.5), end="\n\n\n", file=file_logs)
+        print_fit_report(out)
 
         params_err = {param.name: param.stderr for param in out.params.values()}
         height_err = np.full_like(heights, clargs.noise)
@@ -205,13 +206,17 @@ def run_fit(clargs, spectra, clusters, file_logs):
             {
                 peak.name: (out.params[f"p{i}_x0"].value, out.params[f"p{i}_y0"].value)
                 for i, peak in enumerate(cluster.peaks)
-            }
+            },
         )
 
         # Monte-Carlo
         if clargs.mc and int(clargs.mc[4]) > 1:
             params_err, height_err = monte_carlo(
-                clargs.mc, spectra, cluster, out, clargs.noise
+                clargs.mc,
+                spectra,
+                cluster,
+                out,
+                clargs.noise,
             )
 
         write_profiles(
@@ -227,16 +232,15 @@ def run_fit(clargs, spectra, clusters, file_logs):
     return shifts
 
 
-def write_shifts(names, shifts, file_shifts):
+def write_shifts(names, shifts, file_shifts) -> None:
     for name in names:
         file_shifts.write(
-            f"{name:>15s} {shifts[name][1]:10.5f} {shifts[name][0]:10.5f}\n"
+            f"{name:>15s} {shifts[name][1]:10.5f} {shifts[name][0]:10.5f}\n",
         )
 
 
 def main() -> None:
-    """Run peakfit"""
-
+    """Run peakfit."""
     print_logo()
 
     parser = build_parser()
@@ -244,27 +248,35 @@ def main() -> None:
 
     spectra = read_spectra(clargs.path_spectra, clargs.path_z_values, clargs.exclude)
 
-    # Normalize spectra related to noise
-    if clargs.noise < 0.0:
-        clargs.noise = 1.0
-        print("Warning: `noise` option is < 0.0 (set to 1.0)")
+    if clargs.noise is not None and clargs.noise < 0.0:
+        clargs.noise = None
+
+    if clargs.noise is None:
+        clargs.noise = estimate_noise(spectra.data)
+        print_estimated_noise(clargs.noise)
 
     # Read peak list
     lines = clargs.path_list.read_text().replace("Ass", "#").splitlines()
     peaks = np.genfromtxt(
-        lines, dtype=None, encoding="utf-8", names=("names", "y", "x")
+        lines,
+        dtype=None,
+        encoding="utf-8",
+        names=("names", "y", "x"),
     )
 
     # Create the output directory
     clargs.path_output.mkdir(parents=True, exist_ok=True)
 
     # Cluster peaks
+    if clargs.contour_level is None:
+        clargs.contour_level = 5.0 * clargs.noise
     clusters = cluster_peaks(spectra, peaks, clargs.contour_level)
 
-    with (clargs.path_output / "logs.out").open("w") as file_logs:
-        shifts = run_fit(clargs, spectra, clusters, file_logs)
+    shifts = run_fit(clargs, spectra, clusters)
 
-    with (clargs.path_output / "shifts.out").open("w") as file_shifts:
+    export_html(clargs.path_output / "logs.html")
+
+    with (clargs.path_output / "shifts.list").open("w") as file_shifts:
         write_shifts(peaks["names"], shifts, file_shifts)
 
 
