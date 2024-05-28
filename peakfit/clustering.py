@@ -1,8 +1,11 @@
 import itertools as it
+from itertools import product
 from typing import NamedTuple
 
 import numpy as np
+import pandas as pd
 from nmrglue.fileio.fileiobase import unit_conversion
+from scipy import spatial
 
 from peakfit.messages import print_segmenting
 
@@ -14,48 +17,37 @@ class Spectra(NamedTuple):
     z_values: np.ndarray
 
 
-class Peak(NamedTuple):
-    name: str
-    x0: int
-    y0: int
-
-
 class Cluster(NamedTuple):
-    peaks: list
+    peaks: pd.DataFrame
     x: np.ndarray
     y: np.ndarray
     data: np.ndarray
 
 
 def _merge_clusters(cluster1: Cluster, cluster2: Cluster) -> Cluster:
-    peak_cluster = [*cluster1.peaks, *cluster2.peaks]
-    x_cluster = np.hstack((cluster1.x, cluster2.x))
-    y_cluster = np.hstack((cluster1.y, cluster2.y))
-    data_cluster = np.vstack((cluster1.data, cluster2.data))
-    return Cluster(peak_cluster, x_cluster, y_cluster, data_cluster)
+    cluster_peaks = pd.concat([cluster1.peaks, cluster2.peaks]).reset_index(drop=True)
+    cluster_x = np.hstack((cluster1.x, cluster2.x))
+    cluster_y = np.hstack((cluster1.y, cluster2.y))
+    cluster_data = np.vstack((cluster1.data, cluster2.data))
+    return Cluster(cluster_peaks, cluster_x, cluster_y, cluster_data)
 
 
-def _distance(cluster1: Cluster, cluster2: Cluster, spectra: Spectra) -> float:
-    ucx, ucy = spectra.ucx, spectra.ucy
-    distances2 = [
-        (ucx.hz(ucx.f(peak1.x0, "ppm")) - ucx.hz(ucx.f(peak2.x0, "ppm"))) ** 2
-        + (ucy.hz(ucy.f(peak1.y0, "ppm")) - ucy.hz(ucy.f(peak2.y0, "ppm"))) ** 2
-        for peak1, peak2 in it.product(cluster1.peaks, cluster2.peaks)
-    ]
-
-    return np.sqrt(min(distances2))
+def _distance(cluster1: Cluster, cluster2: Cluster) -> float:
+    points1 = cluster1.peaks[["x0_hz", "y0_hz"]]
+    points2 = cluster2.peaks[["x0_hz", "y0_hz"]]
+    distances = spatial.distance.cdist(points1, points2)
+    return np.min(distances)
 
 
 def _merge_close_clusters(
     clusters: list[Cluster],
-    spectra: Spectra,
     cutoff: float,
 ) -> list[Cluster]:
     grouped = True
     while grouped:
         grouped = False
         for cluster1, cluster2 in it.combinations(clusters, 2):
-            if _distance(cluster1, cluster2, spectra) <= cutoff:
+            if _distance(cluster1, cluster2) <= cutoff:
                 merged = _merge_clusters(cluster1, cluster2)
                 clusters.remove(cluster1)
                 clusters.remove(cluster2)
@@ -65,75 +57,70 @@ def _merge_close_clusters(
     return clusters
 
 
+def _select_square(x: int, y: int, size: int) -> set[tuple[int, int]]:
+    size = size // 2
+    return set(product(range(x - size, x + size + 1), range(y - size, y + size + 1)))
+
+
 def _flood(
     x_start: int,
     y_start: int,
     spectra: Spectra,
     threshold: float,
-) -> list[tuple[int, int]]:
+) -> pd.DataFrame:
     data = spectra.data
-    ny, nx = data.shape[1:]
+    # peaks = ng.peakpick.pick(data[0], pthres=threshold, nthres=-threshold)
+    # print(peaks)
+    # print(peaks.dtype.names)
+    # print(Counter(peaks.cID))
+    # sys.exit()
+    data_above = np.any(np.absolute(data) >= threshold, axis=0)
+    _nz, ny, nx = data.shape
     stack = [(x_start, y_start)]
-    points = set()
+    points: set[tuple[int, int]] = set()
     while stack:
         x, y = stack.pop()
-        above = any(abs(data[:, y % ny, x % nx]) >= threshold)
+        x %= nx
+        y %= ny
+        above = data_above[y, x]
         unvisited = (x, y) not in points
         if above and unvisited:
             points.add((x, y))
-            stack.extend([(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)])
+            stack.extend(_select_square(x, y, 3) - {(x, y)})
     if len(points) < 9:
-        points = zip(
-            range(x_start - 1, x_start + 2),
-            range(y_start - 1, y_start + 2),
-            strict=False,
-        )
-    return list(points)
+        points = _select_square(x, y, 3)
+    return pd.DataFrame(points, columns=["x0_int", "y0_int"])
+
+
+def get_cluster_data(data: np.ndarray, region: pd.DataFrame) -> np.ndarray:
+    nz, ny, nx = data.shape
+    region_x, region_y = region["x0_int"], region["y0_int"]
+    region_data = data[:, region_y, region_x]
+    return region_data.reshape((nz, len(region))).T
 
 
 def cluster_peaks(
     spectra: Spectra,
-    peaks: np.ndarray,
+    peaks: pd.DataFrame,
     contour_level: float,
 ) -> list[Cluster]:
     print_segmenting()
 
-    nz, ny, nx = spectra.data.shape
-
-    peaks_ppm = {name: Peak(name, x, y) for name, y, x in peaks}
-
-    x_pts = np.rint(spectra.ucx.f(peaks["x"], "ppm")).astype(int)
-    y_pts = np.rint(spectra.ucy.f(peaks["y"], "ppm")).astype(int)
-    peaks_pt = {
-        name: (x, y) for name, x, y in zip(peaks["names"], x_pts, y_pts, strict=False)
-    }
-
-    names = set(peaks_pt)
-
     clusters = []
-    for name, (x_pt, y_pt) in peaks_pt.items():
-        if name not in names:
+    selected_peaks: set[str] = set()
+
+    for peak in peaks.itertuples(index=False, name="Peak"):
+        if peak.name in selected_peaks:
             continue
+        region = _flood(peak.x0_int, peak.y0_int, spectra, contour_level)
+        cluster_peaks = peaks.merge(region, how="inner", on=["x0_int", "y0_int"])
+        cluster_x = region["x0_int"].to_numpy()
+        cluster_y = region["y0_int"].to_numpy()
+        cluster_data = get_cluster_data(spectra.data, region)
+        cluster = Cluster(cluster_peaks, cluster_x, cluster_y, cluster_data)
+        clusters.append(cluster)
+        selected_peaks = {*selected_peaks, *cluster_peaks["name"]}
 
-        region = _flood(x_pt, y_pt, spectra, contour_level)
-
-        peak_names = {name for name in names if peaks_pt[name] in region}
-
-        x_reg, y_reg = np.asarray(region).T
-
-        data_cluster = (
-            spectra.data[:, y_reg % ny, x_reg % nx].reshape((nz, len(region))).T
-        )
-
-        x_cluster = spectra.ucx.unit(x_reg, "ppm")
-        y_cluster = spectra.ucy.unit(y_reg, "ppm")
-
-        peak_cluster = [peaks_ppm[name] for name in peak_names]
-
-        clusters.append(Cluster(peak_cluster, x_cluster, y_cluster, data_cluster))
-
-        names = names - peak_names
-
-    clusters = _merge_close_clusters(clusters, spectra, 20.0)
+    clusters = _merge_close_clusters(clusters, 20.0)
 
     return sorted(clusters, key=lambda x: len(x[0]))

@@ -44,7 +44,7 @@ def print_fitting() -> None:
 
 def print_peaks(peaks) -> None:
     """Print the peak names that are being fitted."""
-    peak_list = ", ".join(f"{peak[0]:s}" for peak in peaks)
+    peak_list = ", ".join(f"{name:s}" for name in peaks["name"])
     message = f"Peak(s): {peak_list}"
     panel = Panel.fit(message, style="green")
     console.print(panel)
