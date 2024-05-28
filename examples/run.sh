@@ -1,9 +1,11 @@
+#!/bin/bash
+
+rm -rf Fits
+
 peakfit  \
     -s pseudo3d.ft2 \
     -l pseudo3d.list \
     -z b1_offsets.txt \
-    -t 8e4 \
-    -n 12139.0 \
     -o Fits
 
-plot_cest -f FitsMC/*N-H.out --ref 0
+plot_cest -f Fits/*N-H.out --ref 0
