@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 from nmrglue.fileio.fileiobase import unit_conversion
 from scipy import spatial
+from scipy.cluster.hierarchy import fcluster, single
 
 from peakfit.messages import print_segmenting
 
@@ -24,11 +25,13 @@ class Cluster(NamedTuple):
     data: np.ndarray
 
 
-def _merge_clusters(cluster1: Cluster, cluster2: Cluster) -> Cluster:
-    cluster_peaks = pd.concat([cluster1.peaks, cluster2.peaks]).reset_index(drop=True)
-    cluster_x = np.hstack((cluster1.x, cluster2.x))
-    cluster_y = np.hstack((cluster1.y, cluster2.y))
-    cluster_data = np.vstack((cluster1.data, cluster2.data))
+def _merge_clusters(clusters: list[Cluster]) -> Cluster:
+    cluster_peaks = pd.concat([cluster.peaks for cluster in clusters]).reset_index(
+        drop=True
+    )
+    cluster_x = np.hstack([cluster.x for cluster in clusters])
+    cluster_y = np.hstack([cluster.y for cluster in clusters])
+    cluster_data = np.vstack([cluster.data for cluster in clusters])
     return Cluster(cluster_peaks, cluster_x, cluster_y, cluster_data)
 
 
@@ -39,22 +42,27 @@ def _distance(cluster1: Cluster, cluster2: Cluster) -> float:
     return np.min(distances)
 
 
-def _merge_close_clusters(
+def _merge_close_clusters2(
     clusters: list[Cluster],
     cutoff: float,
 ) -> list[Cluster]:
-    grouped = True
-    while grouped:
-        grouped = False
-        for cluster1, cluster2 in it.combinations(clusters, 2):
-            if _distance(cluster1, cluster2) <= cutoff:
-                merged = _merge_clusters(cluster1, cluster2)
-                clusters.remove(cluster1)
-                clusters.remove(cluster2)
-                clusters.append(merged)
-                grouped = True
-                break
-    return clusters
+    pdist = np.array(
+        [
+            _distance(cluster1, cluster2)
+            for cluster1, cluster2 in it.combinations(clusters, 2)
+        ]
+    )
+    dendrogram = single(pdist)
+    clusters_ids = fcluster(dendrogram, t=cutoff, criterion="distance")
+
+    if len(clusters) == len(np.unique(clusters_ids)):
+        return clusters
+
+    clusters_dict: dict[int, list[Cluster]] = {}
+    for i, cluster in zip(clusters_ids, clusters, strict=False):
+        clusters_dict.setdefault(i, []).append(cluster)
+
+    return [_merge_clusters(cluster_list) for cluster_list in clusters_dict.values()]
 
 
 def _select_square(x: int, y: int, size: int) -> set[tuple[int, int]]:
@@ -69,11 +77,6 @@ def _flood(
     threshold: float,
 ) -> pd.DataFrame:
     data = spectra.data
-    # peaks = ng.peakpick.pick(data[0], pthres=threshold, nthres=-threshold)
-    # print(peaks)
-    # print(peaks.dtype.names)
-    # print(Counter(peaks.cID))
-    # sys.exit()
     data_above = np.any(np.absolute(data) >= threshold, axis=0)
     _nz, ny, nx = data.shape
     stack = [(x_start, y_start)]
@@ -103,6 +106,7 @@ def cluster_peaks(
     spectra: Spectra,
     peaks: pd.DataFrame,
     contour_level: float,
+    merge_cluster_threshold_hz: float | None = None,
 ) -> list[Cluster]:
     print_segmenting()
 
@@ -121,6 +125,7 @@ def cluster_peaks(
         clusters.append(cluster)
         selected_peaks = {*selected_peaks, *cluster_peaks["name"]}
 
-    clusters = _merge_close_clusters(clusters, 20.0)
+    if merge_cluster_threshold_hz is not None:
+        clusters = _merge_close_clusters2(clusters, merge_cluster_threshold_hz)
 
     return sorted(clusters, key=lambda x: len(x[0]))

@@ -281,7 +281,9 @@ def main() -> None:
     if clargs.contour_level is None:
         clargs.contour_level = 5.0 * clargs.noise
 
-    clusters = cluster_peaks(spectra, peaks, clargs.contour_level)
+    clusters = cluster_peaks(
+        spectra, peaks, clargs.contour_level, clargs.merge_cluster_threshold_hz
+    )
     shifts = run_fit(clargs, spectra, clusters)
 
     export_html(clargs.path_output / "logs.html")
