@@ -35,7 +35,10 @@ def plot_pdf(
     cl = contour_level * CONTOUR_FACTOR ** np.arange(CONTOUR_NUM)
     cl = np.concatenate((-cl[::-1], cl))
 
-    data = spectra.data[0]
+    # Find the spectrum with the more signal
+    plane_index = np.linalg.norm(spectra.data[:, cluster.y, cluster.x], axis=1).argmax()
+
+    data = spectra.data[plane_index]
     cluster_data = np.zeros_like(data)
     cluster_calc = np.zeros_like(data)
 
@@ -81,6 +84,13 @@ def plot_pdf(
         transform=ax.transAxes,
         verticalalignment="top",
         bbox=CHI2_BOX_PROPS,
+    )
+    ax.text(
+        0.85,
+        0.05,
+        f"Plane: {plane_index}\n",
+        transform=ax.transAxes,
+        verticalalignment="top",
     )
 
     # Decorate the axes
