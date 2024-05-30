@@ -1,4 +1,5 @@
 from collections.abc import Callable, Iterable
+from io import StringIO
 from pathlib import Path
 
 import numpy as np
@@ -37,8 +38,10 @@ def _complete_peak_infos(peaks: pd.DataFrame, spectra: Spectra) -> pd.DataFrame:
 @register_reader("list")
 def read_sparky_list(path: Path, spectra: Spectra) -> pd.DataFrame:
     """Read a Sparky list file and return a list of peaks."""
+    with path.open() as f:
+        text = "\n".join([line for line in f if "Ass" not in line])
     peaks = pd.read_table(
-        path,
+        StringIO(text),
         sep=r"\s+",
         comment="#",
         header=None,
