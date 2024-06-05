@@ -59,7 +59,7 @@ def plot_pdf(
     # Create the figure
     fig = plt.figure()
     ax = fig.add_subplot(111)
-
+    fig.set_size_inches(5*len(cluster.peaks),6*len(cluster.peaks))  #to be finer tuned, but makes a bigger window for large clusters, as for IDP they can make about 20 peaks
     params = out.params
     peaks = cluster.peaks
     x_pts = [params[f"p{i}_x0_pt"].value for i in range(len(peaks))]
@@ -74,7 +74,8 @@ def plot_pdf(
     # Plot the peak positions
     ax.scatter(x_pts_init, y_pts_init, color=SCATTER_COLOR_1, s=20, label="Initial")
     ax.scatter(x_pts, y_pts, color=SCATTER_COLOR_2, s=20, label="Fit")
-
+    for bla in range(len(peaks['name'])):
+        plt.annotate(peaks['name'][bla],xy=(x_pts[bla],y_pts[bla]),size=10)  #adds the peak name to peaks. useful for clusters
     # Print chi2 and reduced chi2
     chi2red_str = r"$\chi^2_{red}$:"
     ax.text(
